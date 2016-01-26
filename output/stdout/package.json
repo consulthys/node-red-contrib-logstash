@@ -1,0 +1,25 @@
+{
+    "name": "node-red-contrib-logstash",
+    "version": "0.0.1",
+    "description": "Node-RED nodes for Logstash",
+    "dependencies": {
+        "tail": "~0.4.0"
+    },
+    "keywords": [
+        "node-red",
+        "logstash",
+        "nodered",
+        "nodered logstash",
+        "output",
+        "stdout"
+    ],
+    "node-red": {
+        "nodes": {
+            "ls-out-stdout": "stdout.js"
+        }
+    },
+    "author": {
+        "name": "consulthys",
+        "email": "admin@consulthys.com"
+    }
+}

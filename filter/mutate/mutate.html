@@ -1,0 +1,33 @@
+
+<script type="text/x-red" data-template-name="ls-flt-mutate">
+    <div class="form-row">
+        <label for="node-input-ls_lowercase">Lowercase</label>
+        <input type="text" id="node-input-ls_lowercase" placeholder="Field1, field2, ...">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-flt-mutate">
+    <p>A Logstash node that acts as a mutate filter.</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-filters-mutate.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-flt-mutate',{
+        category: 'Logstash-filter',
+        defaults: {
+            name: {value:""},
+            ls_lowercase: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: '../icons/filter.png',
+        color: 'white',
+        label: function() {
+            return this.name || "LS mutate";
+        }
+    });
+</script>

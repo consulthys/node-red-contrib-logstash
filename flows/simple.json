@@ -1,0 +1,119 @@
+{
+    "id": "508f8fd4.af707",
+    "label": "Logstash",
+    "nodes": [
+        {
+            "id": "5e698f2d.a1967",
+            "type": "ls-flt-mutate",
+            "z": "508f8fd4.af707",
+            "name": "Lowercase first name",
+            "ls_lowercase": "first_name",
+            "x": 568.5,
+            "y": 182,
+            "wires": [
+                [
+                    "6c0e2f10.93f1d"
+                ]
+            ]
+        },
+        {
+            "id": "39f1d570.c60e2a",
+            "type": "switch",
+            "z": "508f8fd4.af707",
+            "name": "",
+            "property": "type",
+            "propertyType": "msg",
+            "rules": [
+                {
+                    "t": "eq",
+                    "v": "test",
+                    "vt": "str"
+                },
+                {
+                    "t": "eq",
+                    "v": "test2",
+                    "vt": "str"
+                }
+            ],
+            "checkall": "true",
+            "outputs": 2,
+            "x": 351.5,
+            "y": 244,
+            "wires": [
+                [
+                    "5e698f2d.a1967"
+                ],
+                [
+                    "428c733a.bd738c"
+                ]
+            ]
+        },
+        {
+            "id": "428c733a.bd738c",
+            "type": "ls-flt-mutate",
+            "z": "508f8fd4.af707",
+            "name": "Lowercase last name",
+            "ls_lowercase": "last_name",
+            "x": 570,
+            "y": 309,
+            "wires": [
+                [
+                    "6c0e2f10.93f1d"
+                ]
+            ]
+        },
+        {
+            "id": "298d944f.d6726c",
+            "type": "ls-in-file",
+            "z": "508f8fd4.af707",
+            "name": "Tail test.log",
+            "ls_codec": "json",
+            "ls_discover_interval": "",
+            "ls_path": "/Users/consulthys/workspaces/gz-grails/account-service/test.log",
+            "ls_sincedb_path": "",
+            "ls_sincedb_write_interval": "",
+            "ls_start_position": "",
+            "ls_stat_interval": "",
+            "ls_type": "test",
+            "x": 171.5,
+            "y": 205,
+            "wires": [
+                [
+                    "39f1d570.c60e2a"
+                ]
+            ]
+        },
+        {
+            "id": "9a30934f.65cf7",
+            "type": "ls-in-file",
+            "z": "508f8fd4.af707",
+            "name": "Tail test2.log",
+            "ls_codec": "json",
+            "ls_discover_interval": "",
+            "ls_path": "/Users/consulthys/workspaces/gz-grails/account-service/test2.log",
+            "ls_sincedb_path": "",
+            "ls_sincedb_write_interval": "",
+            "ls_start_position": "",
+            "ls_stat_interval": "",
+            "ls_type": "test2",
+            "x": 169.5,
+            "y": 283,
+            "wires": [
+                [
+                    "39f1d570.c60e2a"
+                ]
+            ]
+        },
+        {
+            "id": "6c0e2f10.93f1d",
+            "type": "ls-out-stdout",
+            "z": "508f8fd4.af707",
+            "name": "Out",
+            "ls_codec": "rubydebug",
+            "ls_workers": "",
+            "x": 796.5,
+            "y": 243,
+            "wires": []
+        }
+    ]
+}
