@@ -176,7 +176,6 @@ logstash-output-jms
 logstash-filter-oui
 logstash-output-logentries
 logstash-input-jdbc
-logstash-output-elasticsearch_http
 logstash-output-newrelic
 logstash-output-slack
 logstash-filter-aggregate
