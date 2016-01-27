@@ -51,11 +51,12 @@ Once Node-RED is started, you'll find all the Logstash nodes in the left sidebar
 
 ![Logstash nodes](resources/images/palette.png)
 
-You can drag and drop them into the workspace on the right and visually compose your pipeline.
+You can drag and drop them into the workspace and visually compose your pipeline (aka Node-RED flow).
 
 ![Logstash pipeline](resources/images/pipeline.png)
 
-This very simple pipeline basically corresponds to the following Logstash configuration:
+This very simple pipeline basically corresponds to the following Logstash configuration, which has been automatically
+generated from the above pipeline/flow:
 
 ```
 input {
