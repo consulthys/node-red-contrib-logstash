@@ -39,7 +39,7 @@ By default, Node-RED installs into your home directory in `.node-red`.
 
 2. `> cd ~/.node-red`
 
-3. Install this package via `npm`: `sudo npm install node-red-contrib-logstash`
+3. Install this package via `npm`: `> npm install node-red-contrib-logstash`
 
 4. Fire up Node-RED: `> node-red
 
