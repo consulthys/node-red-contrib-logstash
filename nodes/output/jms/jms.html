@@ -1,0 +1,96 @@
+
+<script type="text/x-red" data-template-name="ls-out-jms">
+    <div class='form-row'>
+        <label for='node-input-ls_broker_url'>Broker url</label>
+        <input type='text' id='node-input-ls_broker_url' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_delivery_mode'>Delivery mode</label>
+        <input type='text' id='node-input-ls_delivery_mode' placeholder='nil'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_destination'>Destination</label>
+        <input type='text' id='node-input-ls_destination' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_factory'>Factory</label>
+        <input type='text' id='node-input-ls_factory' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_jndi_context'>Jndi context</label>
+        <input type='text' id='node-input-ls_jndi_context' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_jndi_name'>Jndi name</label>
+        <input type='text' id='node-input-ls_jndi_name' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_password'>Password</label>
+        <input type='text' id='node-input-ls_password' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_pub_sub'>Pub sub</label>
+        <select id='node-input-ls_pub_sub'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_require_jars'>Require jars</label>
+        <input type='text' id='node-input-ls_require_jars' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_username'>Username</label>
+        <input type='text' id='node-input-ls_username' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_yaml_file'>Yaml file</label>
+        <input type='text' id='node-input-ls_yaml_file' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_yaml_section'>Yaml section</label>
+        <input type='text' id='node-input-ls_yaml_section' placeholder=''>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-jms">
+    <p>A Logstash output node for jms</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-jms.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-jms',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_broker_url: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_delivery_mode: {value:"", required: false},ls_destination: {value:"", required: false},ls_factory: {value:"", required: false},ls_jndi_context: {value:"", required: false},ls_jndi_name: {value:"", required: false},ls_password: {value:"", required: false},ls_pub_sub: {value:"false", required: false},ls_require_jars: {value:"", required: false},ls_username: {value:"", required: false},ls_workers: {value:"", required: false},ls_yaml_file: {value:"", required: false},ls_yaml_section: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "jms",
+        label: function() {
+            return this.name || "LS jms";
+        }
+    });
+</script>

@@ -1,0 +1,105 @@
+
+<script type="text/x-red" data-template-name="ls-in-irc">
+    <div class='form-row'>
+        <label for='node-input-ls_channels'>Channels</label>
+        <input type='text' id='node-input-ls_channels' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_host'>Host</label>
+        <input type='text' id='node-input-ls_host' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_add_field'>Add field</label>
+        <input type='text' id='node-input-ls_add_field' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_catch_all'>Catch all</label>
+        <select id='node-input-ls_catch_all'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_get_stats'>Get stats</label>
+        <select id='node-input-ls_get_stats'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_nick'>Nick</label>
+        <input type='text' id='node-input-ls_nick' placeholder='logstash'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_password'>Password</label>
+        <input type='text' id='node-input-ls_password' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_port'>Port</label>
+        <input type='number' id='node-input-ls_port' placeholder='6667'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_real'>Real</label>
+        <input type='text' id='node-input-ls_real' placeholder='logstash'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_secure'>Secure</label>
+        <select id='node-input-ls_secure'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_stats_interval'>Stats interval</label>
+        <input type='number' id='node-input-ls_stats_interval' placeholder='5'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_tags'>Tags</label>
+        <input type='text' id='node-input-ls_tags' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_type'>Type</label>
+        <input type='text' id='node-input-ls_type' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_user'>User</label>
+        <input type='text' id='node-input-ls_user' placeholder='logstash'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-in-irc">
+    <p>A Logstash input node for irc</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-irc.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-in-irc',{
+        category: 'Logstash-input',
+        defaults: {
+            name: {value:""},
+            ls_channels: {value:"", required: true},ls_host: {value:"", required: true},ls_add_field: {value:"", required: false},ls_catch_all: {value:"false", required: false},ls_codec: {value:"plain", required: false},ls_get_stats: {value:"false", required: false},ls_nick: {value:"", required: false},ls_password: {value:"", required: false},ls_port: {value:"", required: false},ls_real: {value:"", required: false},ls_secure: {value:"false", required: false},ls_stats_interval: {value:"", required: false},ls_tags: {value:"", required: false},ls_type: {value:"", required: false},ls_user: {value:"", required: false}
+        },
+        inputs:0,
+        outputs:1,
+        icon: 'arrow-in.png',
+        color: '#87A980',
+        paletteLabel: "irc",
+        label: function() {
+            return this.name || "LS irc";
+        }
+    });
+</script>

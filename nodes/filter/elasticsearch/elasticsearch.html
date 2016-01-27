@@ -1,0 +1,89 @@
+
+<script type="text/x-red" data-template-name="ls-flt-elasticsearch">
+    <div class='form-row'>
+        <label for='node-input-ls_add_field'>Add field</label>
+        <input type='text' id='node-input-ls_add_field' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_add_tag'>Add tag</label>
+        <input type='text' id='node-input-ls_add_tag' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ca_file'>Ca file</label>
+        <input type='text' id='node-input-ls_ca_file' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_fields'>Fields</label>
+        <input type='text' id='node-input-ls_fields' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_hosts'>Hosts</label>
+        <input type='text' id='node-input-ls_hosts' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_password'>Password</label>
+        <input type='text' id='node-input-ls_password' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_periodic_flush'>Periodic flush</label>
+        <select id='node-input-ls_periodic_flush'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_query'>Query</label>
+        <input type='text' id='node-input-ls_query' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_field'>Remove field</label>
+        <input type='text' id='node-input-ls_remove_field' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_tag'>Remove tag</label>
+        <input type='text' id='node-input-ls_remove_tag' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_sort'>Sort</label>
+        <input type='text' id='node-input-ls_sort' placeholder='@timestampdesc'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl'>Ssl</label>
+        <select id='node-input-ls_ssl'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_user'>User</label>
+        <input type='text' id='node-input-ls_user' placeholder=''>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-flt-elasticsearch">
+    <p>A Logstash filter node for elasticsearch</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-filters-elasticsearch.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-flt-elasticsearch',{
+        category: 'Logstash-filter',
+        defaults: {
+            name: {value:""},
+            ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_ca_file: {value:"", required: false},ls_fields: {value:"", required: false},ls_hosts: {value:"", required: false},ls_password: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_query: {value:"", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_sort: {value:"", required: false},ls_ssl: {value:"false", required: false},ls_user: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:1,
+        icon: '../icons/filter.png',
+        color: 'white',
+        paletteLabel: "elasticsearch",
+        label: function() {
+            return this.name || "LS elasticsearch";
+        }
+    });
+</script>

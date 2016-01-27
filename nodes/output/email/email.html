@@ -1,0 +1,123 @@
+
+<script type="text/x-red" data-template-name="ls-out-email">
+    <div class='form-row'>
+        <label for='node-input-ls_to'>To</label>
+        <input type='text' id='node-input-ls_to' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_address'>Address</label>
+        <input type='text' id='node-input-ls_address' placeholder='localhost'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_attachments'>Attachments</label>
+        <input type='text' id='node-input-ls_attachments' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_authentication'>Authentication</label>
+        <input type='text' id='node-input-ls_authentication' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_body'>Body</label>
+        <input type='text' id='node-input-ls_body' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_cc'>Cc</label>
+        <input type='text' id='node-input-ls_cc' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_contenttype'>Contenttype</label>
+        <input type='text' id='node-input-ls_contenttype' placeholder='"text/html'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_debug'>Debug</label>
+        <select id='node-input-ls_debug'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_domain'>Domain</label>
+        <input type='text' id='node-input-ls_domain' placeholder='localhost'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_from'>From</label>
+        <input type='text' id='node-input-ls_from' placeholder='logstash.alert@nowhere.com'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_htmlbody'>Htmlbody</label>
+        <input type='text' id='node-input-ls_htmlbody' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_password'>Password</label>
+        <input type='text' id='node-input-ls_password' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_port'>Port</label>
+        <input type='number' id='node-input-ls_port' placeholder='25'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_replyto'>Replyto</label>
+        <input type='text' id='node-input-ls_replyto' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_subject'>Subject</label>
+        <input type='text' id='node-input-ls_subject' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_use_tls'>Use tls</label>
+        <select id='node-input-ls_use_tls'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_username'>Username</label>
+        <input type='text' id='node-input-ls_username' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_via'>Via</label>
+        <input type='text' id='node-input-ls_via' placeholder='smtp'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-email">
+    <p>A Logstash output node for email</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-email.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-email',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_to: {value:"", required: true},ls_address: {value:"", required: false},ls_attachments: {value:"", required: false},ls_authentication: {value:"", required: false},ls_body: {value:"", required: false},ls_cc: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_contenttype: {value:"", required: false},ls_debug: {value:"false", required: false},ls_domain: {value:"", required: false},ls_from: {value:"", required: false},ls_htmlbody: {value:"", required: false},ls_password: {value:"", required: false},ls_port: {value:"", required: false},ls_replyto: {value:"", required: false},ls_subject: {value:"", required: false},ls_use_tls: {value:"false", required: false},ls_username: {value:"", required: false},ls_via: {value:"", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "email",
+        label: function() {
+            return this.name || "LS email";
+        }
+    });
+</script>

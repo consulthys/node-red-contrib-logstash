@@ -1,0 +1,68 @@
+
+<script type="text/x-red" data-template-name="ls-flt-collate">
+    <div class='form-row'>
+        <label for='node-input-ls_add_field'>Add field</label>
+        <input type='text' id='node-input-ls_add_field' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_add_tag'>Add tag</label>
+        <input type='text' id='node-input-ls_add_tag' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_count'>Count</label>
+        <input type='number' id='node-input-ls_count' placeholder='1000'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_interval'>Interval</label>
+        <input type='text' id='node-input-ls_interval' placeholder='1m'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_order'>Order</label>
+        <select id='node-input-ls_order'>
+            <option value="ascending" selected="selected">ascending</option><option value="descending">descending</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_periodic_flush'>Periodic flush</label>
+        <select id='node-input-ls_periodic_flush'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_field'>Remove field</label>
+        <input type='text' id='node-input-ls_remove_field' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_tag'>Remove tag</label>
+        <input type='text' id='node-input-ls_remove_tag' placeholder='[]'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-flt-collate">
+    <p>A Logstash filter node for collate</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-filters-collate.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-flt-collate',{
+        category: 'Logstash-filter',
+        defaults: {
+            name: {value:""},
+            ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_count: {value:"", required: false},ls_interval: {value:"", required: false},ls_order: {value:"ascending", required: false},ls_periodic_flush: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:1,
+        icon: '../icons/filter.png',
+        color: 'white',
+        paletteLabel: "collate",
+        label: function() {
+            return this.name || "LS collate";
+        }
+    });
+</script>

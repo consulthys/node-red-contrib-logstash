@@ -1,0 +1,108 @@
+
+<script type="text/x-red" data-template-name="ls-out-syslog">
+    <div class='form-row'>
+        <label for='node-input-ls_host'>Host</label>
+        <input type='text' id='node-input-ls_host' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_port'>Port</label>
+        <input type='number' id='node-input-ls_port' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_appname'>Appname</label>
+        <input type='text' id='node-input-ls_appname' placeholder='LOGSTASH'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_facility'>Facility</label>
+        <input type='text' id='node-input-ls_facility' placeholder='user-level'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_message'>Message</label>
+        <input type='text' id='node-input-ls_message' placeholder='%{message}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_msgid'>Msgid</label>
+        <input type='text' id='node-input-ls_msgid' placeholder='-'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_priority'>Priority</label>
+        <input type='text' id='node-input-ls_priority' placeholder='%{syslog_pri}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_procid'>Procid</label>
+        <input type='text' id='node-input-ls_procid' placeholder='-'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_protocol'>Protocol</label>
+        <select id='node-input-ls_protocol'>
+            <option value="tcp">tcp</option><option value="udp" selected="selected">udp</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_reconnect_interval'>Reconnect interval</label>
+        <input type='number' id='node-input-ls_reconnect_interval' placeholder='1'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_rfc'>Rfc</label>
+        <select id='node-input-ls_rfc'>
+            <option value="rfc3164" selected="selected">rfc3164</option><option value="rfc5424">rfc5424</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_severity'>Severity</label>
+        <input type='text' id='node-input-ls_severity' placeholder='notice'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_sourcehost'>Sourcehost</label>
+        <input type='text' id='node-input-ls_sourcehost' placeholder='%{host}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_use_labels'>Use labels</label>
+        <select id='node-input-ls_use_labels'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-syslog">
+    <p>A Logstash output node for syslog</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-syslog.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-syslog',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_host: {value:"", required: true},ls_port: {value:"", required: true},ls_appname: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_facility: {value:"", required: false},ls_message: {value:"", required: false},ls_msgid: {value:"", required: false},ls_priority: {value:"", required: false},ls_procid: {value:"", required: false},ls_protocol: {value:"udp", required: false},ls_reconnect_interval: {value:"", required: false},ls_rfc: {value:"rfc3164", required: false},ls_severity: {value:"", required: false},ls_sourcehost: {value:"", required: false},ls_use_labels: {value:"true", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "syslog",
+        label: function() {
+            return this.name || "LS syslog";
+        }
+    });
+</script>

@@ -1,0 +1,77 @@
+
+<script type="text/x-red" data-template-name="ls-flt-prune">
+    <div class='form-row'>
+        <label for='node-input-ls_add_field'>Add field</label>
+        <input type='text' id='node-input-ls_add_field' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_add_tag'>Add tag</label>
+        <input type='text' id='node-input-ls_add_tag' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_blacklist_names'>Blacklist names</label>
+        <input type='text' id='node-input-ls_blacklist_names' placeholder='[ "%\{[^}]+\}" ]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_blacklist_values'>Blacklist values</label>
+        <input type='text' id='node-input-ls_blacklist_values' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_interpolate'>Interpolate</label>
+        <select id='node-input-ls_interpolate'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_periodic_flush'>Periodic flush</label>
+        <select id='node-input-ls_periodic_flush'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_field'>Remove field</label>
+        <input type='text' id='node-input-ls_remove_field' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_tag'>Remove tag</label>
+        <input type='text' id='node-input-ls_remove_tag' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_whitelist_names'>Whitelist names</label>
+        <input type='text' id='node-input-ls_whitelist_names' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_whitelist_values'>Whitelist values</label>
+        <input type='text' id='node-input-ls_whitelist_values' placeholder='{}'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-flt-prune">
+    <p>A Logstash filter node for prune</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-filters-prune.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-flt-prune',{
+        category: 'Logstash-filter',
+        defaults: {
+            name: {value:""},
+            ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_blacklist_names: {value:"", required: false},ls_blacklist_values: {value:"", required: false},ls_interpolate: {value:"false", required: false},ls_periodic_flush: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_whitelist_names: {value:"", required: false},ls_whitelist_values: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:1,
+        icon: '../icons/filter.png',
+        color: 'white',
+        paletteLabel: "prune",
+        label: function() {
+            return this.name || "LS prune";
+        }
+    });
+</script>

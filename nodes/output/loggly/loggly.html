@@ -1,0 +1,88 @@
+
+<script type="text/x-red" data-template-name="ls-out-loggly">
+    <div class='form-row'>
+        <label for='node-input-ls_key'>Key</label>
+        <input type='text' id='node-input-ls_key' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_can_retry'>Can retry</label>
+        <select id='node-input-ls_can_retry'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_host'>Host</label>
+        <input type='text' id='node-input-ls_host' placeholder='logs-01.loggly.com'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_proto'>Proto</label>
+        <input type='text' id='node-input-ls_proto' placeholder='http'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_proxy_host'>Proxy host</label>
+        <input type='text' id='node-input-ls_proxy_host' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_proxy_password'>Proxy password</label>
+        <input type='text' id='node-input-ls_proxy_password' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_proxy_port'>Proxy port</label>
+        <input type='number' id='node-input-ls_proxy_port' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_proxy_user'>Proxy user</label>
+        <input type='text' id='node-input-ls_proxy_user' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_retry_count'>Retry count</label>
+        <input type='number' id='node-input-ls_retry_count' placeholder='5'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_tag'>Tag</label>
+        <input type='text' id='node-input-ls_tag' placeholder='logstash'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-loggly">
+    <p>A Logstash output node for loggly</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-loggly.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-loggly',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_key: {value:"", required: true},ls_can_retry: {value:"true", required: false},ls_codec: {value:"plain", required: false},ls_host: {value:"", required: false},ls_proto: {value:"", required: false},ls_proxy_host: {value:"", required: false},ls_proxy_password: {value:"", required: false},ls_proxy_port: {value:"", required: false},ls_proxy_user: {value:"", required: false},ls_retry_count: {value:"", required: false},ls_tag: {value:"", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "loggly",
+        label: function() {
+            return this.name || "LS loggly";
+        }
+    });
+</script>

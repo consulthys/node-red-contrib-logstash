@@ -1,0 +1,113 @@
+
+<script type="text/x-red" data-template-name="ls-out-redis">
+    <div class='form-row'>
+        <label for='node-input-ls_batch'>Batch</label>
+        <select id='node-input-ls_batch'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_batch_events'>Batch events</label>
+        <input type='number' id='node-input-ls_batch_events' placeholder='50'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_batch_timeout'>Batch timeout</label>
+        <input type='number' id='node-input-ls_batch_timeout' placeholder='5'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_congestion_interval'>Congestion interval</label>
+        <input type='number' id='node-input-ls_congestion_interval' placeholder='1'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_congestion_threshold'>Congestion threshold</label>
+        <input type='number' id='node-input-ls_congestion_threshold' placeholder='0'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_data_type'>Data type</label>
+        <select id='node-input-ls_data_type'>
+            <option value="list">list</option><option value="channel">channel</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_db'>Db</label>
+        <input type='number' id='node-input-ls_db' placeholder='0'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_host'>Host</label>
+        <input type='text' id='node-input-ls_host' placeholder='["127.0.0.1"]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_key'>Key</label>
+        <input type='text' id='node-input-ls_key' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_name'>Name</label>
+        <input type='text' id='node-input-ls_name' placeholder='"default",'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_password'>Password</label>
+        <input type='text' id='node-input-ls_password' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_port'>Port</label>
+        <input type='number' id='node-input-ls_port' placeholder='6379'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_reconnect_interval'>Reconnect interval</label>
+        <input type='number' id='node-input-ls_reconnect_interval' placeholder='1'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_shuffle_hosts'>Shuffle hosts</label>
+        <select id='node-input-ls_shuffle_hosts'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_timeout'>Timeout</label>
+        <input type='number' id='node-input-ls_timeout' placeholder='5'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-redis">
+    <p>A Logstash output node for redis</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-redis.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-redis',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_batch: {value:"false", required: false},ls_batch_events: {value:"", required: false},ls_batch_timeout: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_congestion_interval: {value:"", required: false},ls_congestion_threshold: {value:"", required: false},ls_data_type: {value:"undefined", required: false},ls_db: {value:"", required: false},ls_host: {value:"", required: false},ls_key: {value:"", required: false},ls_name: {value:"", required: false},ls_password: {value:"", required: false},ls_port: {value:"", required: false},ls_reconnect_interval: {value:"", required: false},ls_shuffle_hosts: {value:"true", required: false},ls_timeout: {value:"", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "redis",
+        label: function() {
+            return this.name || "LS redis";
+        }
+    });
+</script>

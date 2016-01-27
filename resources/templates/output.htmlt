@@ -1,0 +1,32 @@
+
+<script type="text/x-red" data-template-name="ls-{{shorttype}}-{{name}}">
+{{htmlFields}}
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-{{shorttype}}-{{name}}">
+    <p>A Logstash {{type}} node for {{name}}</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-{{type}}s-{{name}}.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-{{shorttype}}-{{name}}',{
+        category: 'Logstash-{{type}}',
+        defaults: {
+            name: {value:""},
+            {{jsFields}}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "{{name}}",
+        label: function() {
+            return this.name || "LS {{name}}";
+        }
+    });
+</script>

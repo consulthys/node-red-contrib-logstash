@@ -1,0 +1,137 @@
+
+<script type="text/x-red" data-template-name="ls-in-kafka">
+    <div class='form-row'>
+        <label for='node-input-ls_add_field'>Add field</label>
+        <input type='text' id='node-input-ls_add_field' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_auto_offset_reset'>Auto offset reset</label>
+        <input type='text' id='node-input-ls_auto_offset_reset' placeholder='largest'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_black_list'>Black list</label>
+        <input type='text' id='node-input-ls_black_list' placeholder='nil'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_consumer_id'>Consumer id</label>
+        <input type='text' id='node-input-ls_consumer_id' placeholder='nil'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_consumer_restart_on_error'>Consumer restart on error</label>
+        <select id='node-input-ls_consumer_restart_on_error'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_consumer_restart_sleep_ms'>Consumer restart sleep ms</label>
+        <input type='number' id='node-input-ls_consumer_restart_sleep_ms' placeholder='0'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_consumer_threads'>Consumer threads</label>
+        <input type='number' id='node-input-ls_consumer_threads' placeholder='1'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_consumer_timeout_ms'>Consumer timeout ms</label>
+        <input type='number' id='node-input-ls_consumer_timeout_ms' placeholder='-1'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_decoder_class'>Decoder class</label>
+        <input type='text' id='node-input-ls_decoder_class' placeholder='kafka.serializer.DefaultDecoder'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_decorate_events'>Decorate events</label>
+        <select id='node-input-ls_decorate_events'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_fetch_message_max_bytes'>Fetch message max bytes</label>
+        <input type='number' id='node-input-ls_fetch_message_max_bytes' placeholder='1048576'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_group_id'>Group id</label>
+        <input type='text' id='node-input-ls_group_id' placeholder='logstash'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_key_decoder_class'>Key decoder class</label>
+        <input type='text' id='node-input-ls_key_decoder_class' placeholder='kafka.serializer.DefaultDecoder'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_queue_size'>Queue size</label>
+        <input type='number' id='node-input-ls_queue_size' placeholder='20'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_rebalance_backoff_ms'>Rebalance backoff ms</label>
+        <input type='number' id='node-input-ls_rebalance_backoff_ms' placeholder='2000'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_rebalance_max_retries'>Rebalance max retries</label>
+        <input type='number' id='node-input-ls_rebalance_max_retries' placeholder='4'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_reset_beginning'>Reset beginning</label>
+        <select id='node-input-ls_reset_beginning'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_tags'>Tags</label>
+        <input type='text' id='node-input-ls_tags' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_topic_id'>Topic id</label>
+        <input type='text' id='node-input-ls_topic_id' placeholder='nil'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_type'>Type</label>
+        <input type='text' id='node-input-ls_type' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_white_list'>White list</label>
+        <input type='text' id='node-input-ls_white_list' placeholder='nil'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_zk_connect'>Zk connect</label>
+        <input type='text' id='node-input-ls_zk_connect' placeholder='localhost2181'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-in-kafka">
+    <p>A Logstash input node for kafka</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-kafka.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-in-kafka',{
+        category: 'Logstash-input',
+        defaults: {
+            name: {value:""},
+            ls_add_field: {value:"", required: false},ls_auto_offset_reset: {value:"", required: false},ls_black_list: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_consumer_id: {value:"", required: false},ls_consumer_restart_on_error: {value:"true", required: false},ls_consumer_restart_sleep_ms: {value:"", required: false},ls_consumer_threads: {value:"", required: false},ls_consumer_timeout_ms: {value:"", required: false},ls_decoder_class: {value:"", required: false},ls_decorate_events: {value:"false", required: false},ls_fetch_message_max_bytes: {value:"", required: false},ls_group_id: {value:"", required: false},ls_key_decoder_class: {value:"", required: false},ls_queue_size: {value:"", required: false},ls_rebalance_backoff_ms: {value:"", required: false},ls_rebalance_max_retries: {value:"", required: false},ls_reset_beginning: {value:"false", required: false},ls_tags: {value:"", required: false},ls_topic_id: {value:"", required: false},ls_type: {value:"", required: false},ls_white_list: {value:"", required: false},ls_zk_connect: {value:"", required: false}
+        },
+        inputs:0,
+        outputs:1,
+        icon: 'arrow-in.png',
+        color: '#87A980',
+        paletteLabel: "kafka",
+        label: function() {
+            return this.name || "LS kafka";
+        }
+    });
+</script>

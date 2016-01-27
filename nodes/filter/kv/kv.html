@@ -1,0 +1,115 @@
+
+<script type="text/x-red" data-template-name="ls-flt-kv">
+    <div class='form-row'>
+        <label for='node-input-ls_add_field'>Add field</label>
+        <input type='text' id='node-input-ls_add_field' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_add_tag'>Add tag</label>
+        <input type='text' id='node-input-ls_add_tag' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_allow_duplicate_values'>Allow duplicate values</label>
+        <select id='node-input-ls_allow_duplicate_values'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_default_keys'>Default keys</label>
+        <input type='text' id='node-input-ls_default_keys' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_exclude_keys'>Exclude keys</label>
+        <input type='text' id='node-input-ls_exclude_keys' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_field_split'>Field split</label>
+        <input type='text' id='node-input-ls_field_split' placeholder=' '>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_include_brackets'>Include brackets</label>
+        <select id='node-input-ls_include_brackets'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_include_keys'>Include keys</label>
+        <input type='text' id='node-input-ls_include_keys' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_periodic_flush'>Periodic flush</label>
+        <select id='node-input-ls_periodic_flush'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_prefix'>Prefix</label>
+        <input type='text' id='node-input-ls_prefix' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_recursive'>Recursive</label>
+        <select id='node-input-ls_recursive'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_field'>Remove field</label>
+        <input type='text' id='node-input-ls_remove_field' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_tag'>Remove tag</label>
+        <input type='text' id='node-input-ls_remove_tag' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_source'>Source</label>
+        <input type='text' id='node-input-ls_source' placeholder='message'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_target'>Target</label>
+        <input type='text' id='node-input-ls_target' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_trim'>Trim</label>
+        <input type='text' id='node-input-ls_trim' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_trimkey'>Trimkey</label>
+        <input type='text' id='node-input-ls_trimkey' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_value_split'>Value split</label>
+        <input type='text' id='node-input-ls_value_split' placeholder='='>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-flt-kv">
+    <p>A Logstash filter node for kv</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-filters-kv.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-flt-kv',{
+        category: 'Logstash-filter',
+        defaults: {
+            name: {value:""},
+            ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_allow_duplicate_values: {value:"true", required: false},ls_default_keys: {value:"", required: false},ls_exclude_keys: {value:"", required: false},ls_field_split: {value:"", required: false},ls_include_brackets: {value:"true", required: false},ls_include_keys: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_prefix: {value:"", required: false},ls_recursive: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_source: {value:"", required: false},ls_target: {value:"", required: false},ls_trim: {value:"", required: false},ls_trimkey: {value:"", required: false},ls_value_split: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:1,
+        icon: '../icons/filter.png',
+        color: 'white',
+        paletteLabel: "kv",
+        label: function() {
+            return this.name || "LS kv";
+        }
+    });
+</script>

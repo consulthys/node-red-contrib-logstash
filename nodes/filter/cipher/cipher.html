@@ -1,0 +1,97 @@
+
+<script type="text/x-red" data-template-name="ls-flt-cipher">
+    <div class='form-row'>
+        <label for='node-input-ls_algorithm'>Algorithm</label>
+        <input type='text' id='node-input-ls_algorithm' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_mode'>Mode</label>
+        <input type='text' id='node-input-ls_mode' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_add_field'>Add field</label>
+        <input type='text' id='node-input-ls_add_field' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_add_tag'>Add tag</label>
+        <input type='text' id='node-input-ls_add_tag' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_base64'>Base64</label>
+        <select id='node-input-ls_base64'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_cipher_padding'>Cipher padding</label>
+        <input type='text' id='node-input-ls_cipher_padding' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_iv'>Iv</label>
+        <input type='text' id='node-input-ls_iv' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_key'>Key</label>
+        <input type='text' id='node-input-ls_key' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_key_pad'>Key pad</label>
+        <input type='text' id='node-input-ls_key_pad' placeholder='"\0"'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_key_size'>Key size</label>
+        <input type='number' id='node-input-ls_key_size' placeholder='32'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_periodic_flush'>Periodic flush</label>
+        <select id='node-input-ls_periodic_flush'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_field'>Remove field</label>
+        <input type='text' id='node-input-ls_remove_field' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_tag'>Remove tag</label>
+        <input type='text' id='node-input-ls_remove_tag' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_source'>Source</label>
+        <input type='text' id='node-input-ls_source' placeholder='message'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_target'>Target</label>
+        <input type='text' id='node-input-ls_target' placeholder='message'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-flt-cipher">
+    <p>A Logstash filter node for cipher</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-filters-cipher.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-flt-cipher',{
+        category: 'Logstash-filter',
+        defaults: {
+            name: {value:""},
+            ls_algorithm: {value:"", required: true},ls_mode: {value:"", required: true},ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_base64: {value:"true", required: false},ls_cipher_padding: {value:"", required: false},ls_iv: {value:"", required: false},ls_key: {value:"", required: false},ls_key_pad: {value:"", required: false},ls_key_size: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_source: {value:"", required: false},ls_target: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:1,
+        icon: '../icons/filter.png',
+        color: 'white',
+        paletteLabel: "cipher",
+        label: function() {
+            return this.name || "LS cipher";
+        }
+    });
+</script>

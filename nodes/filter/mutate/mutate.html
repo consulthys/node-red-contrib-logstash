@@ -1,0 +1,98 @@
+
+<script type="text/x-red" data-template-name="ls-flt-mutate">
+    <div class='form-row'>
+        <label for='node-input-ls_add_field'>Add field</label>
+        <input type='text' id='node-input-ls_add_field' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_add_tag'>Add tag</label>
+        <input type='text' id='node-input-ls_add_tag' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_convert'>Convert</label>
+        <input type='text' id='node-input-ls_convert' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_gsub'>Gsub</label>
+        <input type='text' id='node-input-ls_gsub' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_join'>Join</label>
+        <input type='text' id='node-input-ls_join' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_lowercase'>Lowercase</label>
+        <input type='text' id='node-input-ls_lowercase' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_merge'>Merge</label>
+        <input type='text' id='node-input-ls_merge' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_periodic_flush'>Periodic flush</label>
+        <select id='node-input-ls_periodic_flush'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_field'>Remove field</label>
+        <input type='text' id='node-input-ls_remove_field' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_tag'>Remove tag</label>
+        <input type='text' id='node-input-ls_remove_tag' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_rename'>Rename</label>
+        <input type='text' id='node-input-ls_rename' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_replace'>Replace</label>
+        <input type='text' id='node-input-ls_replace' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_split'>Split</label>
+        <input type='text' id='node-input-ls_split' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_strip'>Strip</label>
+        <input type='text' id='node-input-ls_strip' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_update'>Update</label>
+        <input type='text' id='node-input-ls_update' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_uppercase'>Uppercase</label>
+        <input type='text' id='node-input-ls_uppercase' placeholder=''>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-flt-mutate">
+    <p>A Logstash filter node for mutate</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-filters-mutate.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-flt-mutate',{
+        category: 'Logstash-filter',
+        defaults: {
+            name: {value:""},
+            ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_convert: {value:"", required: false},ls_gsub: {value:"", required: false},ls_join: {value:"", required: false},ls_lowercase: {value:"", required: false},ls_merge: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_rename: {value:"", required: false},ls_replace: {value:"", required: false},ls_split: {value:"", required: false},ls_strip: {value:"", required: false},ls_update: {value:"", required: false},ls_uppercase: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:1,
+        icon: '../icons/filter.png',
+        color: 'white',
+        paletteLabel: "mutate",
+        label: function() {
+            return this.name || "LS mutate";
+        }
+    });
+</script>

@@ -1,0 +1,81 @@
+
+<script type="text/x-red" data-template-name="ls-out-jira">
+    <div class='form-row'>
+        <label for='node-input-ls_issuetypeid'>Issuetypeid</label>
+        <input type='text' id='node-input-ls_issuetypeid' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_password'>Password</label>
+        <input type='text' id='node-input-ls_password' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_priority'>Priority</label>
+        <input type='text' id='node-input-ls_priority' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_projectid'>Projectid</label>
+        <input type='text' id='node-input-ls_projectid' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_summary'>Summary</label>
+        <input type='text' id='node-input-ls_summary' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_username'>Username</label>
+        <input type='text' id='node-input-ls_username' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_assignee'>Assignee</label>
+        <input type='text' id='node-input-ls_assignee' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_host'>Host</label>
+        <input type='text' id='node-input-ls_host' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_reporter'>Reporter</label>
+        <input type='text' id='node-input-ls_reporter' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-jira">
+    <p>A Logstash output node for jira</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-jira.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-jira',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_issuetypeid: {value:"", required: true},ls_password: {value:"", required: true},ls_priority: {value:"", required: true},ls_projectid: {value:"", required: true},ls_summary: {value:"", required: true},ls_username: {value:"", required: true},ls_assignee: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_host: {value:"", required: false},ls_reporter: {value:"", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "jira",
+        label: function() {
+            return this.name || "LS jira";
+        }
+    });
+</script>

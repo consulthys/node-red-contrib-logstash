@@ -1,0 +1,68 @@
+
+<script type="text/x-red" data-template-name="ls-flt-anonymize">
+    <div class='form-row'>
+        <label for='node-input-ls_algorithm'>Algorithm</label>
+        <select id='node-input-ls_algorithm'>
+            <option value="SHA1" selected="selected">SHA1</option><option value="SHA256">SHA256</option><option value="SHA384">SHA384</option><option value="SHA512">SHA512</option><option value="MD5">MD5</option><option value="MURMUR3">MURMUR3</option><option value="IPV4_NETWORK">IPV4_NETWORK</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_fields'>Fields</label>
+        <input type='text' id='node-input-ls_fields' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_key'>Key</label>
+        <input type='text' id='node-input-ls_key' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_add_field'>Add field</label>
+        <input type='text' id='node-input-ls_add_field' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_add_tag'>Add tag</label>
+        <input type='text' id='node-input-ls_add_tag' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_periodic_flush'>Periodic flush</label>
+        <select id='node-input-ls_periodic_flush'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_field'>Remove field</label>
+        <input type='text' id='node-input-ls_remove_field' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_tag'>Remove tag</label>
+        <input type='text' id='node-input-ls_remove_tag' placeholder='[]'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-flt-anonymize">
+    <p>A Logstash filter node for anonymize</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-filters-anonymize.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-flt-anonymize',{
+        category: 'Logstash-filter',
+        defaults: {
+            name: {value:""},
+            ls_algorithm: {value:"SHA1", required: true},ls_fields: {value:"", required: true},ls_key: {value:"", required: true},ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:1,
+        icon: '../icons/filter.png',
+        color: 'white',
+        paletteLabel: "anonymize",
+        label: function() {
+            return this.name || "LS anonymize";
+        }
+    });
+</script>

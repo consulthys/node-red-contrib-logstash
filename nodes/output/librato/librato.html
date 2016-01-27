@@ -1,0 +1,69 @@
+
+<script type="text/x-red" data-template-name="ls-out-librato">
+    <div class='form-row'>
+        <label for='node-input-ls_account_id'>Account id</label>
+        <input type='text' id='node-input-ls_account_id' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_api_token'>Api token</label>
+        <input type='text' id='node-input-ls_api_token' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_annotation'>Annotation</label>
+        <input type='text' id='node-input-ls_annotation' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_batch_size'>Batch size</label>
+        <input type='text' id='node-input-ls_batch_size' placeholder='10'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_counter'>Counter</label>
+        <input type='text' id='node-input-ls_counter' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_gauge'>Gauge</label>
+        <input type='text' id='node-input-ls_gauge' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-librato">
+    <p>A Logstash output node for librato</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-librato.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-librato',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_account_id: {value:"", required: true},ls_api_token: {value:"", required: true},ls_annotation: {value:"", required: false},ls_batch_size: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_counter: {value:"", required: false},ls_gauge: {value:"", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "librato",
+        label: function() {
+            return this.name || "LS librato";
+        }
+    });
+</script>

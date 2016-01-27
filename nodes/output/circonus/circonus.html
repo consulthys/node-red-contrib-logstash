@@ -1,0 +1,57 @@
+
+<script type="text/x-red" data-template-name="ls-out-circonus">
+    <div class='form-row'>
+        <label for='node-input-ls_annotation'>Annotation</label>
+        <input type='text' id='node-input-ls_annotation' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_api_token'>Api token</label>
+        <input type='text' id='node-input-ls_api_token' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_app_name'>App name</label>
+        <input type='text' id='node-input-ls_app_name' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-circonus">
+    <p>A Logstash output node for circonus</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-circonus.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-circonus',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_annotation: {value:"", required: true},ls_api_token: {value:"", required: true},ls_app_name: {value:"", required: true},ls_codec: {value:"plain", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "circonus",
+        label: function() {
+            return this.name || "LS circonus";
+        }
+    });
+</script>

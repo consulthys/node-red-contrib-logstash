@@ -1,0 +1,94 @@
+
+<script type="text/x-red" data-template-name="ls-out-s3">
+    <div class='form-row'>
+        <label for='node-input-ls_bucket'>Bucket</label>
+        <input type='text' id='node-input-ls_bucket' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_canned_acl'>Canned acl</label>
+        <input type='text' id='node-input-ls_canned_acl' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_endpoint_region'>Endpoint region</label>
+        <input type='text' id='node-input-ls_endpoint_region' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_prefix'>Prefix</label>
+        <input type='text' id='node-input-ls_prefix' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_restore'>Restore</label>
+        <select id='node-input-ls_restore'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_signature_version'>Signature version</label>
+        <select id='node-input-ls_signature_version'>
+            <option value="v2">v2</option><option value="v4">v4</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_size_file'>Size file</label>
+        <input type='number' id='node-input-ls_size_file' placeholder='0'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_tags'>Tags</label>
+        <input type='text' id='node-input-ls_tags' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_temporary_directory'>Temporary directory</label>
+        <input type='text' id='node-input-ls_temporary_directory' placeholder='File.join(Dir.tmpdir, "logstash")'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_time_file'>Time file</label>
+        <input type='number' id='node-input-ls_time_file' placeholder='0'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_upload_workers_count'>Upload workers count</label>
+        <input type='number' id='node-input-ls_upload_workers_count' placeholder='1'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-s3">
+    <p>A Logstash output node for s3</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-s3.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-s3',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_bucket: {value:"", required: false},ls_canned_acl: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_endpoint_region: {value:"", required: false},ls_prefix: {value:"", required: false},ls_restore: {value:"false", required: false},ls_signature_version: {value:"undefined", required: false},ls_size_file: {value:"", required: false},ls_tags: {value:"", required: false},ls_temporary_directory: {value:"", required: false},ls_time_file: {value:"", required: false},ls_upload_workers_count: {value:"", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "s3",
+        label: function() {
+            return this.name || "LS s3";
+        }
+    });
+</script>

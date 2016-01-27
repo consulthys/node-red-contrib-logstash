@@ -1,0 +1,78 @@
+
+<script type="text/x-red" data-template-name="ls-out-elasticsearch_java">
+    <div class='form-row'>
+        <label for='node-input-ls_network_host'>Network host</label>
+        <input type='text' id='node-input-ls_network_host' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_action'>Action</label>
+        <input type='text' id='node-input-ls_action' placeholder='index'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_cluster'>Cluster</label>
+        <input type='text' id='node-input-ls_cluster' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_node_name'>Node name</label>
+        <input type='text' id='node-input-ls_node_name' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_protocol'>Protocol</label>
+        <select id='node-input-ls_protocol'>
+            <option value="node">node</option><option value="transport" selected="selected">transport</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_sniffing'>Sniffing</label>
+        <select id='node-input-ls_sniffing'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_transport_tcp_port'>Transport tcp port</label>
+        <input type='number' id='node-input-ls_transport_tcp_port' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-elasticsearch_java">
+    <p>A Logstash output node for elasticsearch_java</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch_java.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-elasticsearch_java',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_network_host: {value:"", required: true},ls_action: {value:"", required: false},ls_cluster: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_node_name: {value:"", required: false},ls_protocol: {value:"transport", required: false},ls_sniffing: {value:"false", required: false},ls_transport_tcp_port: {value:"", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "elasticsearch_java",
+        label: function() {
+            return this.name || "LS elasticsearch_java";
+        }
+    });
+</script>

@@ -1,0 +1,101 @@
+
+<script type="text/x-red" data-template-name="ls-flt-multiline">
+    <div class='form-row'>
+        <label for='node-input-ls_pattern'>Pattern</label>
+        <input type='text' id='node-input-ls_pattern' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_what'>What</label>
+        <select id='node-input-ls_what'>
+            <option value="previous">previous</option><option value="next">next</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_add_field'>Add field</label>
+        <input type='text' id='node-input-ls_add_field' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_add_tag'>Add tag</label>
+        <input type='text' id='node-input-ls_add_tag' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_allow_duplicates'>Allow duplicates</label>
+        <select id='node-input-ls_allow_duplicates'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_max_age'>Max age</label>
+        <input type='number' id='node-input-ls_max_age' placeholder='5'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_negate'>Negate</label>
+        <select id='node-input-ls_negate'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_patterns_dir'>Patterns dir</label>
+        <input type='text' id='node-input-ls_patterns_dir' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_periodic_flush'>Periodic flush</label>
+        <select id='node-input-ls_periodic_flush'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_periodic_flush'>Periodic flush</label>
+        <select id='node-input-ls_periodic_flush'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_field'>Remove field</label>
+        <input type='text' id='node-input-ls_remove_field' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_tag'>Remove tag</label>
+        <input type='text' id='node-input-ls_remove_tag' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_source'>Source</label>
+        <input type='text' id='node-input-ls_source' placeholder='message'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_stream_identity'>Stream identity</label>
+        <input type='text' id='node-input-ls_stream_identity' placeholder='%{host}.%{path}.%{type}'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-flt-multiline">
+    <p>A Logstash filter node for multiline</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-filters-multiline.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-flt-multiline',{
+        category: 'Logstash-filter',
+        defaults: {
+            name: {value:""},
+            ls_pattern: {value:"", required: true},ls_what: {value:"undefined", required: true},ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_allow_duplicates: {value:"true", required: false},ls_max_age: {value:"", required: false},ls_negate: {value:"false", required: false},ls_patterns_dir: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_periodic_flush: {value:"true", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_source: {value:"", required: false},ls_stream_identity: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:1,
+        icon: '../icons/filter.png',
+        color: 'white',
+        paletteLabel: "multiline",
+        label: function() {
+            return this.name || "LS multiline";
+        }
+    });
+</script>

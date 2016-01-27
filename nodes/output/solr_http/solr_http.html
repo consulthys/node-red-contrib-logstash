@@ -1,0 +1,61 @@
+
+<script type="text/x-red" data-template-name="ls-out-solr_http">
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_document_id'>Document id</label>
+        <input type='text' id='node-input-ls_document_id' placeholder='nil'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_flush_size'>Flush size</label>
+        <input type='number' id='node-input-ls_flush_size' placeholder='100'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_idle_flush_time'>Idle flush time</label>
+        <input type='number' id='node-input-ls_idle_flush_time' placeholder='1'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_solr_url'>Solr url</label>
+        <input type='text' id='node-input-ls_solr_url' placeholder='http//localhost8983/solr'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-solr_http">
+    <p>A Logstash output node for solr_http</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-solr_http.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-solr_http',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_codec: {value:"plain", required: false},ls_document_id: {value:"", required: false},ls_flush_size: {value:"", required: false},ls_idle_flush_time: {value:"", required: false},ls_solr_url: {value:"", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "solr_http",
+        label: function() {
+            return this.name || "LS solr_http";
+        }
+    });
+</script>

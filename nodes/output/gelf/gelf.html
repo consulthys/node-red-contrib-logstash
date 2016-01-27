@@ -1,0 +1,95 @@
+
+<script type="text/x-red" data-template-name="ls-out-gelf">
+    <div class='form-row'>
+        <label for='node-input-ls_host'>Host</label>
+        <input type='text' id='node-input-ls_host' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_chunksize'>Chunksize</label>
+        <input type='number' id='node-input-ls_chunksize' placeholder='1420'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_custom_fields'>Custom fields</label>
+        <input type='text' id='node-input-ls_custom_fields' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_full_message'>Full message</label>
+        <input type='text' id='node-input-ls_full_message' placeholder='%{message}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ignore_metadata'>Ignore metadata</label>
+        <input type='text' id='node-input-ls_ignore_metadata' placeholder='["@timestamp","@version","severity","host","source_host","source_path","short_message"]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_level'>Level</label>
+        <input type='text' id='node-input-ls_level' placeholder='["%{severity}","INFO"]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_port'>Port</label>
+        <input type='number' id='node-input-ls_port' placeholder='12201'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_sender'>Sender</label>
+        <input type='text' id='node-input-ls_sender' placeholder='%{host}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ship_metadata'>Ship metadata</label>
+        <select id='node-input-ls_ship_metadata'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ship_tags'>Ship tags</label>
+        <select id='node-input-ls_ship_tags'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_short_message'>Short message</label>
+        <input type='text' id='node-input-ls_short_message' placeholder='short_message'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-gelf">
+    <p>A Logstash output node for gelf</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-gelf.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-gelf',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_host: {value:"", required: true},ls_chunksize: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_custom_fields: {value:"", required: false},ls_full_message: {value:"", required: false},ls_ignore_metadata: {value:"", required: false},ls_level: {value:"", required: false},ls_port: {value:"", required: false},ls_sender: {value:"", required: false},ls_ship_metadata: {value:"true", required: false},ls_ship_tags: {value:"true", required: false},ls_short_message: {value:"", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "gelf",
+        label: function() {
+            return this.name || "LS gelf";
+        }
+    });
+</script>

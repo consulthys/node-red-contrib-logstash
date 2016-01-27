@@ -1,0 +1,98 @@
+
+<script type="text/x-red" data-template-name="ls-out-google_cloud_storage">
+    <div class='form-row'>
+        <label for='node-input-ls_bucket'>Bucket</label>
+        <input type='text' id='node-input-ls_bucket' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_key_path'>Key path</label>
+        <input type='text' id='node-input-ls_key_path' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_service_account'>Service account</label>
+        <input type='text' id='node-input-ls_service_account' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_date_pattern'>Date pattern</label>
+        <input type='text' id='node-input-ls_date_pattern' placeholder='%Y-%m-%dT%H00'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_flush_interval_secs'>Flush interval secs</label>
+        <input type='number' id='node-input-ls_flush_interval_secs' placeholder='2'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_gzip'>Gzip</label>
+        <select id='node-input-ls_gzip'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_key_password'>Key password</label>
+        <input type='text' id='node-input-ls_key_password' placeholder='notasecret'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_log_file_prefix'>Log file prefix</label>
+        <input type='text' id='node-input-ls_log_file_prefix' placeholder='logstash_gcs'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_max_file_size_kbytes'>Max file size kbytes</label>
+        <input type='number' id='node-input-ls_max_file_size_kbytes' placeholder='10000'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_output_format'>Output format</label>
+        <select id='node-input-ls_output_format'>
+            <option value="json">json</option><option value="plain" selected="selected">plain</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_temp_directory'>Temp directory</label>
+        <input type='text' id='node-input-ls_temp_directory' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_uploader_interval_secs'>Uploader interval secs</label>
+        <input type='number' id='node-input-ls_uploader_interval_secs' placeholder='60'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-google_cloud_storage">
+    <p>A Logstash output node for google_cloud_storage</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-google_cloud_storage.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-google_cloud_storage',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_bucket: {value:"", required: true},ls_key_path: {value:"", required: true},ls_service_account: {value:"", required: true},ls_codec: {value:"plain", required: false},ls_date_pattern: {value:"", required: false},ls_flush_interval_secs: {value:"", required: false},ls_gzip: {value:"false", required: false},ls_key_password: {value:"", required: false},ls_log_file_prefix: {value:"", required: false},ls_max_file_size_kbytes: {value:"", required: false},ls_output_format: {value:"plain", required: false},ls_temp_directory: {value:"", required: false},ls_uploader_interval_secs: {value:"", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "google_cloud_storage",
+        label: function() {
+            return this.name || "LS google_cloud_storage";
+        }
+    });
+</script>

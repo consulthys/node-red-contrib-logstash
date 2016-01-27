@@ -1,0 +1,82 @@
+
+<script type="text/x-red" data-template-name="ls-out-hipchat">
+    <div class='form-row'>
+        <label for='node-input-ls_room_id'>Room id</label>
+        <input type='text' id='node-input-ls_room_id' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_token'>Token</label>
+        <input type='text' id='node-input-ls_token' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_color'>Color</label>
+        <input type='text' id='node-input-ls_color' placeholder='yellow'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_format'>Format</label>
+        <input type='text' id='node-input-ls_format' placeholder='%{message}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_from'>From</label>
+        <input type='text' id='node-input-ls_from' placeholder='logstash'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_host'>Host</label>
+        <input type='text' id='node-input-ls_host' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_message_format'>Message format</label>
+        <select id='node-input-ls_message_format'>
+            <option value="html" selected="selected">html</option><option value="text">text</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_trigger_notify'>Trigger notify</label>
+        <select id='node-input-ls_trigger_notify'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-hipchat">
+    <p>A Logstash output node for hipchat</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-hipchat.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-hipchat',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_room_id: {value:"", required: true},ls_token: {value:"", required: true},ls_codec: {value:"plain", required: false},ls_color: {value:"", required: false},ls_format: {value:"", required: false},ls_from: {value:"", required: false},ls_host: {value:"", required: false},ls_message_format: {value:"html", required: false},ls_trigger_notify: {value:"false", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "hipchat",
+        label: function() {
+            return this.name || "LS hipchat";
+        }
+    });
+</script>

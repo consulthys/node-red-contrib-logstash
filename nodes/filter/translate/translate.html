@@ -1,0 +1,99 @@
+
+<script type="text/x-red" data-template-name="ls-flt-translate">
+    <div class='form-row'>
+        <label for='node-input-ls_field'>Field</label>
+        <input type='text' id='node-input-ls_field' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_add_field'>Add field</label>
+        <input type='text' id='node-input-ls_add_field' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_add_tag'>Add tag</label>
+        <input type='text' id='node-input-ls_add_tag' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_destination'>Destination</label>
+        <input type='text' id='node-input-ls_destination' placeholder='translation'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_dictionary'>Dictionary</label>
+        <input type='text' id='node-input-ls_dictionary' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_dictionary_path'>Dictionary path</label>
+        <input type='text' id='node-input-ls_dictionary_path' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_exact'>Exact</label>
+        <select id='node-input-ls_exact'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_fallback'>Fallback</label>
+        <input type='text' id='node-input-ls_fallback' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_override'>Override</label>
+        <select id='node-input-ls_override'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_periodic_flush'>Periodic flush</label>
+        <select id='node-input-ls_periodic_flush'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_refresh_interval'>Refresh interval</label>
+        <input type='number' id='node-input-ls_refresh_interval' placeholder='300'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_regex'>Regex</label>
+        <select id='node-input-ls_regex'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_field'>Remove field</label>
+        <input type='text' id='node-input-ls_remove_field' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_tag'>Remove tag</label>
+        <input type='text' id='node-input-ls_remove_tag' placeholder='[]'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-flt-translate">
+    <p>A Logstash filter node for translate</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-filters-translate.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-flt-translate',{
+        category: 'Logstash-filter',
+        defaults: {
+            name: {value:""},
+            ls_field: {value:"", required: true},ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_destination: {value:"", required: false},ls_dictionary: {value:"", required: false},ls_dictionary_path: {value:"", required: false},ls_exact: {value:"true", required: false},ls_fallback: {value:"", required: false},ls_override: {value:"false", required: false},ls_periodic_flush: {value:"false", required: false},ls_refresh_interval: {value:"", required: false},ls_regex: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:1,
+        icon: '../icons/filter.png',
+        color: 'white',
+        paletteLabel: "translate",
+        label: function() {
+            return this.name || "LS translate";
+        }
+    });
+</script>

@@ -1,0 +1,79 @@
+
+<script type="text/x-red" data-template-name="ls-out-graphtastic">
+    <div class='form-row'>
+        <label for='node-input-ls_batch_number'>Batch number</label>
+        <input type='number' id='node-input-ls_batch_number' placeholder='60'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_context'>Context</label>
+        <input type='text' id='node-input-ls_context' placeholder='graphtastic'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_error_file'>Error file</label>
+        <input type='text' id='node-input-ls_error_file' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_host'>Host</label>
+        <input type='text' id='node-input-ls_host' placeholder='127.0.0.1'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_integration'>Integration</label>
+        <select id='node-input-ls_integration'>
+            <option value="udp" selected="selected">udp</option><option value="tcp">tcp</option><option value="rmi">rmi</option><option value="rest">rest</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_metrics'>Metrics</label>
+        <input type='text' id='node-input-ls_metrics' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_port'>Port</label>
+        <input type='number' id='node-input-ls_port' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_retries'>Retries</label>
+        <input type='number' id='node-input-ls_retries' placeholder='1'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-graphtastic">
+    <p>A Logstash output node for graphtastic</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-graphtastic.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-graphtastic',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_batch_number: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_context: {value:"", required: false},ls_error_file: {value:"", required: false},ls_host: {value:"", required: false},ls_integration: {value:"udp", required: false},ls_metrics: {value:"", required: false},ls_port: {value:"", required: false},ls_retries: {value:"", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "graphtastic",
+        label: function() {
+            return this.name || "LS graphtastic";
+        }
+    });
+</script>

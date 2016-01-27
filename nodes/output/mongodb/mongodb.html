@@ -1,0 +1,75 @@
+
+<script type="text/x-red" data-template-name="ls-out-mongodb">
+    <div class='form-row'>
+        <label for='node-input-ls_collection'>Collection</label>
+        <input type='text' id='node-input-ls_collection' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_database'>Database</label>
+        <input type='text' id='node-input-ls_database' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_uri'>Uri</label>
+        <input type='text' id='node-input-ls_uri' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_generateId'>GenerateId</label>
+        <select id='node-input-ls_generateId'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_isodate'>Isodate</label>
+        <select id='node-input-ls_isodate'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_retry_delay'>Retry delay</label>
+        <input type='number' id='node-input-ls_retry_delay' placeholder='3'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-mongodb">
+    <p>A Logstash output node for mongodb</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-mongodb.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-mongodb',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_collection: {value:"", required: true},ls_database: {value:"", required: true},ls_uri: {value:"", required: true},ls_codec: {value:"plain", required: false},ls_generateId: {value:"false", required: false},ls_isodate: {value:"false", required: false},ls_retry_delay: {value:"", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "mongodb",
+        label: function() {
+            return this.name || "LS mongodb";
+        }
+    });
+</script>

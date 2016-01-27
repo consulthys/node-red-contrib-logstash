@@ -1,0 +1,98 @@
+
+<script type="text/x-red" data-template-name="ls-out-influxdb">
+    <div class='form-row'>
+        <label for='node-input-ls_data_points'>Data points</label>
+        <input type='text' id='node-input-ls_data_points' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_host'>Host</label>
+        <input type='text' id='node-input-ls_host' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_password'>Password</label>
+        <input type='text' id='node-input-ls_password' placeholder='nil'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_user'>User</label>
+        <input type='text' id='node-input-ls_user' placeholder='nil'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_allow_time_override'>Allow time override</label>
+        <select id='node-input-ls_allow_time_override'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_coerce_values'>Coerce values</label>
+        <input type='text' id='node-input-ls_coerce_values' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_db'>Db</label>
+        <input type='text' id='node-input-ls_db' placeholder='stats'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_flush_size'>Flush size</label>
+        <input type='number' id='node-input-ls_flush_size' placeholder='100'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_idle_flush_time'>Idle flush time</label>
+        <input type='number' id='node-input-ls_idle_flush_time' placeholder='1'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_port'>Port</label>
+        <input type='number' id='node-input-ls_port' placeholder='8086'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_series'>Series</label>
+        <input type='text' id='node-input-ls_series' placeholder='logstash'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_time_precision'>Time precision</label>
+        <select id='node-input-ls_time_precision'>
+            <option value="m">m</option><option value="s" selected="selected">s</option><option value="u">u</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-influxdb">
+    <p>A Logstash output node for influxdb</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-influxdb.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-influxdb',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_data_points: {value:"", required: true},ls_host: {value:"", required: true},ls_password: {value:"", required: true},ls_user: {value:"", required: true},ls_allow_time_override: {value:"false", required: false},ls_codec: {value:"plain", required: false},ls_coerce_values: {value:"", required: false},ls_db: {value:"", required: false},ls_flush_size: {value:"", required: false},ls_idle_flush_time: {value:"", required: false},ls_port: {value:"", required: false},ls_series: {value:"", required: false},ls_time_precision: {value:"s", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "influxdb",
+        label: function() {
+            return this.name || "LS influxdb";
+        }
+    });
+</script>

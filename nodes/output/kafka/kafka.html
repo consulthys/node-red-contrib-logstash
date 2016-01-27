@@ -1,0 +1,136 @@
+
+<script type="text/x-red" data-template-name="ls-out-kafka">
+    <div class='form-row'>
+        <label for='node-input-ls_topic_id'>Topic id</label>
+        <input type='text' id='node-input-ls_topic_id' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_acks'>Acks</label>
+        <select id='node-input-ls_acks'>
+            <option value="0">0</option><option value="1" selected="selected">1</option><option value="all">all</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_batch_size'>Batch size</label>
+        <input type='number' id='node-input-ls_batch_size' placeholder='16384'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_block_on_buffer_full'>Block on buffer full</label>
+        <select id='node-input-ls_block_on_buffer_full'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_bootstrap_servers'>Bootstrap servers</label>
+        <input type='text' id='node-input-ls_bootstrap_servers' placeholder='localhost9092'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_buffer_memory'>Buffer memory</label>
+        <input type='number' id='node-input-ls_buffer_memory' placeholder='33554432'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_client_id'>Client id</label>
+        <input type='text' id='node-input-ls_client_id' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_compression_type'>Compression type</label>
+        <select id='node-input-ls_compression_type'>
+            <option value="none" selected="selected">none</option><option value="gzip">gzip</option><option value="snappy">snappy</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_key_serializer'>Key serializer</label>
+        <input type='text' id='node-input-ls_key_serializer' placeholder='org.apache.kafka.common.serialization.StringSerializer'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_linger_ms'>Linger ms</label>
+        <input type='number' id='node-input-ls_linger_ms' placeholder='0'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_max_request_size'>Max request size</label>
+        <input type='number' id='node-input-ls_max_request_size' placeholder='1048576'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_message_key'>Message key</label>
+        <input type='text' id='node-input-ls_message_key' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_metadata_fetch_timeout_ms'>Metadata fetch timeout ms</label>
+        <input type='number' id='node-input-ls_metadata_fetch_timeout_ms' placeholder='60000'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_metadata_max_age_ms'>Metadata max age ms</label>
+        <input type='number' id='node-input-ls_metadata_max_age_ms' placeholder='300000'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_receive_buffer_bytes'>Receive buffer bytes</label>
+        <input type='number' id='node-input-ls_receive_buffer_bytes' placeholder='32768'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_reconnect_backoff_ms'>Reconnect backoff ms</label>
+        <input type='number' id='node-input-ls_reconnect_backoff_ms' placeholder='10'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_retries'>Retries</label>
+        <input type='number' id='node-input-ls_retries' placeholder='0'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_retry_backoff_ms'>Retry backoff ms</label>
+        <input type='number' id='node-input-ls_retry_backoff_ms' placeholder='100'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_send_buffer_bytes'>Send buffer bytes</label>
+        <input type='number' id='node-input-ls_send_buffer_bytes' placeholder='131072'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_timeout_ms'>Timeout ms</label>
+        <input type='number' id='node-input-ls_timeout_ms' placeholder='30000'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_value_serializer'>Value serializer</label>
+        <input type='text' id='node-input-ls_value_serializer' placeholder='org.apache.kafka.common.serialization.StringSerializer'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-kafka">
+    <p>A Logstash output node for kafka</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-kafka.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-kafka',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_topic_id: {value:"", required: true},ls_acks: {value:"1", required: false},ls_batch_size: {value:"", required: false},ls_block_on_buffer_full: {value:"true", required: false},ls_bootstrap_servers: {value:"", required: false},ls_buffer_memory: {value:"", required: false},ls_client_id: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_compression_type: {value:"none", required: false},ls_key_serializer: {value:"", required: false},ls_linger_ms: {value:"", required: false},ls_max_request_size: {value:"", required: false},ls_message_key: {value:"", required: false},ls_metadata_fetch_timeout_ms: {value:"", required: false},ls_metadata_max_age_ms: {value:"", required: false},ls_receive_buffer_bytes: {value:"", required: false},ls_reconnect_backoff_ms: {value:"", required: false},ls_retries: {value:"", required: false},ls_retry_backoff_ms: {value:"", required: false},ls_send_buffer_bytes: {value:"", required: false},ls_timeout_ms: {value:"", required: false},ls_value_serializer: {value:"", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "kafka",
+        label: function() {
+            return this.name || "LS kafka";
+        }
+    });
+</script>

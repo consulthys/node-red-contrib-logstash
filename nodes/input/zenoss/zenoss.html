@@ -1,0 +1,76 @@
+
+<script type="text/x-red" data-template-name="ls-in-zenoss">
+    <div class='form-row'>
+        <label for='node-input-ls_add_field'>Add field</label>
+        <input type='text' id='node-input-ls_add_field' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_exchange'>Exchange</label>
+        <input type='text' id='node-input-ls_exchange' placeholder='zenoss.zenevents'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_host'>Host</label>
+        <input type='text' id='node-input-ls_host' placeholder='localhost'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_key'>Key</label>
+        <input type='text' id='node-input-ls_key' placeholder='zenoss.zenevent.#'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_password'>Password</label>
+        <input type='text' id='node-input-ls_password' placeholder='zenoss'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_tags'>Tags</label>
+        <input type='text' id='node-input-ls_tags' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_type'>Type</label>
+        <input type='text' id='node-input-ls_type' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_user'>User</label>
+        <input type='text' id='node-input-ls_user' placeholder='zenoss'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_vhost'>Vhost</label>
+        <input type='text' id='node-input-ls_vhost' placeholder='/zenoss'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-in-zenoss">
+    <p>A Logstash input node for zenoss</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-zenoss.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-in-zenoss',{
+        category: 'Logstash-input',
+        defaults: {
+            name: {value:""},
+            ls_add_field: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_exchange: {value:"", required: false},ls_host: {value:"", required: false},ls_key: {value:"", required: false},ls_password: {value:"", required: false},ls_tags: {value:"", required: false},ls_type: {value:"", required: false},ls_user: {value:"", required: false},ls_vhost: {value:"", required: false}
+        },
+        inputs:0,
+        outputs:1,
+        icon: 'arrow-in.png',
+        color: '#87A980',
+        paletteLabel: "zenoss",
+        label: function() {
+            return this.name || "LS zenoss";
+        }
+    });
+</script>

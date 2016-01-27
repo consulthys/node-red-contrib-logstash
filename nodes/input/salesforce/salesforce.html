@@ -1,0 +1,102 @@
+
+<script type="text/x-red" data-template-name="ls-in-salesforce">
+    <div class='form-row'>
+        <label for='node-input-ls_client_id'>Client id</label>
+        <input type='text' id='node-input-ls_client_id' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_client_secret'>Client secret</label>
+        <input type='text' id='node-input-ls_client_secret' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_password'>Password</label>
+        <input type='text' id='node-input-ls_password' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_security_token'>Security token</label>
+        <input type='text' id='node-input-ls_security_token' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_sfdc_object_name'>Sfdc object name</label>
+        <input type='text' id='node-input-ls_sfdc_object_name' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_username'>Username</label>
+        <input type='text' id='node-input-ls_username' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_add_field'>Add field</label>
+        <input type='text' id='node-input-ls_add_field' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_api_version'>Api version</label>
+        <input type='text' id='node-input-ls_api_version' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_sfdc_fields'>Sfdc fields</label>
+        <input type='text' id='node-input-ls_sfdc_fields' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_sfdc_filters'>Sfdc filters</label>
+        <input type='text' id='node-input-ls_sfdc_filters' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_tags'>Tags</label>
+        <input type='text' id='node-input-ls_tags' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_to_underscores'>To underscores</label>
+        <select id='node-input-ls_to_underscores'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_type'>Type</label>
+        <input type='text' id='node-input-ls_type' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_use_test_sandbox'>Use test sandbox</label>
+        <select id='node-input-ls_use_test_sandbox'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-in-salesforce">
+    <p>A Logstash input node for salesforce</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-salesforce.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-in-salesforce',{
+        category: 'Logstash-input',
+        defaults: {
+            name: {value:""},
+            ls_client_id: {value:"", required: true},ls_client_secret: {value:"", required: true},ls_password: {value:"", required: true},ls_security_token: {value:"", required: true},ls_sfdc_object_name: {value:"", required: true},ls_username: {value:"", required: true},ls_add_field: {value:"", required: false},ls_api_version: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_sfdc_fields: {value:"", required: false},ls_sfdc_filters: {value:"", required: false},ls_tags: {value:"", required: false},ls_to_underscores: {value:"false", required: false},ls_type: {value:"", required: false},ls_use_test_sandbox: {value:"false", required: false}
+        },
+        inputs:0,
+        outputs:1,
+        icon: 'arrow-in.png',
+        color: '#87A980',
+        paletteLabel: "salesforce",
+        label: function() {
+            return this.name || "LS salesforce";
+        }
+    });
+</script>

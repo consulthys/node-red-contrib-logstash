@@ -1,0 +1,114 @@
+
+<script type="text/x-red" data-template-name="ls-out-elasticsearch">
+    <div class='form-row'>
+        <label for='node-input-ls_action'>Action</label>
+        <input type='text' id='node-input-ls_action' placeholder='index'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_cacert'>Cacert</label>
+        <input type='text' id='node-input-ls_cacert' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_keystore'>Keystore</label>
+        <input type='text' id='node-input-ls_keystore' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_keystore_password'>Keystore password</label>
+        <input type='text' id='node-input-ls_keystore_password' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_password'>Password</label>
+        <input type='text' id='node-input-ls_password' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_path'>Path</label>
+        <input type='text' id='node-input-ls_path' placeholder='/'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_proxy'>Proxy</label>
+        <input type='text' id='node-input-ls_proxy' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_sniffing'>Sniffing</label>
+        <select id='node-input-ls_sniffing'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_sniffing_delay'>Sniffing delay</label>
+        <input type='number' id='node-input-ls_sniffing_delay' placeholder='5'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl'>Ssl</label>
+        <select id='node-input-ls_ssl'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_certificate_verification'>Ssl certificate verification</label>
+        <select id='node-input-ls_ssl_certificate_verification'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_timeout'>Timeout</label>
+        <input type='number' id='node-input-ls_timeout' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_truststore'>Truststore</label>
+        <input type='text' id='node-input-ls_truststore' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_truststore_password'>Truststore password</label>
+        <input type='text' id='node-input-ls_truststore_password' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_user'>User</label>
+        <input type='text' id='node-input-ls_user' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-elasticsearch">
+    <p>A Logstash output node for elasticsearch</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-elasticsearch',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_action: {value:"", required: false},ls_cacert: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_keystore: {value:"", required: false},ls_keystore_password: {value:"", required: false},ls_password: {value:"", required: false},ls_path: {value:"", required: false},ls_proxy: {value:"", required: false},ls_sniffing: {value:"false", required: false},ls_sniffing_delay: {value:"", required: false},ls_ssl: {value:"false", required: false},ls_ssl_certificate_verification: {value:"true", required: false},ls_timeout: {value:"", required: false},ls_truststore: {value:"", required: false},ls_truststore_password: {value:"", required: false},ls_user: {value:"", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "elasticsearch",
+        label: function() {
+            return this.name || "LS elasticsearch";
+        }
+    });
+</script>

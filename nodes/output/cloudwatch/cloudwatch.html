@@ -1,0 +1,93 @@
+
+<script type="text/x-red" data-template-name="ls-out-cloudwatch">
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_dimensions'>Dimensions</label>
+        <input type='text' id='node-input-ls_dimensions' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_field_dimensions'>Field dimensions</label>
+        <input type='text' id='node-input-ls_field_dimensions' placeholder='CW_dimensions'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_field_metricname'>Field metricname</label>
+        <input type='text' id='node-input-ls_field_metricname' placeholder='CW_metricname'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_field_namespace'>Field namespace</label>
+        <input type='text' id='node-input-ls_field_namespace' placeholder='CW_namespace'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_field_unit'>Field unit</label>
+        <input type='text' id='node-input-ls_field_unit' placeholder='CW_unit'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_field_value'>Field value</label>
+        <input type='text' id='node-input-ls_field_value' placeholder='CW_value'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_metricname'>Metricname</label>
+        <input type='text' id='node-input-ls_metricname' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_namespace'>Namespace</label>
+        <input type='text' id='node-input-ls_namespace' placeholder='Logstash'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_queue_size'>Queue size</label>
+        <input type='number' id='node-input-ls_queue_size' placeholder='10000'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_timeframe'>Timeframe</label>
+        <input type='text' id='node-input-ls_timeframe' placeholder='1m'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_unit'>Unit</label>
+        <input type='text' id='node-input-ls_unit' placeholder='COUNT_UNIT'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_value'>Value</label>
+        <input type='text' id='node-input-ls_value' placeholder='1'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-cloudwatch">
+    <p>A Logstash output node for cloudwatch</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-cloudwatch.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-cloudwatch',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_codec: {value:"plain", required: false},ls_dimensions: {value:"", required: false},ls_field_dimensions: {value:"", required: false},ls_field_metricname: {value:"", required: false},ls_field_namespace: {value:"", required: false},ls_field_unit: {value:"", required: false},ls_field_value: {value:"", required: false},ls_metricname: {value:"", required: false},ls_namespace: {value:"", required: false},ls_queue_size: {value:"", required: false},ls_timeframe: {value:"", required: false},ls_unit: {value:"", required: false},ls_value: {value:"", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "cloudwatch",
+        label: function() {
+            return this.name || "LS cloudwatch";
+        }
+    });
+</script>

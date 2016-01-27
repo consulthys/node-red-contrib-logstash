@@ -1,0 +1,71 @@
+
+<script type="text/x-red" data-template-name="ls-out-pagerduty">
+    <div class='form-row'>
+        <label for='node-input-ls_service_key'>Service key</label>
+        <input type='text' id='node-input-ls_service_key' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_description'>Description</label>
+        <input type='text' id='node-input-ls_description' placeholder='Logstash event for %{host}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_details'>Details</label>
+        <input type='text' id='node-input-ls_details' placeholder='{"timestamp" => "%{@timestamp}", "message" => "%{message}"}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_event_type'>Event type</label>
+        <select id='node-input-ls_event_type'>
+            <option value="trigger" selected="selected">trigger</option><option value="acknowledge">acknowledge</option><option value="resolve">resolve</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_incident_key'>Incident key</label>
+        <input type='text' id='node-input-ls_incident_key' placeholder='logstash/%{host}/%{type}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_pdurl'>Pdurl</label>
+        <input type='text' id='node-input-ls_pdurl' placeholder='https//events.pagerduty.com/generic/2010-04-15/create_event.json'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-pagerduty">
+    <p>A Logstash output node for pagerduty</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-pagerduty.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-pagerduty',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_service_key: {value:"", required: true},ls_codec: {value:"plain", required: false},ls_description: {value:"", required: false},ls_details: {value:"", required: false},ls_event_type: {value:"trigger", required: false},ls_incident_key: {value:"", required: false},ls_pdurl: {value:"", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "pagerduty",
+        label: function() {
+            return this.name || "LS pagerduty";
+        }
+    });
+</script>

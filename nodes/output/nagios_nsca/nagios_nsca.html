@@ -1,0 +1,77 @@
+
+<script type="text/x-red" data-template-name="ls-out-nagios_nsca">
+    <div class='form-row'>
+        <label for='node-input-ls_nagios_status'>Nagios status</label>
+        <input type='text' id='node-input-ls_nagios_status' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_host'>Host</label>
+        <input type='text' id='node-input-ls_host' placeholder='localhost'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_message_format'>Message format</label>
+        <input type='text' id='node-input-ls_message_format' placeholder='%{@timestamp} %{host} %{message}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_nagios_host'>Nagios host</label>
+        <input type='text' id='node-input-ls_nagios_host' placeholder='%{host}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_nagios_service'>Nagios service</label>
+        <input type='text' id='node-input-ls_nagios_service' placeholder='LOGSTASH'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_port'>Port</label>
+        <input type='number' id='node-input-ls_port' placeholder='5667'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_send_nsca_bin'>Send nsca bin</label>
+        <input type='text' id='node-input-ls_send_nsca_bin' placeholder='/usr/sbin/send_nsca'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_send_nsca_config'>Send nsca config</label>
+        <input type='text' id='node-input-ls_send_nsca_config' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-nagios_nsca">
+    <p>A Logstash output node for nagios_nsca</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-nagios_nsca.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-nagios_nsca',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_nagios_status: {value:"", required: true},ls_codec: {value:"plain", required: false},ls_host: {value:"", required: false},ls_message_format: {value:"", required: false},ls_nagios_host: {value:"", required: false},ls_nagios_service: {value:"", required: false},ls_port: {value:"", required: false},ls_send_nsca_bin: {value:"", required: false},ls_send_nsca_config: {value:"", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "nagios_nsca",
+        label: function() {
+            return this.name || "LS nagios_nsca";
+        }
+    });
+</script>

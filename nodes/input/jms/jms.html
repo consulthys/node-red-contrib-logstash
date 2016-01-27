@@ -1,0 +1,145 @@
+
+<script type="text/x-red" data-template-name="ls-in-jms">
+    <div class='form-row'>
+        <label for='node-input-ls_destination'>Destination</label>
+        <input type='text' id='node-input-ls_destination' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_add_field'>Add field</label>
+        <input type='text' id='node-input-ls_add_field' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_broker_url'>Broker url</label>
+        <input type='text' id='node-input-ls_broker_url' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_factory'>Factory</label>
+        <input type='text' id='node-input-ls_factory' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_include_body'>Include body</label>
+        <select id='node-input-ls_include_body'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_include_header'>Include header</label>
+        <select id='node-input-ls_include_header'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_include_properties'>Include properties</label>
+        <select id='node-input-ls_include_properties'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_interval'>Interval</label>
+        <input type='number' id='node-input-ls_interval' placeholder='10'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_jndi_context'>Jndi context</label>
+        <input type='text' id='node-input-ls_jndi_context' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_jndi_name'>Jndi name</label>
+        <input type='text' id='node-input-ls_jndi_name' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_password'>Password</label>
+        <input type='text' id='node-input-ls_password' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_pub_sub'>Pub sub</label>
+        <select id='node-input-ls_pub_sub'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_require_jars'>Require jars</label>
+        <input type='text' id='node-input-ls_require_jars' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_runner'>Runner</label>
+        <select id='node-input-ls_runner'>
+            <option value="consumer" selected="selected">consumer</option><option value="async">async</option><option value="thread">thread</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_selector'>Selector</label>
+        <input type='text' id='node-input-ls_selector' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_tags'>Tags</label>
+        <input type='text' id='node-input-ls_tags' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_timeout'>Timeout</label>
+        <input type='number' id='node-input-ls_timeout' placeholder='60'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_type'>Type</label>
+        <input type='text' id='node-input-ls_type' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_use_jms_timestamp'>Use jms timestamp</label>
+        <select id='node-input-ls_use_jms_timestamp'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_username'>Username</label>
+        <input type='text' id='node-input-ls_username' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_yaml_file'>Yaml file</label>
+        <input type='text' id='node-input-ls_yaml_file' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_yaml_section'>Yaml section</label>
+        <input type='text' id='node-input-ls_yaml_section' placeholder=''>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-in-jms">
+    <p>A Logstash input node for jms</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-jms.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-in-jms',{
+        category: 'Logstash-input',
+        defaults: {
+            name: {value:""},
+            ls_destination: {value:"", required: true},ls_add_field: {value:"", required: false},ls_broker_url: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_factory: {value:"", required: false},ls_include_body: {value:"true", required: false},ls_include_header: {value:"true", required: false},ls_include_properties: {value:"true", required: false},ls_interval: {value:"", required: false},ls_jndi_context: {value:"", required: false},ls_jndi_name: {value:"", required: false},ls_password: {value:"", required: false},ls_pub_sub: {value:"false", required: false},ls_require_jars: {value:"", required: false},ls_runner: {value:"consumer", required: false},ls_selector: {value:"", required: false},ls_tags: {value:"", required: false},ls_timeout: {value:"", required: false},ls_type: {value:"", required: false},ls_use_jms_timestamp: {value:"false", required: false},ls_username: {value:"", required: false},ls_yaml_file: {value:"", required: false},ls_yaml_section: {value:"", required: false}
+        },
+        inputs:0,
+        outputs:1,
+        icon: 'arrow-in.png',
+        color: '#87A980',
+        paletteLabel: "jms",
+        label: function() {
+            return this.name || "LS jms";
+        }
+    });
+</script>

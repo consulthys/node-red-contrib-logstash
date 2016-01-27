@@ -1,0 +1,84 @@
+
+<script type="text/x-red" data-template-name="ls-flt-xml">
+    <div class='form-row'>
+        <label for='node-input-ls_source'>Source</label>
+        <input type='text' id='node-input-ls_source' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_add_field'>Add field</label>
+        <input type='text' id='node-input-ls_add_field' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_add_tag'>Add tag</label>
+        <input type='text' id='node-input-ls_add_tag' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_namespaces'>Namespaces</label>
+        <input type='text' id='node-input-ls_namespaces' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_periodic_flush'>Periodic flush</label>
+        <select id='node-input-ls_periodic_flush'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_field'>Remove field</label>
+        <input type='text' id='node-input-ls_remove_field' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_namespaces'>Remove namespaces</label>
+        <select id='node-input-ls_remove_namespaces'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_tag'>Remove tag</label>
+        <input type='text' id='node-input-ls_remove_tag' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_store_xml'>Store xml</label>
+        <select id='node-input-ls_store_xml'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_target'>Target</label>
+        <input type='text' id='node-input-ls_target' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_xpath'>Xpath</label>
+        <input type='text' id='node-input-ls_xpath' placeholder='{}'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-flt-xml">
+    <p>A Logstash filter node for xml</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-filters-xml.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-flt-xml',{
+        category: 'Logstash-filter',
+        defaults: {
+            name: {value:""},
+            ls_source: {value:"", required: true},ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_namespaces: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_namespaces: {value:"false", required: false},ls_remove_tag: {value:"", required: false},ls_store_xml: {value:"true", required: false},ls_target: {value:"", required: false},ls_xpath: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:1,
+        icon: '../icons/filter.png',
+        color: 'white',
+        paletteLabel: "xml",
+        label: function() {
+            return this.name || "LS xml";
+        }
+    });
+</script>

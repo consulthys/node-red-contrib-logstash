@@ -1,0 +1,112 @@
+
+<script type="text/x-red" data-template-name="ls-out-google_bigquery">
+    <div class='form-row'>
+        <label for='node-input-ls_dataset'>Dataset</label>
+        <input type='text' id='node-input-ls_dataset' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_key_path'>Key path</label>
+        <input type='text' id='node-input-ls_key_path' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_project_id'>Project id</label>
+        <input type='text' id='node-input-ls_project_id' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_service_account'>Service account</label>
+        <input type='text' id='node-input-ls_service_account' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_csv_schema'>Csv schema</label>
+        <input type='text' id='node-input-ls_csv_schema' placeholder='nil'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_date_pattern'>Date pattern</label>
+        <input type='text' id='node-input-ls_date_pattern' placeholder='%Y-%m-%dT%H00'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_deleter_interval_secs'>Deleter interval secs</label>
+        <input type='number' id='node-input-ls_deleter_interval_secs' placeholder='60'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_flush_interval_secs'>Flush interval secs</label>
+        <input type='number' id='node-input-ls_flush_interval_secs' placeholder='2'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ignore_unknown_values'>Ignore unknown values</label>
+        <select id='node-input-ls_ignore_unknown_values'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_json_schema'>Json schema</label>
+        <input type='text' id='node-input-ls_json_schema' placeholder='nil'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_key_password'>Key password</label>
+        <input type='text' id='node-input-ls_key_password' placeholder='notasecret'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_table_prefix'>Table prefix</label>
+        <input type='text' id='node-input-ls_table_prefix' placeholder='logstash'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_table_separator'>Table separator</label>
+        <input type='text' id='node-input-ls_table_separator' placeholder='_'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_temp_directory'>Temp directory</label>
+        <input type='text' id='node-input-ls_temp_directory' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_temp_file_prefix'>Temp file prefix</label>
+        <input type='text' id='node-input-ls_temp_file_prefix' placeholder='logstash_bq'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_uploader_interval_secs'>Uploader interval secs</label>
+        <input type='number' id='node-input-ls_uploader_interval_secs' placeholder='60'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-google_bigquery">
+    <p>A Logstash output node for google_bigquery</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-google_bigquery.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-google_bigquery',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_dataset: {value:"", required: true},ls_key_path: {value:"", required: true},ls_project_id: {value:"", required: true},ls_service_account: {value:"", required: true},ls_codec: {value:"plain", required: false},ls_csv_schema: {value:"", required: false},ls_date_pattern: {value:"", required: false},ls_deleter_interval_secs: {value:"", required: false},ls_flush_interval_secs: {value:"", required: false},ls_ignore_unknown_values: {value:"false", required: false},ls_json_schema: {value:"", required: false},ls_key_password: {value:"", required: false},ls_table_prefix: {value:"", required: false},ls_table_separator: {value:"", required: false},ls_temp_directory: {value:"", required: false},ls_temp_file_prefix: {value:"", required: false},ls_uploader_interval_secs: {value:"", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "google_bigquery",
+        label: function() {
+            return this.name || "LS google_bigquery";
+        }
+    });
+</script>

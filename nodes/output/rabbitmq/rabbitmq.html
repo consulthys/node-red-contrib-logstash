@@ -1,0 +1,71 @@
+
+<script type="text/x-red" data-template-name="ls-out-rabbitmq">
+    <div class='form-row'>
+        <label for='node-input-ls_exchange'>Exchange</label>
+        <input type='text' id='node-input-ls_exchange' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_exchange_type'>Exchange type</label>
+        <input type='text' id='node-input-ls_exchange_type' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_durable'>Durable</label>
+        <select id='node-input-ls_durable'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_key'>Key</label>
+        <input type='text' id='node-input-ls_key' placeholder='logstash'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_persistent'>Persistent</label>
+        <select id='node-input-ls_persistent'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-rabbitmq">
+    <p>A Logstash output node for rabbitmq</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-rabbitmq.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-rabbitmq',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_exchange: {value:"", required: true},ls_exchange_type: {value:"", required: true},ls_codec: {value:"plain", required: false},ls_durable: {value:"true", required: false},ls_key: {value:"", required: false},ls_persistent: {value:"true", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "rabbitmq",
+        label: function() {
+            return this.name || "LS rabbitmq";
+        }
+    });
+</script>

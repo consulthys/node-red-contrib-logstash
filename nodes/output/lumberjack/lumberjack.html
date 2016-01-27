@@ -1,0 +1,65 @@
+
+<script type="text/x-red" data-template-name="ls-out-lumberjack">
+    <div class='form-row'>
+        <label for='node-input-ls_hosts'>Hosts</label>
+        <input type='text' id='node-input-ls_hosts' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_port'>Port</label>
+        <input type='number' id='node-input-ls_port' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_certificate'>Ssl certificate</label>
+        <input type='text' id='node-input-ls_ssl_certificate' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_flush_size'>Flush size</label>
+        <input type='number' id='node-input-ls_flush_size' placeholder='1024'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_idle_flush_time'>Idle flush time</label>
+        <input type='number' id='node-input-ls_idle_flush_time' placeholder='1'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-lumberjack">
+    <p>A Logstash output node for lumberjack</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-lumberjack.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-lumberjack',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_hosts: {value:"", required: true},ls_port: {value:"", required: true},ls_ssl_certificate: {value:"", required: true},ls_codec: {value:"plain", required: false},ls_flush_size: {value:"", required: false},ls_idle_flush_time: {value:"", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "lumberjack",
+        label: function() {
+            return this.name || "LS lumberjack";
+        }
+    });
+</script>

@@ -1,0 +1,69 @@
+
+<script type="text/x-red" data-template-name="ls-out-zeromq">
+    <div class='form-row'>
+        <label for='node-input-ls_topology'>Topology</label>
+        <select id='node-input-ls_topology'>
+            <option value="pushpull">pushpull</option><option value="pubsub">pubsub</option><option value="pair">pair</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_address'>Address</label>
+        <input type='text' id='node-input-ls_address' placeholder='["tcp//127.0.0.12120"]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_mode'>Mode</label>
+        <select id='node-input-ls_mode'>
+            <option value="server">server</option><option value="client" selected="selected">client</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_sockopt'>Sockopt</label>
+        <input type='text' id='node-input-ls_sockopt' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_topic'>Topic</label>
+        <input type='text' id='node-input-ls_topic' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-zeromq">
+    <p>A Logstash output node for zeromq</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-zeromq.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-zeromq',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_topology: {value:"undefined", required: true},ls_address: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_mode: {value:"client", required: false},ls_sockopt: {value:"", required: false},ls_topic: {value:"", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "zeromq",
+        label: function() {
+            return this.name || "LS zeromq";
+        }
+    });
+</script>

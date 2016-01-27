@@ -28,7 +28,6 @@ var ops = {
 };
 
 function getFlow(flowId, callback) {
-    // Issue ES query
     var reqOptions = {
         host: "localhost",
         port: 1880,

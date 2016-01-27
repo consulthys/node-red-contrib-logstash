@@ -1,0 +1,113 @@
+
+<script type="text/x-red" data-template-name="ls-in-elasticsearch">
+    <div class='form-row'>
+        <label for='node-input-ls_add_field'>Add field</label>
+        <input type='text' id='node-input-ls_add_field' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ca_file'>Ca file</label>
+        <input type='text' id='node-input-ls_ca_file' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_docinfo'>Docinfo</label>
+        <select id='node-input-ls_docinfo'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_docinfo_fields'>Docinfo fields</label>
+        <input type='text' id='node-input-ls_docinfo_fields' placeholder='["_index","_type","_id"]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_docinfo_target'>Docinfo target</label>
+        <input type='text' id='node-input-ls_docinfo_target' placeholder='LogStashEventMETADATA'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_hosts'>Hosts</label>
+        <input type='text' id='node-input-ls_hosts' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_index'>Index</label>
+        <input type='text' id='node-input-ls_index' placeholder='logstash-*'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_password'>Password</label>
+        <input type='text' id='node-input-ls_password' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_query'>Query</label>
+        <input type='text' id='node-input-ls_query' placeholder='"{"query" { "match_all" {} } }"'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_scan'>Scan</label>
+        <select id='node-input-ls_scan'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_scroll'>Scroll</label>
+        <input type='text' id='node-input-ls_scroll' placeholder='1m'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_size'>Size</label>
+        <input type='number' id='node-input-ls_size' placeholder='1000'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl'>Ssl</label>
+        <select id='node-input-ls_ssl'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_tags'>Tags</label>
+        <input type='text' id='node-input-ls_tags' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_type'>Type</label>
+        <input type='text' id='node-input-ls_type' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_user'>User</label>
+        <input type='text' id='node-input-ls_user' placeholder=''>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-in-elasticsearch">
+    <p>A Logstash input node for elasticsearch</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-elasticsearch.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-in-elasticsearch',{
+        category: 'Logstash-input',
+        defaults: {
+            name: {value:""},
+            ls_add_field: {value:"", required: false},ls_ca_file: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_docinfo: {value:"false", required: false},ls_docinfo_fields: {value:"", required: false},ls_docinfo_target: {value:"", required: false},ls_hosts: {value:"", required: false},ls_index: {value:"", required: false},ls_password: {value:"", required: false},ls_query: {value:"", required: false},ls_scan: {value:"true", required: false},ls_scroll: {value:"", required: false},ls_size: {value:"", required: false},ls_ssl: {value:"false", required: false},ls_tags: {value:"", required: false},ls_type: {value:"", required: false},ls_user: {value:"", required: false}
+        },
+        inputs:0,
+        outputs:1,
+        icon: 'arrow-in.png',
+        color: '#87A980',
+        paletteLabel: "elasticsearch",
+        label: function() {
+            return this.name || "LS elasticsearch";
+        }
+    });
+</script>

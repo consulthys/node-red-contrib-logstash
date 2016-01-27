@@ -1,0 +1,120 @@
+
+<script type="text/x-red" data-template-name="ls-in-twitter">
+    <div class='form-row'>
+        <label for='node-input-ls_consumer_key'>Consumer key</label>
+        <input type='text' id='node-input-ls_consumer_key' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_consumer_secret'>Consumer secret</label>
+        <input type='text' id='node-input-ls_consumer_secret' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_oauth_token'>Oauth token</label>
+        <input type='text' id='node-input-ls_oauth_token' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_oauth_token_secret'>Oauth token secret</label>
+        <input type='text' id='node-input-ls_oauth_token_secret' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_add_field'>Add field</label>
+        <input type='text' id='node-input-ls_add_field' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_follows'>Follows</label>
+        <input type='text' id='node-input-ls_follows' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_full_tweet'>Full tweet</label>
+        <select id='node-input-ls_full_tweet'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ignore_retweets'>Ignore retweets</label>
+        <select id='node-input-ls_ignore_retweets'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_keywords'>Keywords</label>
+        <input type='text' id='node-input-ls_keywords' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_languages'>Languages</label>
+        <input type='text' id='node-input-ls_languages' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_locations'>Locations</label>
+        <input type='text' id='node-input-ls_locations' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_proxy_address'>Proxy address</label>
+        <input type='text' id='node-input-ls_proxy_address' placeholder='127.0.0.1'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_proxy_port'>Proxy port</label>
+        <input type='number' id='node-input-ls_proxy_port' placeholder='3128'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_tags'>Tags</label>
+        <input type='text' id='node-input-ls_tags' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_type'>Type</label>
+        <input type='text' id='node-input-ls_type' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_use_proxy'>Use proxy</label>
+        <select id='node-input-ls_use_proxy'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_use_samples'>Use samples</label>
+        <select id='node-input-ls_use_samples'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-in-twitter">
+    <p>A Logstash input node for twitter</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-twitter.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-in-twitter',{
+        category: 'Logstash-input',
+        defaults: {
+            name: {value:""},
+            ls_consumer_key: {value:"", required: true},ls_consumer_secret: {value:"", required: true},ls_oauth_token: {value:"", required: true},ls_oauth_token_secret: {value:"", required: true},ls_add_field: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_follows: {value:"", required: false},ls_full_tweet: {value:"false", required: false},ls_ignore_retweets: {value:"false", required: false},ls_keywords: {value:"", required: false},ls_languages: {value:"", required: false},ls_locations: {value:"", required: false},ls_proxy_address: {value:"", required: false},ls_proxy_port: {value:"", required: false},ls_tags: {value:"", required: false},ls_type: {value:"", required: false},ls_use_proxy: {value:"false", required: false},ls_use_samples: {value:"false", required: false}
+        },
+        inputs:0,
+        outputs:1,
+        icon: 'arrow-in.png',
+        color: '#87A980',
+        paletteLabel: "twitter",
+        label: function() {
+            return this.name || "LS twitter";
+        }
+    });
+</script>

@@ -1,0 +1,104 @@
+
+<script type="text/x-red" data-template-name="ls-in-jdbc">
+    <div class='form-row'>
+        <label for='node-input-ls_add_field'>Add field</label>
+        <input type='text' id='node-input-ls_add_field' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_clean_run'>Clean run</label>
+        <select id='node-input-ls_clean_run'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_last_run_metadata_path'>Last run metadata path</label>
+        <input type='text' id='node-input-ls_last_run_metadata_path' placeholder='"#{ENV["HOME"]}/.logstash_jdbc_last_run"'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_lowercase_column_names'>Lowercase column names</label>
+        <select id='node-input-ls_lowercase_column_names'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_parameters'>Parameters</label>
+        <input type='text' id='node-input-ls_parameters' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_record_last_run'>Record last run</label>
+        <select id='node-input-ls_record_last_run'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_schedule'>Schedule</label>
+        <input type='text' id='node-input-ls_schedule' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_statement'>Statement</label>
+        <input type='text' id='node-input-ls_statement' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_statement_filepath'>Statement filepath</label>
+        <input type='text' id='node-input-ls_statement_filepath' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_tags'>Tags</label>
+        <input type='text' id='node-input-ls_tags' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_tracking_column'>Tracking column</label>
+        <input type='text' id='node-input-ls_tracking_column' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_type'>Type</label>
+        <input type='text' id='node-input-ls_type' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_use_column_value'>Use column value</label>
+        <select id='node-input-ls_use_column_value'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-in-jdbc">
+    <p>A Logstash input node for jdbc</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-jdbc.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-in-jdbc',{
+        category: 'Logstash-input',
+        defaults: {
+            name: {value:""},
+            ls_add_field: {value:"", required: false},ls_clean_run: {value:"false", required: false},ls_codec: {value:"plain", required: false},ls_last_run_metadata_path: {value:"", required: false},ls_lowercase_column_names: {value:"true", required: false},ls_parameters: {value:"", required: false},ls_record_last_run: {value:"true", required: false},ls_schedule: {value:"", required: false},ls_statement: {value:"", required: false},ls_statement_filepath: {value:"", required: false},ls_tags: {value:"", required: false},ls_tracking_column: {value:"", required: false},ls_type: {value:"", required: false},ls_use_column_value: {value:"false", required: false}
+        },
+        inputs:0,
+        outputs:1,
+        icon: 'arrow-in.png',
+        color: '#87A980',
+        paletteLabel: "jdbc",
+        label: function() {
+            return this.name || "LS jdbc";
+        }
+    });
+</script>

@@ -1,0 +1,89 @@
+
+<script type="text/x-red" data-template-name="ls-out-statsd">
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_count'>Count</label>
+        <input type='text' id='node-input-ls_count' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_decrement'>Decrement</label>
+        <input type='text' id='node-input-ls_decrement' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_gauge'>Gauge</label>
+        <input type='text' id='node-input-ls_gauge' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_host'>Host</label>
+        <input type='text' id='node-input-ls_host' placeholder='localhost'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_increment'>Increment</label>
+        <input type='text' id='node-input-ls_increment' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_namespace'>Namespace</label>
+        <input type='text' id='node-input-ls_namespace' placeholder='logstash'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_port'>Port</label>
+        <input type='number' id='node-input-ls_port' placeholder='8125'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_sample_rate'>Sample rate</label>
+        <input type='number' id='node-input-ls_sample_rate' placeholder='1'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_sender'>Sender</label>
+        <input type='text' id='node-input-ls_sender' placeholder='%{host}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_set'>Set</label>
+        <input type='text' id='node-input-ls_set' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_timing'>Timing</label>
+        <input type='text' id='node-input-ls_timing' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-statsd">
+    <p>A Logstash output node for statsd</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-statsd.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-statsd',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_codec: {value:"plain", required: false},ls_count: {value:"", required: false},ls_decrement: {value:"", required: false},ls_gauge: {value:"", required: false},ls_host: {value:"", required: false},ls_increment: {value:"", required: false},ls_namespace: {value:"", required: false},ls_port: {value:"", required: false},ls_sample_rate: {value:"", required: false},ls_sender: {value:"", required: false},ls_set: {value:"", required: false},ls_timing: {value:"", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "statsd",
+        label: function() {
+            return this.name || "LS statsd";
+        }
+    });
+</script>

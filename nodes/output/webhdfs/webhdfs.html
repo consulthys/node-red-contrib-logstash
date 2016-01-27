@@ -1,0 +1,119 @@
+
+<script type="text/x-red" data-template-name="ls-out-webhdfs">
+    <div class='form-row'>
+        <label for='node-input-ls_host'>Host</label>
+        <input type='text' id='node-input-ls_host' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_path'>Path</label>
+        <input type='text' id='node-input-ls_path' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_user'>User</label>
+        <input type='text' id='node-input-ls_user' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_compression'>Compression</label>
+        <select id='node-input-ls_compression'>
+            <option value="none" selected="selected">none</option><option value="snappy">snappy</option><option value="gzip">gzip</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_flush_size'>Flush size</label>
+        <input type='number' id='node-input-ls_flush_size' placeholder='500'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_idle_flush_time'>Idle flush time</label>
+        <input type='number' id='node-input-ls_idle_flush_time' placeholder='1'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_message_format'>Message format</label>
+        <input type='text' id='node-input-ls_message_format' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_open_timeout'>Open timeout</label>
+        <input type='number' id='node-input-ls_open_timeout' placeholder='30'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_port'>Port</label>
+        <input type='number' id='node-input-ls_port' placeholder='50070'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_read_timeout'>Read timeout</label>
+        <input type='number' id='node-input-ls_read_timeout' placeholder='30'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_retry_interval'>Retry interval</label>
+        <input type='number' id='node-input-ls_retry_interval' placeholder='0.5'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_retry_known_errors'>Retry known errors</label>
+        <select id='node-input-ls_retry_known_errors'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_retry_times'>Retry times</label>
+        <input type='number' id='node-input-ls_retry_times' placeholder='5'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_snappy_bufsize'>Snappy bufsize</label>
+        <input type='number' id='node-input-ls_snappy_bufsize' placeholder='32768'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_snappy_format'>Snappy format</label>
+        <select id='node-input-ls_snappy_format'>
+            <option value="stream" selected="selected">stream</option><option value="file">file</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_use_httpfs'>Use httpfs</label>
+        <select id='node-input-ls_use_httpfs'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-webhdfs">
+    <p>A Logstash output node for webhdfs</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-webhdfs.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-webhdfs',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_host: {value:"", required: true},ls_path: {value:"", required: true},ls_user: {value:"", required: true},ls_codec: {value:"plain", required: false},ls_compression: {value:"none", required: false},ls_flush_size: {value:"", required: false},ls_idle_flush_time: {value:"", required: false},ls_message_format: {value:"", required: false},ls_open_timeout: {value:"", required: false},ls_port: {value:"", required: false},ls_read_timeout: {value:"", required: false},ls_retry_interval: {value:"", required: false},ls_retry_known_errors: {value:"true", required: false},ls_retry_times: {value:"", required: false},ls_snappy_bufsize: {value:"", required: false},ls_snappy_format: {value:"stream", required: false},ls_use_httpfs: {value:"false", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "webhdfs",
+        label: function() {
+            return this.name || "LS webhdfs";
+        }
+    });
+</script>

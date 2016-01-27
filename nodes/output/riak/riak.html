@@ -1,0 +1,89 @@
+
+<script type="text/x-red" data-template-name="ls-out-riak">
+    <div class='form-row'>
+        <label for='node-input-ls_bucket'>Bucket</label>
+        <input type='text' id='node-input-ls_bucket' placeholder='["logstash-%{+YYYY.MM.dd}"]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_bucket_props'>Bucket props</label>
+        <input type='text' id='node-input-ls_bucket_props' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_enable_search'>Enable search</label>
+        <select id='node-input-ls_enable_search'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_enable_ssl'>Enable ssl</label>
+        <select id='node-input-ls_enable_ssl'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_indices'>Indices</label>
+        <input type='text' id='node-input-ls_indices' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_key_name'>Key name</label>
+        <input type='text' id='node-input-ls_key_name' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_nodes'>Nodes</label>
+        <input type='text' id='node-input-ls_nodes' placeholder='{"localhost" =>  "8098"}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_proto'>Proto</label>
+        <select id='node-input-ls_proto'>
+            <option value="http" selected="selected">http</option><option value="pb">pb</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_opts'>Ssl opts</label>
+        <input type='text' id='node-input-ls_ssl_opts' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-riak">
+    <p>A Logstash output node for riak</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-riak.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-riak',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_bucket: {value:"", required: false},ls_bucket_props: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_enable_search: {value:"false", required: false},ls_enable_ssl: {value:"false", required: false},ls_indices: {value:"", required: false},ls_key_name: {value:"", required: false},ls_nodes: {value:"", required: false},ls_proto: {value:"http", required: false},ls_ssl_opts: {value:"", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "riak",
+        label: function() {
+            return this.name || "LS riak";
+        }
+    });
+</script>

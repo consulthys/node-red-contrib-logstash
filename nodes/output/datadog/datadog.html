@@ -1,0 +1,83 @@
+
+<script type="text/x-red" data-template-name="ls-out-datadog">
+    <div class='form-row'>
+        <label for='node-input-ls_api_key'>Api key</label>
+        <input type='text' id='node-input-ls_api_key' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_alert_type'>Alert type</label>
+        <select id='node-input-ls_alert_type'>
+            <option value="info">info</option><option value="error">error</option><option value="warning">warning</option><option value="success">success</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_date_happened'>Date happened</label>
+        <input type='text' id='node-input-ls_date_happened' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_dd_tags'>Dd tags</label>
+        <input type='text' id='node-input-ls_dd_tags' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_priority'>Priority</label>
+        <select id='node-input-ls_priority'>
+            <option value="normal">normal</option><option value="low">low</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_source_type_name'>Source type name</label>
+        <select id='node-input-ls_source_type_name'>
+            <option value="nagios">nagios</option><option value="hudson">hudson</option><option value="jenkins">jenkins</option><option value="user">user</option><option value="my apps" selected="selected">my apps</option><option value="feed">feed</option><option value="chef">chef</option><option value="puppet">puppet</option><option value="git">git</option><option value="bitbucket">bitbucket</option><option value="fabric">fabric</option><option value="capistrano">capistrano</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_text'>Text</label>
+        <input type='text' id='node-input-ls_text' placeholder='%{message}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_title'>Title</label>
+        <input type='text' id='node-input-ls_title' placeholder='Logstash event for %{host}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='number' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-datadog">
+    <p>A Logstash output node for datadog</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-datadog.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-datadog',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_api_key: {value:"", required: true},ls_alert_type: {value:"undefined", required: false},ls_codec: {value:"plain", required: false},ls_date_happened: {value:"", required: false},ls_dd_tags: {value:"", required: false},ls_priority: {value:"undefined", required: false},ls_source_type_name: {value:"my apps", required: false},ls_text: {value:"", required: false},ls_title: {value:"", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "datadog",
+        label: function() {
+            return this.name || "LS datadog";
+        }
+    });
+</script>

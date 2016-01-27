@@ -1,0 +1,82 @@
+
+<script type="text/x-red" data-template-name="ls-flt-metrics">
+    <div class='form-row'>
+        <label for='node-input-ls_add_field'>Add field</label>
+        <input type='text' id='node-input-ls_add_field' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_add_tag'>Add tag</label>
+        <input type='text' id='node-input-ls_add_tag' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_clear_interval'>Clear interval</label>
+        <input type='number' id='node-input-ls_clear_interval' placeholder='-1'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_flush_interval'>Flush interval</label>
+        <input type='number' id='node-input-ls_flush_interval' placeholder='5'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ignore_older_than'>Ignore older than</label>
+        <input type='number' id='node-input-ls_ignore_older_than' placeholder='0'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_meter'>Meter</label>
+        <input type='text' id='node-input-ls_meter' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_percentiles'>Percentiles</label>
+        <input type='text' id='node-input-ls_percentiles' placeholder='[1,5,10,90,95,99,100]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_periodic_flush'>Periodic flush</label>
+        <select id='node-input-ls_periodic_flush'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_rates'>Rates</label>
+        <input type='text' id='node-input-ls_rates' placeholder='[1,5,15]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_field'>Remove field</label>
+        <input type='text' id='node-input-ls_remove_field' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_tag'>Remove tag</label>
+        <input type='text' id='node-input-ls_remove_tag' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_timer'>Timer</label>
+        <input type='text' id='node-input-ls_timer' placeholder='{}'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-flt-metrics">
+    <p>A Logstash filter node for metrics</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-filters-metrics.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-flt-metrics',{
+        category: 'Logstash-filter',
+        defaults: {
+            name: {value:""},
+            ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_clear_interval: {value:"", required: false},ls_flush_interval: {value:"", required: false},ls_ignore_older_than: {value:"", required: false},ls_meter: {value:"", required: false},ls_percentiles: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_rates: {value:"", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_timer: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:1,
+        icon: '../icons/filter.png',
+        color: 'white',
+        paletteLabel: "metrics",
+        label: function() {
+            return this.name || "LS metrics";
+        }
+    });
+</script>
