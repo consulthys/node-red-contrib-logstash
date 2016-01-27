@@ -27,9 +27,9 @@ Finally, the Node-RED ecosystem also allows contributors to [share their flows](
 
 To sum up, this project can be seen as some sort of missing Visual IDE for Logstash, which allows you to:
  * **visually model** a full-blown Logstash pipeline by dragging and dropping input/filter/output nodes and wiring them together as Node-RED flows
- * **execute** the Logstash pipeline in real-time inside the Node-RED runtime (in progress)
  * **generate** the equivalent Logstash configuration you'd have written by hand otherwise
  * **share** Logstash pipelines (aka Node-RED flows) with the community
+ * **execute** the Logstash pipeline in real-time inside the Node-RED runtime (in progress)
  * **reverse-engineer** existing Logstash pipelines into Node-RED flows (in progress)
  
 ## Installation
