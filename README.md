@@ -19,6 +19,10 @@ Visual modeling and real-time execution of Logstash pipelines are nice, but ther
 according to your expectations, you can generate and export the corresponding Logstash configuration file in order to 
 use it on the Logstash command-line.
 
+Another neat feature that this project is going to support is the ability to parse any existing Logstash configuration and
+automatically create the corresponding Node-RED flow, which can then be further re-arranged, improved, modified and re-exported.
+**Yes, round-trip Logstash engineering!**
+
 Finally, the Node-RED ecosystem also allows contributors to [share their flows](http://flows.nodered.org) in the open Node-RED library for others to reuse.
 
 To sum up, this project can be seen as some sort of missing Visual IDE for Logstash, which allows you to:
@@ -33,15 +37,13 @@ To sum up, this project can be seen as some sort of missing Visual IDE for Logst
 1. First, follow the steps to [install the Node-RED environment](http://nodered.org/docs/getting-started/installation.html).
 By default, Node-RED installs into your home directory in `.node-red`.
 
-2. `> mkdir ~/.node-red/nodes`
+2. `> cd ~/.node-red`
 
-3. `> cd ~/.node-red/nodes`
+3. Install this package via `npm`: `sudo npm install node-red-contrib-logstash`
 
-4. Install this package via `npm`: `sudo npm install node-red-contrib-logstash`
+4. Fire up Node-RED: `> node-red
 
-5. Fire up Node-RED: `> node-red
-
-6. Open your browser at [http://localhost:1880](http://localhost:1880)
+5. Open your browser at [http://localhost:1880](http://localhost:1880)
 
 ## How to use
 
@@ -88,9 +90,3 @@ output {
 ```
 
 And now the limit is the sky!
-
-## Future features
-
-Another neat feature that this project is going to support is the ability to input a Logstash configuration and
-automatically create the corresponding flow, which can then be further re-arranged and modified.
-Yes, round-trip Logstash engineering!
