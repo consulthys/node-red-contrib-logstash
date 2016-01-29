@@ -134,7 +134,6 @@
             "ls-out-datadog": "nodes/output/datadog/datadog.js",
             "ls-out-datadog_metrics": "nodes/output/datadog_metrics/datadog_metrics.js",
             "ls-out-elasticsearch": "nodes/output/elasticsearch/elasticsearch.js",
-            "ls-out-elasticsearch_http": "nodes/output/elasticsearch_http/elasticsearch_http.js",
             "ls-out-elasticsearch_java": "nodes/output/elasticsearch_java/elasticsearch_java.js",
             "ls-out-email": "nodes/output/email/email.js",
             "ls-out-example": "nodes/output/example/example.js",

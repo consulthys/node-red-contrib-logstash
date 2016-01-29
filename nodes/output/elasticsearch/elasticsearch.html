@@ -18,12 +18,58 @@
         </select>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_doc_as_upsert'>Doc as upsert</label>
+        <select id='node-input-ls_doc_as_upsert'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_document_id'>Document id</label>
+        <input type='text' id='node-input-ls_document_id' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_document_type'>Document type</label>
+        <input type='text' id='node-input-ls_document_type' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_flush_size'>Flush size</label>
+        <input type='number' id='node-input-ls_flush_size' placeholder='500'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_hosts'>Hosts</label>
+        <input type='text' id='node-input-ls_hosts' placeholder='["127.0.0.1"]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_idle_flush_time'>Idle flush time</label>
+        <input type='number' id='node-input-ls_idle_flush_time' placeholder='1'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_index'>Index</label>
+        <input type='text' id='node-input-ls_index' placeholder='logstash-%{+YYYY.MM.dd}'>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_keystore'>Keystore</label>
         <input type='text' id='node-input-ls_keystore' placeholder=''>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_keystore_password'>Keystore password</label>
         <input type='text' id='node-input-ls_keystore_password' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_manage_template'>Manage template</label>
+        <select id='node-input-ls_manage_template'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_max_retries'>Max retries</label>
+        <input type='number' id='node-input-ls_max_retries' placeholder='3'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_parent'>Parent</label>
+        <input type='text' id='node-input-ls_parent' placeholder='nil'>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_password'>Password</label>
@@ -36,6 +82,39 @@
     <div class='form-row'>
         <label for='node-input-ls_proxy'>Proxy</label>
         <input type='text' id='node-input-ls_proxy' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_retry_max_interval'>Retry max interval</label>
+        <input type='number' id='node-input-ls_retry_max_interval' placeholder='2'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_routing'>Routing</label>
+        <input type='text' id='node-input-ls_routing' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_script'>Script</label>
+        <input type='text' id='node-input-ls_script' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_script_lang'>Script lang</label>
+        <input type='text' id='node-input-ls_script_lang' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_script_type'>Script type</label>
+        <select id='node-input-ls_script_type'>
+            <option value="inline">inline</option><option value="indexed">indexed</option><option value="file">file</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_script_var_name'>Script var name</label>
+        <input type='text' id='node-input-ls_script_var_name' placeholder='event'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_scripted_upsert'>Scripted upsert</label>
+        <select id='node-input-ls_scripted_upsert'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_sniffing'>Sniffing</label>
@@ -63,6 +142,21 @@
         </select>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_template'>Template</label>
+        <input type='text' id='node-input-ls_template' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_template_name'>Template name</label>
+        <input type='text' id='node-input-ls_template_name' placeholder='logstash'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_template_overwrite'>Template overwrite</label>
+        <select id='node-input-ls_template_overwrite'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_timeout'>Timeout</label>
         <input type='number' id='node-input-ls_timeout' placeholder=''>
     </div>
@@ -73,6 +167,10 @@
     <div class='form-row'>
         <label for='node-input-ls_truststore_password'>Truststore password</label>
         <input type='text' id='node-input-ls_truststore_password' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_upsert'>Upsert</label>
+        <input type='text' id='node-input-ls_upsert' placeholder=''>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_user'>User</label>
@@ -99,7 +197,7 @@
         category: 'Logstash-output',
         defaults: {
             name: {value:""},
-            ls_action: {value:"", required: false},ls_cacert: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_keystore: {value:"", required: false},ls_keystore_password: {value:"", required: false},ls_password: {value:"", required: false},ls_path: {value:"", required: false},ls_proxy: {value:"", required: false},ls_sniffing: {value:"false", required: false},ls_sniffing_delay: {value:"", required: false},ls_ssl: {value:"false", required: false},ls_ssl_certificate_verification: {value:"true", required: false},ls_timeout: {value:"", required: false},ls_truststore: {value:"", required: false},ls_truststore_password: {value:"", required: false},ls_user: {value:"", required: false},ls_workers: {value:"", required: false}
+            ls_action: {value:"", required: false},ls_cacert: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_doc_as_upsert: {value:"false", required: false},ls_document_id: {value:"", required: false},ls_document_type: {value:"", required: false},ls_flush_size: {value:"", required: false},ls_hosts: {value:"", required: false},ls_idle_flush_time: {value:"", required: false},ls_index: {value:"", required: false},ls_keystore: {value:"", required: false},ls_keystore_password: {value:"", required: false},ls_manage_template: {value:"true", required: false},ls_max_retries: {value:"", required: false},ls_parent: {value:"", required: false},ls_password: {value:"", required: false},ls_path: {value:"", required: false},ls_proxy: {value:"", required: false},ls_retry_max_interval: {value:"", required: false},ls_routing: {value:"", required: false},ls_script: {value:"", required: false},ls_script_lang: {value:"", required: false},ls_script_type: {value:"inline", required: false},ls_script_var_name: {value:"", required: false},ls_scripted_upsert: {value:"false", required: false},ls_sniffing: {value:"false", required: false},ls_sniffing_delay: {value:"", required: false},ls_ssl: {value:"false", required: false},ls_ssl_certificate_verification: {value:"true", required: false},ls_template: {value:"", required: false},ls_template_name: {value:"", required: false},ls_template_overwrite: {value:"false", required: false},ls_timeout: {value:"", required: false},ls_truststore: {value:"", required: false},ls_truststore_password: {value:"", required: false},ls_upsert: {value:"", required: false},ls_user: {value:"", required: false},ls_workers: {value:"", required: false}
         },
         inputs:1,
         outputs:0,

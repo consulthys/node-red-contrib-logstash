@@ -73,6 +73,8 @@ function generate(err, flow) {
             for (var prop in node) {
                 if (/^ls_/.test(prop) && node[prop]) {
                     component[prop.substring(3)] = node[prop];
+                } else if (prop === "name") {
+                    component._comment = node[prop];
                 }
             }
             components[type[1]].elements[node.id] = component;
@@ -102,19 +104,25 @@ function generate(err, flow) {
         console.log("%s {", section.name);
         for (var elemId in section.elements) {
             var element = section.elements[elemId];
+            var indent = "";
             if (element._rule) {
                 console.log("  if %s {", element._rule);
+                indent = "  ";
             }
-            console.log("    %s {", element._name);
+            if (element._comment) {
+                console.log("  # " + element._comment);
+            }
+            console.log(indent + "  %s {", element._name);
             for (var prop in element) {
                 if (!/^_/.test(prop) && element[prop]) {
-                    console.log("      %s => \"%s\"", prop, element[prop]);
+                    if (/^\[/.test(element[prop])) {
+                        console.log("      %s => %s", prop, element[prop]);
+                    } else {
+                        console.log("      %s => \"%s\"", prop, element[prop]);
+                    }
                 }
             }
-            if (element._rule) {
-                console.log("    }");
-            }
-            console.log("  }");
+            console.log(indent + "  }");
         }
         console.log("}");
     });

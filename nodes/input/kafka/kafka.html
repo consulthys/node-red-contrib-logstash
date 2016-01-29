@@ -5,6 +5,10 @@
         <input type='text' id='node-input-ls_add_field' placeholder='{}'>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_auto_commit_interval_ms'>Auto commit interval ms</label>
+        <input type='number' id='node-input-ls_auto_commit_interval_ms' placeholder='1000'>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_auto_offset_reset'>Auto offset reset</label>
         <input type='text' id='node-input-ls_auto_offset_reset' placeholder='largest'>
     </div>
@@ -123,7 +127,7 @@
         category: 'Logstash-input',
         defaults: {
             name: {value:""},
-            ls_add_field: {value:"", required: false},ls_auto_offset_reset: {value:"", required: false},ls_black_list: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_consumer_id: {value:"", required: false},ls_consumer_restart_on_error: {value:"true", required: false},ls_consumer_restart_sleep_ms: {value:"", required: false},ls_consumer_threads: {value:"", required: false},ls_consumer_timeout_ms: {value:"", required: false},ls_decoder_class: {value:"", required: false},ls_decorate_events: {value:"false", required: false},ls_fetch_message_max_bytes: {value:"", required: false},ls_group_id: {value:"", required: false},ls_key_decoder_class: {value:"", required: false},ls_queue_size: {value:"", required: false},ls_rebalance_backoff_ms: {value:"", required: false},ls_rebalance_max_retries: {value:"", required: false},ls_reset_beginning: {value:"false", required: false},ls_tags: {value:"", required: false},ls_topic_id: {value:"", required: false},ls_type: {value:"", required: false},ls_white_list: {value:"", required: false},ls_zk_connect: {value:"", required: false}
+            ls_add_field: {value:"", required: false},ls_auto_commit_interval_ms: {value:"", required: false},ls_auto_offset_reset: {value:"", required: false},ls_black_list: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_consumer_id: {value:"", required: false},ls_consumer_restart_on_error: {value:"true", required: false},ls_consumer_restart_sleep_ms: {value:"", required: false},ls_consumer_threads: {value:"", required: false},ls_consumer_timeout_ms: {value:"", required: false},ls_decoder_class: {value:"", required: false},ls_decorate_events: {value:"false", required: false},ls_fetch_message_max_bytes: {value:"", required: false},ls_group_id: {value:"", required: false},ls_key_decoder_class: {value:"", required: false},ls_queue_size: {value:"", required: false},ls_rebalance_backoff_ms: {value:"", required: false},ls_rebalance_max_retries: {value:"", required: false},ls_reset_beginning: {value:"false", required: false},ls_tags: {value:"", required: false},ls_topic_id: {value:"", required: false},ls_type: {value:"", required: false},ls_white_list: {value:"", required: false},ls_zk_connect: {value:"", required: false}
         },
         inputs:0,
         outputs:1,

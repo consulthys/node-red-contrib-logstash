@@ -21,26 +21,41 @@ var packJsonFile = "./package.json";
 var supported = "input,output,filter";
 var counts = {supported: 0, ignored: 0, input: 0, output: 0, filter: 0};
 
+var paramsToFetch = [
+    {
+        types: ["input", "filter", "output"],
+        prefix: "",
+        url: "https://raw.githubusercontent.com/elastic/logstash/master/logstash-core/lib/logstash/%ss/base.rb"
+    },
+    {
+        types: ["output-elasticsearch"],
+        prefix: "mod.",
+        url: "https://raw.githubusercontent.com/logstash-plugins/logstash-%s/master/lib/logstash/outputs/elasticsearch/common_configs.rb"
+    }
+];
 var baseParams = {};
+var prefetchCount = paramsToFetch.map(function(spec) {return spec.types.length}).reduce(function(a,b){return a+b;});
 
 // parse base parameters first
-["input", "filter", "output"].forEach(function(type) {
-    var fileUrl = util.format("https://raw.githubusercontent.com/elastic/logstash/master/logstash-core/lib/logstash/%ss/base.rb", type);
-    https.get(fileUrl, function(response) {
-        var data = [];
-        response.on('data', function (chunk) { data.push(chunk); });
-        response.on('close', function (error) {});
-        response.on('end', function() {
-            baseParams[type] = parseRubySource(data.join(""), true);
+paramsToFetch.forEach(function(paramSpec) {
+    paramSpec.types.forEach(function(type) {
+        var fileUrl = util.format(paramSpec.url, type);
+        https.get(fileUrl, function(response) {
+            var data = [];
+            response.on('data', function (chunk) { data.push(chunk); });
+            response.on('close', function (error) {});
+            response.on('end', function() {
+                baseParams[type] = parseRubySource(data.join(""), paramSpec.prefix, true);
 
-            if (Object.keys(baseParams).length === 3) {
-                emitter.emit("base-params-fetched");
-            }
+                if (Object.keys(baseParams).length === prefetchCount) {
+                    emitter.emit("base-params-fetched");
+                }
+            });
         });
     });
 });
 
-function parseRubySource(content, isBase) {
+function parseRubySource(content, prefix, isBase) {
     var params = [];
     var lines = content.split("\n");
     var comments = [];
@@ -50,7 +65,7 @@ function parseRubySource(content, isBase) {
             comments.push(trimmed.substring(2));
         }
         if (trimmed.length === 0) comments = [];
-        if (trimmed.indexOf("config ") === 0) {
+        if (trimmed.indexOf(prefix + "config ") === 0) {
             var param = {
                 comments: comments.join("\n"),
                 base: isBase
@@ -58,7 +73,7 @@ function parseRubySource(content, isBase) {
             var isObsolete = false;
             trimmed.replace(/,\s+:/g, ";").split(";").forEach(function(cell, i){
                 if (i === 0) {
-                    param.name = cell.replace("config :", "").trim();
+                    param.name = cell.replace(prefix + "config :", "").trim();
                 } else {
                     cell = cell.trim().replace(/:/g, "").replace(/\s+=>\s+/, ":").split(":");
                     isObsolete = isObsolete || (cell[0] === "obsolete");
@@ -94,7 +109,7 @@ emitter.on("base-params-fetched", function() {
                 url: fileUrl,
                 name: componentName,
                 type: componentType,
-                params: baseParams[componentType]
+                params: baseParams[componentType].concat(baseParams[componentType+"-"+componentName] || [])
             };
             emitter.emit("new-component", component);
         }
@@ -120,7 +135,7 @@ emitter.on("new-component", function(component) {
 
 // Parse the raw source to extract config values
 emitter.on("content-fetched", function(component, content) {
-    component.params = component.params.concat(parseRubySource(content, false));
+    component.params = component.params.concat(parseRubySource(content, "", false));
     emitter.emit("component-parsed", component);
 });
 
@@ -229,7 +244,11 @@ emitter.on("generate-component", function(component) {
     variables.jsFields = component.params.map(function(param, index, array) {
         if (param.deprecated) return "";
         var comma = (index === array.length - 1) ? "" : ",";
-        var deflt = (param.validate instanceof Array || param.validate === "boolean" || param.validate === "codec") ? param['default'] : "";
+        var validateIsArray = (param.validate instanceof Array);
+        var deflt = (validateIsArray || param.validate === "boolean" || param.validate === "codec") ? param['default'] : "";
+        if (validateIsArray && typeof deflt === "string" && deflt !== "[]") {
+            deflt = deflt.replace(/\[\"/,"").replace(/\"\]/,"");
+        }
         return util.format('ls_%s: {value:"%s", required: %s}%s', param.name, deflt, (param.required === true), comma);
     }).join("");
 
