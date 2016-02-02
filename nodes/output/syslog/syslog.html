@@ -44,7 +44,7 @@
     <div class='form-row'>
         <label for='node-input-ls_protocol'>Protocol</label>
         <select id='node-input-ls_protocol'>
-            <option value="tcp">tcp</option><option value="udp" selected="selected">udp</option>
+            <option value="tcp">tcp</option><option value="udp" selected="selected">udp</option><option value="ssl-tcp">ssl-tcp</option>
         </select>
     </div>
     <div class='form-row'>
@@ -64,6 +64,29 @@
     <div class='form-row'>
         <label for='node-input-ls_sourcehost'>Sourcehost</label>
         <input type='text' id='node-input-ls_sourcehost' placeholder='%{host}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_cacert'>Ssl cacert</label>
+        <input type='text' id='node-input-ls_ssl_cacert' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_cert'>Ssl cert</label>
+        <input type='text' id='node-input-ls_ssl_cert' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_key'>Ssl key</label>
+        <input type='text' id='node-input-ls_ssl_key' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_key_passphrase'>Ssl key passphrase</label>
+        <input type='text' id='node-input-ls_ssl_key_passphrase' placeholder='nil'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_verify'>Ssl verify</label>
+        <select id='node-input-ls_ssl_verify'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_use_labels'>Use labels</label>
@@ -93,7 +116,7 @@
         category: 'Logstash-output',
         defaults: {
             name: {value:""},
-            ls_host: {value:"", required: true},ls_port: {value:"", required: true},ls_appname: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_facility: {value:"", required: false},ls_message: {value:"", required: false},ls_msgid: {value:"", required: false},ls_priority: {value:"", required: false},ls_procid: {value:"", required: false},ls_protocol: {value:"udp", required: false},ls_reconnect_interval: {value:"", required: false},ls_rfc: {value:"rfc3164", required: false},ls_severity: {value:"", required: false},ls_sourcehost: {value:"", required: false},ls_use_labels: {value:"true", required: false},ls_workers: {value:"", required: false}
+            ls_host: {value:"", required: true},ls_port: {value:"", required: true},ls_appname: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_facility: {value:"", required: false},ls_message: {value:"", required: false},ls_msgid: {value:"", required: false},ls_priority: {value:"", required: false},ls_procid: {value:"", required: false},ls_protocol: {value:"udp", required: false},ls_reconnect_interval: {value:"", required: false},ls_rfc: {value:"rfc3164", required: false},ls_severity: {value:"", required: false},ls_sourcehost: {value:"", required: false},ls_ssl_cacert: {value:"", required: false},ls_ssl_cert: {value:"", required: false},ls_ssl_key: {value:"", required: false},ls_ssl_key_passphrase: {value:"", required: false},ls_ssl_verify: {value:"false", required: false},ls_use_labels: {value:"true", required: false},ls_workers: {value:"", required: false}
         },
         inputs:1,
         outputs:0,
