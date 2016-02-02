@@ -1,7 +1,6 @@
 var util = require("util");
 var http = require('http');
-
-//var flowId = "508f8fd4.af707";
+var fs = require('fs');
 
 var flowId = null;
 var confName = null;
@@ -54,7 +53,7 @@ function getFlow(flowId, callback) {
 }
 
 function generate(err, flow) {
-    var file_name = confName || (flow.label.toLowerCase() + ".conf");
+    var outFileName = confName || (flow.label.toLowerCase() + ".conf");
 
     // parse flow
     var components = {
@@ -99,31 +98,35 @@ function generate(err, flow) {
         }
     });
 
+    var lines = [];
     ["in", "flt", "out"].forEach(function(sectionId) {
         var section = components[sectionId];
-        console.log("%s {", section.name);
+        lines.push(util.format("%s {", section.name));
         for (var elemId in section.elements) {
             var element = section.elements[elemId];
             var indent = "";
             if (element._rule) {
-                console.log("  if %s {", element._rule);
+                lines.push(util.format("  if %s {", element._rule));
                 indent = "  ";
             }
             if (element._comment) {
-                console.log("  # " + element._comment);
+                lines.push(util.format("  # " + element._comment));
             }
-            console.log(indent + "  %s {", element._name);
+            lines.push(util.format(indent + "  %s {", element._name));
             for (var prop in element) {
                 if (!/^_/.test(prop) && element[prop]) {
                     if (/^\[/.test(element[prop])) {
-                        console.log("      %s => %s", prop, element[prop]);
+                        lines.push(util.format("      %s => %s", prop, element[prop]));
                     } else {
-                        console.log("      %s => \"%s\"", prop, element[prop]);
+                        lines.push(util.format("      %s => \"%s\"", prop, element[prop]));
                     }
                 }
             }
-            console.log(indent + "  }");
+            lines.push(util.format(indent + "  }"));
         }
-        console.log("}");
+        lines.push(util.format("}"));
     });
+
+    fs.writeFileSync(outFileName, lines.join("\n"));
+
 }
