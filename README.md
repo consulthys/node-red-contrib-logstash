@@ -122,4 +122,5 @@ And now the limit is the sky!
 
 # Future
 
-The ultimate objective of this project is to migrate this visual Logstash editor environment as a Kibana plugin.
+The ultimate objective of this project is to migrate this visual Logstash editor environment as a
+[Kibana plugin](https://www.elastic.co/guide/en/kibana/current/kibana-plugins.html#plugin-switcher).
