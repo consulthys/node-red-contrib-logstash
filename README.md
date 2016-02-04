@@ -4,15 +4,15 @@ This project aims at providing a set of [Node-RED](http://nodered.org) nodes for
 
 ## Context
 
-The [Node-RED project](http://nodered.org) provides a nice visual tool for wiring the Internet of Things. 
+The [Node-RED project](http://nodered.org) provides a nice browser-based visual editor for wiring the Internet of Things.
 
-We started from the assumption that if you can wire IoT devices, you can wire anything. So, the initial idea 
-of this project is to use the excellent environment offered by the Node-RED platform in order to visually model
+This project makes the assumption that if you can wire IoT devices, you can wire anything. So, the initial idea
+is to use the excellent environment offered by the Node-RED platform in order to visually model
 Logstash pipelines as Node-RED flows. This project thus aims at providing all Logstash components (i.e. [inputs](https://www.elastic.co/guide/en/logstash/current/input-plugins.html), [outputs](https://www.elastic.co/guide/en/logstash/current/output-plugins.html) and [filters](https://www.elastic.co/guide/en/logstash/current/filter-plugins.html)) 
-in the form of additional Node-RED nodes that anyone can easily assemble into her own Logstash pipeline instead of 
+in the form of additional Node-RED nodes that anyone can then easily assemble into her own Logstash pipeline instead of
 having to [write the configuration file manually](https://www.elastic.co/guide/en/logstash/current/configuration.html).
 
-Using these nodes, one will not only be empowered to model her Logstash pipelines in a neat visual environment, but 
+Using these new nodes and existing ones, one will not only be empowered to model her Logstash pipelines in a neat visual environment, but
 such pipelines can also be executed inside the Node-RED runtime.
 
 Visual modeling and real-time execution of Logstash pipelines are nice, but there's more. Once the pipeline executes
@@ -23,19 +23,20 @@ Another neat feature that this project is going to support is the ability to par
 automatically create the corresponding Node-RED flow, which can then be further re-arranged, improved, modified and re-exported.
 **Yes, round-trip Logstash engineering!**
 
-Finally, the Node-RED ecosystem also allows contributors to [share their flows](http://flows.nodered.org) in the open Node-RED library for others to reuse.
+Finally, since the Node-RED ecosystem also allows contributors to [share their flows](http://flows.nodered.org) in the open Node-RED
+library for others to reuse, this basically opens the door to sharing your Logstash pipelines with others.
 
 To sum up, this project can be seen as some sort of missing Visual IDE for Logstash, which allows you to:
  * **visually model** a full-blown Logstash pipeline by dragging and dropping input/filter/output nodes and wiring them together as Node-RED flows
  * **generate** the equivalent Logstash configuration you'd have written by hand otherwise
- * **share** Logstash pipelines (aka Node-RED flows) with the community
+ * **share** Logstash pipelines (aka Node-RED flows) with the community and your peers
  * **execute** the Logstash pipeline in real-time inside the Node-RED runtime (in progress)
  * **reverse-engineer** existing Logstash pipelines into Node-RED flows (in progress)
  
 ## Installation
 
 1. First, follow the steps to [install the Node-RED environment](http://nodered.org/docs/getting-started/installation.html).
-By default, Node-RED installs into your home directory in `.node-red`.
+By default, Node-RED gets installed into your home directory in `.node-red`.
 
 2. `> cd ~/.node-red`
 
@@ -49,7 +50,7 @@ By default, Node-RED installs into your home directory in `.node-red`.
 
 ### 1. Drag & drop
 
-Once Node-RED is started, you'll find all the Logstash nodes in the left sidebar.
+Once Node-RED is started, you'll find all the Logstash nodes in the left sidebar, called the palette.
 
 ![Logstash nodes](resources/images/palette.png)
 
@@ -118,3 +119,7 @@ output {
 ```
 
 And now the limit is the sky!
+
+# Future
+
+The ultimate objective of this project is to migrate this visual Logstash editor environment as a Kibana plugin.
