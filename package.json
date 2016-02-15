@@ -76,6 +76,7 @@
             "ls-flt-xml": "nodes/filter/xml/xml.js",
             "ls-flt-zeromq": "nodes/filter/zeromq/zeromq.js",
             "ls-in-beats": "nodes/input/beats/beats.js",
+            "ls-in-cloudwatch": "nodes/input/cloudwatch/cloudwatch.js",
             "ls-in-couchdb_changes": "nodes/input/couchdb_changes/couchdb_changes.js",
             "ls-in-drupal_dblog": "nodes/input/drupal_dblog/drupal_dblog.js",
             "ls-in-elasticsearch": "nodes/input/elasticsearch/elasticsearch.js",
