@@ -37,10 +37,6 @@
         <input type='number' id='node-input-ls_idle_flush_time' placeholder='1'>
     </div>
     <div class='form-row'>
-        <label for='node-input-ls_message_format'>Message format</label>
-        <input type='text' id='node-input-ls_message_format' placeholder=''>
-    </div>
-    <div class='form-row'>
         <label for='node-input-ls_open_timeout'>Open timeout</label>
         <input type='number' id='node-input-ls_open_timeout' placeholder='30'>
     </div>
@@ -66,6 +62,13 @@
     <div class='form-row'>
         <label for='node-input-ls_retry_times'>Retry times</label>
         <input type='number' id='node-input-ls_retry_times' placeholder='5'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_single_file_per_thread'>Single file per thread</label>
+        <select id='node-input-ls_single_file_per_thread'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_snappy_bufsize'>Snappy bufsize</label>
@@ -105,7 +108,7 @@
         category: 'Logstash-output',
         defaults: {
             name: {value:""},
-            ls_host: {value:"", required: true},ls_path: {value:"", required: true},ls_user: {value:"", required: true},ls_codec: {value:"plain", required: false},ls_compression: {value:"none", required: false},ls_flush_size: {value:"", required: false},ls_idle_flush_time: {value:"", required: false},ls_message_format: {value:"", required: false},ls_open_timeout: {value:"", required: false},ls_port: {value:"", required: false},ls_read_timeout: {value:"", required: false},ls_retry_interval: {value:"", required: false},ls_retry_known_errors: {value:"true", required: false},ls_retry_times: {value:"", required: false},ls_snappy_bufsize: {value:"", required: false},ls_snappy_format: {value:"stream", required: false},ls_use_httpfs: {value:"false", required: false},ls_workers: {value:"", required: false}
+            ls_host: {value:"", required: true},ls_path: {value:"", required: true},ls_user: {value:"", required: true},ls_codec: {value:"plain", required: false},ls_compression: {value:"none", required: false},ls_flush_size: {value:"", required: false},ls_idle_flush_time: {value:"", required: false},ls_open_timeout: {value:"", required: false},ls_port: {value:"", required: false},ls_read_timeout: {value:"", required: false},ls_retry_interval: {value:"", required: false},ls_retry_known_errors: {value:"true", required: false},ls_retry_times: {value:"", required: false},ls_single_file_per_thread: {value:"false", required: false},ls_snappy_bufsize: {value:"", required: false},ls_snappy_format: {value:"stream", required: false},ls_use_httpfs: {value:"false", required: false},ls_workers: {value:"", required: false}
         },
         inputs:1,
         outputs:0,
