@@ -9,14 +9,6 @@
         <input type='text' id='node-input-ls_host' placeholder=''>
     </div>
     <div class='form-row'>
-        <label for='node-input-ls_password'>Password</label>
-        <input type='text' id='node-input-ls_password' placeholder='nil'>
-    </div>
-    <div class='form-row'>
-        <label for='node-input-ls_user'>User</label>
-        <input type='text' id='node-input-ls_user' placeholder='nil'>
-    </div>
-    <div class='form-row'>
         <label for='node-input-ls_allow_time_override'>Allow time override</label>
         <select id='node-input-ls_allow_time_override'>
             <option value='true'>true</option>
@@ -39,7 +31,11 @@
     </div>
     <div class='form-row'>
         <label for='node-input-ls_db'>Db</label>
-        <input type='text' id='node-input-ls_db' placeholder='stats'>
+        <input type='text' id='node-input-ls_db' placeholder='statistics'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_exclude_fields'>Exclude fields</label>
+        <input type='text' id='node-input-ls_exclude_fields' placeholder='["@timestamp","@version","sequence","message","type"]'>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_flush_size'>Flush size</label>
@@ -50,18 +46,48 @@
         <input type='number' id='node-input-ls_idle_flush_time' placeholder='1'>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_measurement'>Measurement</label>
+        <input type='text' id='node-input-ls_measurement' placeholder='logstash'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_password'>Password</label>
+        <input type='text' id='node-input-ls_password' placeholder='nil'>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_port'>Port</label>
         <input type='number' id='node-input-ls_port' placeholder='8086'>
     </div>
     <div class='form-row'>
-        <label for='node-input-ls_series'>Series</label>
-        <input type='text' id='node-input-ls_series' placeholder='logstash'>
+        <label for='node-input-ls_retention_policy'>Retention policy</label>
+        <input type='text' id='node-input-ls_retention_policy' placeholder='default'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_send_as_tags'>Send as tags</label>
+        <input type='text' id='node-input-ls_send_as_tags' placeholder='["host"]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl'>Ssl</label>
+        <select id='node-input-ls_ssl'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_time_precision'>Time precision</label>
         <select id='node-input-ls_time_precision'>
-            <option value="m">m</option><option value="s" selected="selected">s</option><option value="u">u</option>
+            <option value="n">n</option><option value="u">u</option><option value="ms" selected="selected">ms</option><option value="s">s</option><option value="m">m</option><option value="h">h</option>
         </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_use_event_fields_for_data_points'>Use event fields for data points</label>
+        <select id='node-input-ls_use_event_fields_for_data_points'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_user'>User</label>
+        <input type='text' id='node-input-ls_user' placeholder='nil'>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_workers'>Workers</label>
@@ -84,7 +110,7 @@
         category: 'Logstash-output',
         defaults: {
             name: {value:""},
-            ls_data_points: {value:"", required: true},ls_host: {value:"", required: true},ls_password: {value:"", required: true},ls_user: {value:"", required: true},ls_allow_time_override: {value:"false", required: false},ls_codec: {value:"plain", required: false},ls_coerce_values: {value:"", required: false},ls_db: {value:"", required: false},ls_flush_size: {value:"", required: false},ls_idle_flush_time: {value:"", required: false},ls_port: {value:"", required: false},ls_series: {value:"", required: false},ls_time_precision: {value:"s", required: false},ls_workers: {value:"", required: false}
+            ls_data_points: {value:"", required: true},ls_host: {value:"", required: true},ls_allow_time_override: {value:"false", required: false},ls_codec: {value:"plain", required: false},ls_coerce_values: {value:"", required: false},ls_db: {value:"", required: false},ls_exclude_fields: {value:"", required: false},ls_flush_size: {value:"", required: false},ls_idle_flush_time: {value:"", required: false},ls_measurement: {value:"", required: false},ls_password: {value:"", required: false},ls_port: {value:"", required: false},ls_retention_policy: {value:"", required: false},ls_send_as_tags: {value:"", required: false},ls_ssl: {value:"false", required: false},ls_time_precision: {value:"ms", required: false},ls_use_event_fields_for_data_points: {value:"false", required: false},ls_user: {value:"", required: false},ls_workers: {value:"", required: false}
         },
         inputs:1,
         outputs:0,

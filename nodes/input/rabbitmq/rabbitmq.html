@@ -48,6 +48,10 @@
         <input type='text' id='node-input-ls_exchange' placeholder=''>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_exchange_type'>Exchange type</label>
+        <input type='text' id='node-input-ls_exchange_type' placeholder=''>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_exclusive'>Exclusive</label>
         <select id='node-input-ls_exclusive'>
             <option value='true'>true</option>
@@ -98,7 +102,7 @@
         category: 'Logstash-input',
         defaults: {
             name: {value:""},
-            ls_subscription_retry_interval_seconds: {value:"", required: true},ls_ack: {value:"true", required: false},ls_add_field: {value:"", required: false},ls_arguments: {value:"", required: false},ls_auto_delete: {value:"false", required: false},ls_codec: {value:"plain", required: false},ls_durable: {value:"false", required: false},ls_exchange: {value:"", required: false},ls_exclusive: {value:"false", required: false},ls_key: {value:"", required: false},ls_passive: {value:"false", required: false},ls_prefetch_count: {value:"", required: false},ls_queue: {value:"", required: false},ls_tags: {value:"", required: false},ls_type: {value:"", required: false}
+            ls_subscription_retry_interval_seconds: {value:"", required: true},ls_ack: {value:"true", required: false},ls_add_field: {value:"", required: false},ls_arguments: {value:"", required: false},ls_auto_delete: {value:"false", required: false},ls_codec: {value:"plain", required: false},ls_durable: {value:"false", required: false},ls_exchange: {value:"", required: false},ls_exchange_type: {value:"", required: false},ls_exclusive: {value:"false", required: false},ls_key: {value:"", required: false},ls_passive: {value:"false", required: false},ls_prefetch_count: {value:"", required: false},ls_queue: {value:"", required: false},ls_tags: {value:"", required: false},ls_type: {value:"", required: false}
         },
         inputs:0,
         outputs:1,

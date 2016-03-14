@@ -28,6 +28,10 @@
         <input type='text' id='node-input-ls_remove_tag' placeholder='[]'>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_tag_on_failure'>Tag on failure</label>
+        <input type='text' id='node-input-ls_tag_on_failure' placeholder='["_jsonparsefailure"]'>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_target'>Target</label>
         <input type='text' id='node-input-ls_target' placeholder=''>
     </div>
@@ -48,7 +52,7 @@
         category: 'Logstash-filter',
         defaults: {
             name: {value:""},
-            ls_source: {value:"", required: true},ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_target: {value:"", required: false}
+            ls_source: {value:"", required: true},ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_tag_on_failure: {value:"", required: false},ls_target: {value:"", required: false}
         },
         inputs:1,
         outputs:1,

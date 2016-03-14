@@ -15,13 +15,6 @@
         <input type='number' id='node-input-ls_batch_size' placeholder='16384'>
     </div>
     <div class='form-row'>
-        <label for='node-input-ls_block_on_buffer_full'>Block on buffer full</label>
-        <select id='node-input-ls_block_on_buffer_full'>
-            <option value='true'>true</option>
-            <option value='false'>false</option>
-        </select>
-    </div>
-    <div class='form-row'>
         <label for='node-input-ls_bootstrap_servers'>Bootstrap servers</label>
         <input type='text' id='node-input-ls_bootstrap_servers' placeholder='localhost9092'>
     </div>
@@ -82,6 +75,10 @@
         <input type='number' id='node-input-ls_reconnect_backoff_ms' placeholder='10'>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_request_timeout_ms'>Request timeout ms</label>
+        <input type='text' id='node-input-ls_request_timeout_ms' placeholder=''>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_retries'>Retries</label>
         <input type='number' id='node-input-ls_retries' placeholder='0'>
     </div>
@@ -94,8 +91,27 @@
         <input type='number' id='node-input-ls_send_buffer_bytes' placeholder='131072'>
     </div>
     <div class='form-row'>
-        <label for='node-input-ls_timeout_ms'>Timeout ms</label>
-        <input type='number' id='node-input-ls_timeout_ms' placeholder='30000'>
+        <label for='node-input-ls_ssl'>Ssl</label>
+        <select id='node-input-ls_ssl'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_keystore_location'>Ssl keystore location</label>
+        <input type='text' id='node-input-ls_ssl_keystore_location' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_keystore_password'>Ssl keystore password</label>
+        <input type='text' id='node-input-ls_ssl_keystore_password' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_truststore_location'>Ssl truststore location</label>
+        <input type='text' id='node-input-ls_ssl_truststore_location' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_truststore_password'>Ssl truststore password</label>
+        <input type='text' id='node-input-ls_ssl_truststore_password' placeholder=''>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_value_serializer'>Value serializer</label>
@@ -122,7 +138,7 @@
         category: 'Logstash-output',
         defaults: {
             name: {value:""},
-            ls_topic_id: {value:"", required: true},ls_acks: {value:"1", required: false},ls_batch_size: {value:"", required: false},ls_block_on_buffer_full: {value:"true", required: false},ls_bootstrap_servers: {value:"", required: false},ls_buffer_memory: {value:"", required: false},ls_client_id: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_compression_type: {value:"none", required: false},ls_key_serializer: {value:"", required: false},ls_linger_ms: {value:"", required: false},ls_max_request_size: {value:"", required: false},ls_message_key: {value:"", required: false},ls_metadata_fetch_timeout_ms: {value:"", required: false},ls_metadata_max_age_ms: {value:"", required: false},ls_receive_buffer_bytes: {value:"", required: false},ls_reconnect_backoff_ms: {value:"", required: false},ls_retries: {value:"", required: false},ls_retry_backoff_ms: {value:"", required: false},ls_send_buffer_bytes: {value:"", required: false},ls_timeout_ms: {value:"", required: false},ls_value_serializer: {value:"", required: false},ls_workers: {value:"", required: false}
+            ls_topic_id: {value:"", required: true},ls_acks: {value:"1", required: false},ls_batch_size: {value:"", required: false},ls_bootstrap_servers: {value:"", required: false},ls_buffer_memory: {value:"", required: false},ls_client_id: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_compression_type: {value:"none", required: false},ls_key_serializer: {value:"", required: false},ls_linger_ms: {value:"", required: false},ls_max_request_size: {value:"", required: false},ls_message_key: {value:"", required: false},ls_metadata_fetch_timeout_ms: {value:"", required: false},ls_metadata_max_age_ms: {value:"", required: false},ls_receive_buffer_bytes: {value:"", required: false},ls_reconnect_backoff_ms: {value:"", required: false},ls_request_timeout_ms: {value:"", required: false},ls_retries: {value:"", required: false},ls_retry_backoff_ms: {value:"", required: false},ls_send_buffer_bytes: {value:"", required: false},ls_ssl: {value:"false", required: false},ls_ssl_keystore_location: {value:"", required: false},ls_ssl_keystore_password: {value:"", required: false},ls_ssl_truststore_location: {value:"", required: false},ls_ssl_truststore_password: {value:"", required: false},ls_value_serializer: {value:"", required: false},ls_workers: {value:"", required: false}
         },
         inputs:1,
         outputs:0,
