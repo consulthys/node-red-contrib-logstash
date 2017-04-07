@@ -2,6 +2,8 @@
 
 This project aims at providing a set of [Node-RED](http://nodered.org) nodes for modeling and executing any Logstash pipelines.
 
+**This project is discontinued, see why [here](https://discuss.elastic.co/t/any-plans-for-a-visual-logstash-pipeline-editor/54574/5)**
+
 ## Context
 
 The [Node-RED project](http://nodered.org) provides a nice browser-based visual editor for wiring the Internet of Things.
