@@ -1,0 +1,53 @@
+
+<script type="text/x-red" data-template-name="ls-in-dynamodb">
+    <div class='form-row'>
+        <label for='node-input-ls_add_field'>Add field</label>
+        <input type='text' id='node-input-ls_add_field' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='multiline'>multiline</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_tags'>Tags</label>
+        <input type='text' id='node-input-ls_tags' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_type'>Type</label>
+        <input type='text' id='node-input-ls_type' placeholder=''>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-in-dynamodb">
+    <p>A Logstash input node for dynamodb</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-dynamodb.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-in-dynamodb',{
+        category: 'Logstash-input',
+        defaults: {
+            name: {value:""},
+            ls_add_field: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_tags: {value:"", required: false},ls_type: {value:"", required: false}
+        },
+        inputs:0,
+        outputs:1,
+        icon: 'arrow-in.png',
+        color: '#87A980',
+        paletteLabel: "dynamodb",
+        label: function() {
+            return this.name || "LS dynamodb";
+        }
+    });
+</script>

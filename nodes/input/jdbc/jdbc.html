@@ -5,6 +5,10 @@
         <input type='text' id='node-input-ls_add_field' placeholder='{}'>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_charset'>Charset</label>
+        <input type='text' id='node-input-ls_charset' placeholder=''>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_clean_run'>Clean run</label>
         <select id='node-input-ls_clean_run'>
             <option value='true'>true</option>
@@ -20,6 +24,10 @@
             <option value='plain'>plain</option>
             <option value='rubydebug'>rubydebug</option>
         </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_columns_charset'>Columns charset</label>
+        <input type='text' id='node-input-ls_columns_charset' placeholder='{}'>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_last_run_metadata_path'>Last run metadata path</label>
@@ -64,6 +72,12 @@
         <input type='text' id='node-input-ls_tracking_column' placeholder=''>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_tracking_column_type'>Tracking column type</label>
+        <select id='node-input-ls_tracking_column_type'>
+            <option value="numeric" selected="selected">numeric</option><option value="timestamp">timestamp</option>
+        </select>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_type'>Type</label>
         <input type='text' id='node-input-ls_type' placeholder=''>
     </div>
@@ -91,7 +105,7 @@
         category: 'Logstash-input',
         defaults: {
             name: {value:""},
-            ls_add_field: {value:"", required: false},ls_clean_run: {value:"false", required: false},ls_codec: {value:"plain", required: false},ls_last_run_metadata_path: {value:"", required: false},ls_lowercase_column_names: {value:"true", required: false},ls_parameters: {value:"", required: false},ls_record_last_run: {value:"true", required: false},ls_schedule: {value:"", required: false},ls_statement: {value:"", required: false},ls_statement_filepath: {value:"", required: false},ls_tags: {value:"", required: false},ls_tracking_column: {value:"", required: false},ls_type: {value:"", required: false},ls_use_column_value: {value:"false", required: false}
+            ls_add_field: {value:"", required: false},ls_charset: {value:"", required: false},ls_clean_run: {value:"false", required: false},ls_codec: {value:"plain", required: false},ls_columns_charset: {value:"", required: false},ls_last_run_metadata_path: {value:"", required: false},ls_lowercase_column_names: {value:"true", required: false},ls_parameters: {value:"", required: false},ls_record_last_run: {value:"true", required: false},ls_schedule: {value:"", required: false},ls_statement: {value:"", required: false},ls_statement_filepath: {value:"", required: false},ls_tags: {value:"", required: false},ls_tracking_column: {value:"", required: false},ls_tracking_column_type: {value:"numeric", required: false},ls_type: {value:"", required: false},ls_use_column_value: {value:"false", required: false}
         },
         inputs:0,
         outputs:1,

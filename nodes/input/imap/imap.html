@@ -42,6 +42,13 @@
         </select>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_expunge'>Expunge</label>
+        <select id='node-input-ls_expunge'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_fetch_count'>Fetch count</label>
         <input type='number' id='node-input-ls_fetch_count' placeholder='50'>
     </div>
@@ -63,6 +70,13 @@
     <div class='form-row'>
         <label for='node-input-ls_secure'>Secure</label>
         <select id='node-input-ls_secure'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_strip_attachments'>Strip attachments</label>
+        <select id='node-input-ls_strip_attachments'>
             <option value='true'>true</option>
             <option value='false'>false</option>
         </select>
@@ -99,7 +113,7 @@
         category: 'Logstash-input',
         defaults: {
             name: {value:""},
-            ls_host: {value:"", required: true},ls_password: {value:"", required: true},ls_user: {value:"", required: true},ls_add_field: {value:"", required: false},ls_check_interval: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_content_type: {value:"", required: false},ls_delete: {value:"false", required: false},ls_fetch_count: {value:"", required: false},ls_folder: {value:"", required: false},ls_lowercase_headers: {value:"true", required: false},ls_port: {value:"", required: false},ls_secure: {value:"true", required: false},ls_tags: {value:"", required: false},ls_type: {value:"", required: false},ls_verify_cert: {value:"true", required: false}
+            ls_host: {value:"", required: true},ls_password: {value:"", required: true},ls_user: {value:"", required: true},ls_add_field: {value:"", required: false},ls_check_interval: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_content_type: {value:"", required: false},ls_delete: {value:"false", required: false},ls_expunge: {value:"false", required: false},ls_fetch_count: {value:"", required: false},ls_folder: {value:"", required: false},ls_lowercase_headers: {value:"true", required: false},ls_port: {value:"", required: false},ls_secure: {value:"true", required: false},ls_strip_attachments: {value:"false", required: false},ls_tags: {value:"", required: false},ls_type: {value:"", required: false},ls_verify_cert: {value:"true", required: false}
         },
         inputs:0,
         outputs:1,

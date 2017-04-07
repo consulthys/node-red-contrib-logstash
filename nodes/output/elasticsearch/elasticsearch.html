@@ -5,6 +5,10 @@
         <input type='text' id='node-input-ls_action' placeholder='index'>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_bulk_path'>Bulk path</label>
+        <input type='text' id='node-input-ls_bulk_path' placeholder=''>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_cacert'>Cacert</label>
         <input type='text' id='node-input-ls_cacert' placeholder=''>
     </div>
@@ -34,12 +38,27 @@
         <input type='text' id='node-input-ls_document_type' placeholder=''>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_failure_type_logging_whitelist'>Failure type logging whitelist</label>
+        <input type='text' id='node-input-ls_failure_type_logging_whitelist' placeholder='[]'>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_flush_size'>Flush size</label>
-        <input type='number' id='node-input-ls_flush_size' placeholder='500'>
+        <input type='number' id='node-input-ls_flush_size' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_healthcheck_path'>Healthcheck path</label>
+        <input type='text' id='node-input-ls_healthcheck_path' placeholder=''>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_hosts'>Hosts</label>
-        <input type='text' id='node-input-ls_hosts' placeholder='["127.0.0.1"]'>
+        <input type='text' id='node-input-ls_hosts' placeholder='[LogStashUtilSafeURI.new("//127.0.0.1")]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_http_compression'>Http compression</label>
+        <select id='node-input-ls_http_compression'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_idle_flush_time'>Idle flush time</label>
@@ -65,8 +84,8 @@
         </select>
     </div>
     <div class='form-row'>
-        <label for='node-input-ls_max_retries'>Max retries</label>
-        <input type='number' id='node-input-ls_max_retries' placeholder='3'>
+        <label for='node-input-ls_parameters'>Parameters</label>
+        <input type='text' id='node-input-ls_parameters' placeholder=''>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_parent'>Parent</label>
@@ -78,15 +97,39 @@
     </div>
     <div class='form-row'>
         <label for='node-input-ls_path'>Path</label>
-        <input type='text' id='node-input-ls_path' placeholder='/'>
+        <input type='text' id='node-input-ls_path' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_pipeline'>Pipeline</label>
+        <input type='text' id='node-input-ls_pipeline' placeholder='nil'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_pool_max'>Pool max</label>
+        <input type='number' id='node-input-ls_pool_max' placeholder='1000'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_pool_max_per_route'>Pool max per route</label>
+        <input type='number' id='node-input-ls_pool_max_per_route' placeholder='100'>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_proxy'>Proxy</label>
         <input type='text' id='node-input-ls_proxy' placeholder=''>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_resurrect_delay'>Resurrect delay</label>
+        <input type='number' id='node-input-ls_resurrect_delay' placeholder='5'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_retry_initial_interval'>Retry initial interval</label>
+        <input type='number' id='node-input-ls_retry_initial_interval' placeholder='2'>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_retry_max_interval'>Retry max interval</label>
-        <input type='number' id='node-input-ls_retry_max_interval' placeholder='2'>
+        <input type='number' id='node-input-ls_retry_max_interval' placeholder='64'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_retry_on_conflict'>Retry on conflict</label>
+        <input type='number' id='node-input-ls_retry_on_conflict' placeholder='1'>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_routing'>Routing</label>
@@ -98,7 +141,7 @@
     </div>
     <div class='form-row'>
         <label for='node-input-ls_script_lang'>Script lang</label>
-        <input type='text' id='node-input-ls_script_lang' placeholder=''>
+        <input type='text' id='node-input-ls_script_lang' placeholder='painless'>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_script_type'>Script type</label>
@@ -127,6 +170,10 @@
     <div class='form-row'>
         <label for='node-input-ls_sniffing_delay'>Sniffing delay</label>
         <input type='number' id='node-input-ls_sniffing_delay' placeholder='5'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_sniffing_path'>Sniffing path</label>
+        <input type='text' id='node-input-ls_sniffing_path' placeholder=''>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_ssl'>Ssl</label>
@@ -159,7 +206,7 @@
     </div>
     <div class='form-row'>
         <label for='node-input-ls_timeout'>Timeout</label>
-        <input type='number' id='node-input-ls_timeout' placeholder=''>
+        <input type='number' id='node-input-ls_timeout' placeholder='60'>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_truststore'>Truststore</label>
@@ -178,8 +225,22 @@
         <input type='text' id='node-input-ls_user' placeholder=''>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_validate_after_inactivity'>Validate after inactivity</label>
+        <input type='number' id='node-input-ls_validate_after_inactivity' placeholder='10000'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_version'>Version</label>
+        <input type='text' id='node-input-ls_version' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_version_type'>Version type</label>
+        <select id='node-input-ls_version_type'>
+            <option value="internal">internal</option><option value="external">external</option><option value="external_gt">external_gt</option><option value="external_gte">external_gte</option><option value="force">force</option>
+        </select>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_workers'>Workers</label>
-        <input type='number' id='node-input-ls_workers' placeholder='1'>
+        <input type='text' id='node-input-ls_workers' placeholder='1'>
     </div>
 
     <div class="form-row">
@@ -198,7 +259,7 @@
         category: 'Logstash-output',
         defaults: {
             name: {value:""},
-            ls_action: {value:"", required: false},ls_cacert: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_doc_as_upsert: {value:"false", required: false},ls_document_id: {value:"", required: false},ls_document_type: {value:"", required: false},ls_flush_size: {value:"", required: false},ls_hosts: {value:"", required: false},ls_idle_flush_time: {value:"", required: false},ls_index: {value:"", required: false},ls_keystore: {value:"", required: false},ls_keystore_password: {value:"", required: false},ls_manage_template: {value:"true", required: false},ls_max_retries: {value:"", required: false},ls_parent: {value:"", required: false},ls_password: {value:"", required: false},ls_path: {value:"", required: false},ls_proxy: {value:"", required: false},ls_retry_max_interval: {value:"", required: false},ls_routing: {value:"", required: false},ls_script: {value:"", required: false},ls_script_lang: {value:"", required: false},ls_script_type: {value:"inline", required: false},ls_script_var_name: {value:"", required: false},ls_scripted_upsert: {value:"false", required: false},ls_sniffing: {value:"false", required: false},ls_sniffing_delay: {value:"", required: false},ls_ssl: {value:"undefined", required: false},ls_ssl_certificate_verification: {value:"true", required: false},ls_template: {value:"", required: false},ls_template_name: {value:"", required: false},ls_template_overwrite: {value:"false", required: false},ls_timeout: {value:"", required: false},ls_truststore: {value:"", required: false},ls_truststore_password: {value:"", required: false},ls_upsert: {value:"", required: false},ls_user: {value:"", required: false},ls_workers: {value:"", required: false}
+            ls_action: {value:"", required: false},ls_bulk_path: {value:"", required: false},ls_cacert: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_doc_as_upsert: {value:"false", required: false},ls_document_id: {value:"", required: false},ls_document_type: {value:"", required: false},ls_failure_type_logging_whitelist: {value:"", required: false},ls_flush_size: {value:"", required: false},ls_healthcheck_path: {value:"", required: false},ls_hosts: {value:"", required: false},ls_http_compression: {value:"false", required: false},ls_idle_flush_time: {value:"", required: false},ls_index: {value:"", required: false},ls_keystore: {value:"", required: false},ls_keystore_password: {value:"", required: false},ls_manage_template: {value:"true", required: false},ls_parameters: {value:"", required: false},ls_parent: {value:"", required: false},ls_password: {value:"", required: false},ls_path: {value:"", required: false},ls_pipeline: {value:"", required: false},ls_pool_max: {value:"", required: false},ls_pool_max_per_route: {value:"", required: false},ls_proxy: {value:"", required: false},ls_resurrect_delay: {value:"", required: false},ls_retry_initial_interval: {value:"", required: false},ls_retry_max_interval: {value:"", required: false},ls_retry_on_conflict: {value:"", required: false},ls_routing: {value:"", required: false},ls_script: {value:"", required: false},ls_script_lang: {value:"", required: false},ls_script_type: {value:"inline", required: false},ls_script_var_name: {value:"", required: false},ls_scripted_upsert: {value:"false", required: false},ls_sniffing: {value:"false", required: false},ls_sniffing_delay: {value:"", required: false},ls_sniffing_path: {value:"", required: false},ls_ssl: {value:"undefined", required: false},ls_ssl_certificate_verification: {value:"true", required: false},ls_template: {value:"", required: false},ls_template_name: {value:"", required: false},ls_template_overwrite: {value:"false", required: false},ls_timeout: {value:"", required: false},ls_truststore: {value:"", required: false},ls_truststore_password: {value:"", required: false},ls_upsert: {value:"", required: false},ls_user: {value:"", required: false},ls_validate_after_inactivity: {value:"", required: false},ls_version: {value:"", required: false},ls_version_type: {value:"undefined", required: false},ls_workers: {value:"", required: false}
         },
         inputs:1,
         outputs:0,

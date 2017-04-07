@@ -13,6 +13,20 @@
         <input type='text' id='node-input-ls_add_tag' placeholder='[]'>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_force_array'>Force array</label>
+        <select id='node-input-ls_force_array'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_force_content'>Force content</label>
+        <select id='node-input-ls_force_content'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_namespaces'>Namespaces</label>
         <input type='text' id='node-input-ls_namespaces' placeholder='{}'>
     </div>
@@ -46,6 +60,13 @@
         </select>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_suppress_empty'>Suppress empty</label>
+        <select id='node-input-ls_suppress_empty'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_target'>Target</label>
         <input type='text' id='node-input-ls_target' placeholder=''>
     </div>
@@ -70,7 +91,7 @@
         category: 'Logstash-filter',
         defaults: {
             name: {value:""},
-            ls_source: {value:"", required: true},ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_namespaces: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_namespaces: {value:"false", required: false},ls_remove_tag: {value:"", required: false},ls_store_xml: {value:"true", required: false},ls_target: {value:"", required: false},ls_xpath: {value:"", required: false}
+            ls_source: {value:"", required: true},ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_force_array: {value:"true", required: false},ls_force_content: {value:"false", required: false},ls_namespaces: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_namespaces: {value:"false", required: false},ls_remove_tag: {value:"", required: false},ls_store_xml: {value:"true", required: false},ls_suppress_empty: {value:"true", required: false},ls_target: {value:"", required: false},ls_xpath: {value:"", required: false}
         },
         inputs:1,
         outputs:1,

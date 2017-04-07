@@ -33,6 +33,10 @@
         <input type='text' id='node-input-ls_headers' placeholder=''>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_ignorable_codes'>Ignorable codes</label>
+        <input type='number' id='node-input-ls_ignorable_codes' placeholder=''>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_mapping'>Mapping</label>
         <input type='text' id='node-input-ls_mapping' placeholder=''>
     </div>
@@ -41,8 +45,19 @@
         <input type='text' id='node-input-ls_message' placeholder=''>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_retry_failed'>Retry failed</label>
+        <select id='node-input-ls_retry_failed'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_retryable_codes'>Retryable codes</label>
+        <input type='number' id='node-input-ls_retryable_codes' placeholder='[429,500,502,503,504]'>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_workers'>Workers</label>
-        <input type='number' id='node-input-ls_workers' placeholder='1'>
+        <input type='text' id='node-input-ls_workers' placeholder='1'>
     </div>
 
     <div class="form-row">
@@ -61,7 +76,7 @@
         category: 'Logstash-output',
         defaults: {
             name: {value:""},
-            ls_http_method: {value:"", required: true},ls_url: {value:"", required: true},ls_codec: {value:"plain", required: false},ls_content_type: {value:"", required: false},ls_format: {value:"json", required: false},ls_headers: {value:"", required: false},ls_mapping: {value:"", required: false},ls_message: {value:"", required: false},ls_workers: {value:"", required: false}
+            ls_http_method: {value:"", required: true},ls_url: {value:"", required: true},ls_codec: {value:"plain", required: false},ls_content_type: {value:"", required: false},ls_format: {value:"json", required: false},ls_headers: {value:"", required: false},ls_ignorable_codes: {value:"", required: false},ls_mapping: {value:"", required: false},ls_message: {value:"", required: false},ls_retry_failed: {value:"true", required: false},ls_retryable_codes: {value:"", required: false},ls_workers: {value:"", required: false}
         },
         inputs:1,
         outputs:0,

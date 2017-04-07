@@ -13,6 +13,10 @@
         <input type='text' id='node-input-ls_convert' placeholder=''>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_copy'>Copy</label>
+        <input type='text' id='node-input-ls_copy' placeholder=''>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_gsub'>Gsub</label>
         <input type='text' id='node-input-ls_gsub' placeholder=''>
     </div>
@@ -84,7 +88,7 @@
         category: 'Logstash-filter',
         defaults: {
             name: {value:""},
-            ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_convert: {value:"", required: false},ls_gsub: {value:"", required: false},ls_join: {value:"", required: false},ls_lowercase: {value:"", required: false},ls_merge: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_rename: {value:"", required: false},ls_replace: {value:"", required: false},ls_split: {value:"", required: false},ls_strip: {value:"", required: false},ls_update: {value:"", required: false},ls_uppercase: {value:"", required: false}
+            ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_convert: {value:"", required: false},ls_copy: {value:"", required: false},ls_gsub: {value:"", required: false},ls_join: {value:"", required: false},ls_lowercase: {value:"", required: false},ls_merge: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_rename: {value:"", required: false},ls_replace: {value:"", required: false},ls_split: {value:"", required: false},ls_strip: {value:"", required: false},ls_update: {value:"", required: false},ls_uppercase: {value:"", required: false}
         },
         inputs:1,
         outputs:1,

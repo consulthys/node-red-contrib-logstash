@@ -9,6 +9,14 @@
         <input type='text' id='node-input-ls_add_field' placeholder='{}'>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_cipher_suites'>Cipher suites</label>
+        <input type='text' id='node-input-ls_cipher_suites' placeholder='org.logstash.netty.SslSimpleBuilderDEFAULT_CIPHERS'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_client_inactivity_timeout'>Client inactivity timeout</label>
+        <input type='number' id='node-input-ls_client_inactivity_timeout' placeholder='60'>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_codec'>Codec</label>
         <select id='node-input-ls_codec'>
             <option value='json'>json</option>
@@ -19,12 +27,15 @@
         </select>
     </div>
     <div class='form-row'>
-        <label for='node-input-ls_congestion_threshold'>Congestion threshold</label>
-        <input type='number' id='node-input-ls_congestion_threshold' placeholder='5'>
-    </div>
-    <div class='form-row'>
         <label for='node-input-ls_host'>Host</label>
         <input type='text' id='node-input-ls_host' placeholder='0.0.0.0'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_include_codec_tag'>Include codec tag</label>
+        <select id='node-input-ls_include_codec_tag'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_ssl'>Ssl</label>
@@ -38,6 +49,14 @@
         <input type='text' id='node-input-ls_ssl_certificate' placeholder=''>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_ssl_certificate_authorities'>Ssl certificate authorities</label>
+        <input type='text' id='node-input-ls_ssl_certificate_authorities' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_handshake_timeout'>Ssl handshake timeout</label>
+        <input type='number' id='node-input-ls_ssl_handshake_timeout' placeholder='10000'>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_ssl_key'>Ssl key</label>
         <input type='text' id='node-input-ls_ssl_key' placeholder=''>
     </div>
@@ -46,12 +65,22 @@
         <input type='text' id='node-input-ls_ssl_key_passphrase' placeholder=''>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_ssl_verify_mode'>Ssl verify mode</label>
+        <select id='node-input-ls_ssl_verify_mode'>
+            <option value="none" selected="selected">none</option><option value="peer">peer</option><option value="force_peer">force_peer</option>
+        </select>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_tags'>Tags</label>
         <input type='text' id='node-input-ls_tags' placeholder=''>
     </div>
     <div class='form-row'>
-        <label for='node-input-ls_target_field_for_codec'>Target field for codec</label>
-        <input type='text' id='node-input-ls_target_field_for_codec' placeholder='message'>
+        <label for='node-input-ls_tls_max_version'>Tls max version</label>
+        <input type='number' id='node-input-ls_tls_max_version' placeholder='TLS.max.version'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_tls_min_version'>Tls min version</label>
+        <input type='number' id='node-input-ls_tls_min_version' placeholder='TLS.min.version'>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_type'>Type</label>
@@ -74,7 +103,7 @@
         category: 'Logstash-input',
         defaults: {
             name: {value:""},
-            ls_port: {value:"", required: true},ls_add_field: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_congestion_threshold: {value:"", required: false},ls_host: {value:"", required: false},ls_ssl: {value:"false", required: false},ls_ssl_certificate: {value:"", required: false},ls_ssl_key: {value:"", required: false},ls_ssl_key_passphrase: {value:"", required: false},ls_tags: {value:"", required: false},ls_target_field_for_codec: {value:"", required: false},ls_type: {value:"", required: false}
+            ls_port: {value:"", required: true},ls_add_field: {value:"", required: false},ls_cipher_suites: {value:"", required: false},ls_client_inactivity_timeout: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_host: {value:"", required: false},ls_include_codec_tag: {value:"true", required: false},ls_ssl: {value:"false", required: false},ls_ssl_certificate: {value:"", required: false},ls_ssl_certificate_authorities: {value:"", required: false},ls_ssl_handshake_timeout: {value:"", required: false},ls_ssl_key: {value:"", required: false},ls_ssl_key_passphrase: {value:"", required: false},ls_ssl_verify_mode: {value:"none", required: false},ls_tags: {value:"", required: false},ls_tls_max_version: {value:"", required: false},ls_tls_min_version: {value:"", required: false},ls_type: {value:"", required: false}
         },
         inputs:0,
         outputs:1,

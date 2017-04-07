@@ -37,6 +37,10 @@
         <input type='number' id='node-input-ls_idle_flush_time' placeholder='1'>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_kerberos_keytab'>Kerberos keytab</label>
+        <input type='text' id='node-input-ls_kerberos_keytab' placeholder=''>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_open_timeout'>Open timeout</label>
         <input type='number' id='node-input-ls_open_timeout' placeholder='30'>
     </div>
@@ -81,6 +85,14 @@
         </select>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_ssl_cert'>Ssl cert</label>
+        <input type='text' id='node-input-ls_ssl_cert' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_key'>Ssl key</label>
+        <input type='text' id='node-input-ls_ssl_key' placeholder=''>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_standby_host'>Standby host</label>
         <input type='text' id='node-input-ls_standby_host' placeholder='false'>
     </div>
@@ -96,8 +108,22 @@
         </select>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_use_kerberos_auth'>Use kerberos auth</label>
+        <select id='node-input-ls_use_kerberos_auth'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_use_ssl_auth'>Use ssl auth</label>
+        <select id='node-input-ls_use_ssl_auth'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_workers'>Workers</label>
-        <input type='number' id='node-input-ls_workers' placeholder='1'>
+        <input type='text' id='node-input-ls_workers' placeholder='1'>
     </div>
 
     <div class="form-row">
@@ -116,7 +142,7 @@
         category: 'Logstash-output',
         defaults: {
             name: {value:""},
-            ls_host: {value:"", required: true},ls_path: {value:"", required: true},ls_user: {value:"", required: true},ls_codec: {value:"plain", required: false},ls_compression: {value:"none", required: false},ls_flush_size: {value:"", required: false},ls_idle_flush_time: {value:"", required: false},ls_open_timeout: {value:"", required: false},ls_port: {value:"", required: false},ls_read_timeout: {value:"", required: false},ls_retry_interval: {value:"", required: false},ls_retry_known_errors: {value:"true", required: false},ls_retry_times: {value:"", required: false},ls_single_file_per_thread: {value:"false", required: false},ls_snappy_bufsize: {value:"", required: false},ls_snappy_format: {value:"stream", required: false},ls_standby_host: {value:"", required: false},ls_standby_port: {value:"", required: false},ls_use_httpfs: {value:"false", required: false},ls_workers: {value:"", required: false}
+            ls_host: {value:"", required: true},ls_path: {value:"", required: true},ls_user: {value:"", required: true},ls_codec: {value:"plain", required: false},ls_compression: {value:"none", required: false},ls_flush_size: {value:"", required: false},ls_idle_flush_time: {value:"", required: false},ls_kerberos_keytab: {value:"", required: false},ls_open_timeout: {value:"", required: false},ls_port: {value:"", required: false},ls_read_timeout: {value:"", required: false},ls_retry_interval: {value:"", required: false},ls_retry_known_errors: {value:"true", required: false},ls_retry_times: {value:"", required: false},ls_single_file_per_thread: {value:"false", required: false},ls_snappy_bufsize: {value:"", required: false},ls_snappy_format: {value:"stream", required: false},ls_ssl_cert: {value:"", required: false},ls_ssl_key: {value:"", required: false},ls_standby_host: {value:"", required: false},ls_standby_port: {value:"", required: false},ls_use_httpfs: {value:"false", required: false},ls_use_kerberos_auth: {value:"false", required: false},ls_use_ssl_auth: {value:"false", required: false},ls_workers: {value:"", required: false}
         },
         inputs:1,
         outputs:0,

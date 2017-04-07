@@ -1,6 +1,10 @@
 
 <script type="text/x-red" data-template-name="ls-out-cloudwatch">
     <div class='form-row'>
+        <label for='node-input-ls_batch_size'>Batch size</label>
+        <input type='number' id='node-input-ls_batch_size' placeholder='20'>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_codec'>Codec</label>
         <select id='node-input-ls_codec'>
             <option value='json'>json</option>
@@ -60,7 +64,7 @@
     </div>
     <div class='form-row'>
         <label for='node-input-ls_workers'>Workers</label>
-        <input type='number' id='node-input-ls_workers' placeholder='1'>
+        <input type='text' id='node-input-ls_workers' placeholder='1'>
     </div>
 
     <div class="form-row">
@@ -79,7 +83,7 @@
         category: 'Logstash-output',
         defaults: {
             name: {value:""},
-            ls_codec: {value:"plain", required: false},ls_dimensions: {value:"", required: false},ls_field_dimensions: {value:"", required: false},ls_field_metricname: {value:"", required: false},ls_field_namespace: {value:"", required: false},ls_field_unit: {value:"", required: false},ls_field_value: {value:"", required: false},ls_metricname: {value:"", required: false},ls_namespace: {value:"", required: false},ls_queue_size: {value:"", required: false},ls_timeframe: {value:"", required: false},ls_unit: {value:"", required: false},ls_value: {value:"", required: false},ls_workers: {value:"", required: false}
+            ls_batch_size: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_dimensions: {value:"", required: false},ls_field_dimensions: {value:"", required: false},ls_field_metricname: {value:"", required: false},ls_field_namespace: {value:"", required: false},ls_field_unit: {value:"", required: false},ls_field_value: {value:"", required: false},ls_metricname: {value:"", required: false},ls_namespace: {value:"", required: false},ls_queue_size: {value:"", required: false},ls_timeframe: {value:"", required: false},ls_unit: {value:"", required: false},ls_value: {value:"", required: false},ls_workers: {value:"", required: false}
         },
         inputs:1,
         outputs:0,

@@ -19,7 +19,7 @@ if (fs.existsSync(reposFile)) {
 function getPlugins(callback) {
     var reqOptions = {
         host: "api.github.com",
-        path: "/orgs/logstash-plugins/repos?page=1&per_page=100&sort=full_name",
+        path: "/orgs/logstash-plugins/repos?page=1&per_page=100&sort=full_name", // page=2+3
         method: 'GET',
         headers: {
             'User-Agent': 'consulthys'
@@ -46,7 +46,7 @@ function getPlugins(callback) {
 
 function registerRepos(err, repos) {
     repos.forEach(function(repo) {
-        fs.appendFileSync(reposFile, repo.name);
+        fs.appendFileSync(reposFile, repo.name + "\n");
     });
 }
 

@@ -9,6 +9,13 @@
         <input type='text' id='node-input-ls_add_tag' placeholder='[]'>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_autodetect_column_names'>Autodetect column names</label>
+        <select id='node-input-ls_autodetect_column_names'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_autogenerate_column_names'>Autogenerate column names</label>
         <select id='node-input-ls_autogenerate_column_names'>
             <option value='true'>true</option>
@@ -78,7 +85,7 @@
         category: 'Logstash-filter',
         defaults: {
             name: {value:""},
-            ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_autogenerate_column_names: {value:"true", required: false},ls_columns: {value:"", required: false},ls_convert: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_quote_char: {value:"", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_separator: {value:"", required: false},ls_skip_empty_columns: {value:"false", required: false},ls_source: {value:"", required: false},ls_target: {value:"", required: false}
+            ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_autodetect_column_names: {value:"false", required: false},ls_autogenerate_column_names: {value:"true", required: false},ls_columns: {value:"", required: false},ls_convert: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_quote_char: {value:"", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_separator: {value:"", required: false},ls_skip_empty_columns: {value:"false", required: false},ls_source: {value:"", required: false},ls_target: {value:"", required: false}
         },
         inputs:1,
         outputs:1,

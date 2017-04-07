@@ -1,10 +1,6 @@
 
 <script type="text/x-red" data-template-name="ls-in-http_poller">
     <div class='form-row'>
-        <label for='node-input-ls_interval'>Interval</label>
-        <input type='number' id='node-input-ls_interval' placeholder=''>
-    </div>
-    <div class='form-row'>
         <label for='node-input-ls_urls'>Urls</label>
         <input type='text' id='node-input-ls_urls' placeholder=''>
     </div>
@@ -25,6 +21,10 @@
     <div class='form-row'>
         <label for='node-input-ls_metadata_target'>Metadata target</label>
         <input type='text' id='node-input-ls_metadata_target' placeholder='@metadata'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_schedule'>Schedule</label>
+        <input type='text' id='node-input-ls_schedule' placeholder=''>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_tags'>Tags</label>
@@ -55,7 +55,7 @@
         category: 'Logstash-input',
         defaults: {
             name: {value:""},
-            ls_interval: {value:"", required: true},ls_urls: {value:"", required: true},ls_add_field: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_metadata_target: {value:"", required: false},ls_tags: {value:"", required: false},ls_target: {value:"", required: false},ls_type: {value:"", required: false}
+            ls_urls: {value:"", required: true},ls_add_field: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_metadata_target: {value:"", required: false},ls_schedule: {value:"", required: false},ls_tags: {value:"", required: false},ls_target: {value:"", required: false},ls_type: {value:"", required: false}
         },
         inputs:0,
         outputs:1,

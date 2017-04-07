@@ -17,6 +17,10 @@
         <input type='text' id='node-input-ls_add_tag' placeholder='[]'>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_aggregate_maps_path'>Aggregate maps path</label>
+        <input type='text' id='node-input-ls_aggregate_maps_path' placeholder=''>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_end_of_task'>End of task</label>
         <select id='node-input-ls_end_of_task'>
             <option value='true'>true</option>
@@ -35,6 +39,20 @@
         </select>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_push_map_as_event_on_timeout'>Push map as event on timeout</label>
+        <select id='node-input-ls_push_map_as_event_on_timeout'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_push_previous_map_as_event'>Push previous map as event</label>
+        <select id='node-input-ls_push_previous_map_as_event'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_remove_field'>Remove field</label>
         <input type='text' id='node-input-ls_remove_field' placeholder='[]'>
     </div>
@@ -44,7 +62,19 @@
     </div>
     <div class='form-row'>
         <label for='node-input-ls_timeout'>Timeout</label>
-        <input type='number' id='node-input-ls_timeout' placeholder='0'>
+        <input type='number' id='node-input-ls_timeout' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_timeout_code'>Timeout code</label>
+        <input type='text' id='node-input-ls_timeout_code' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_timeout_tags'>Timeout tags</label>
+        <input type='text' id='node-input-ls_timeout_tags' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_timeout_task_id_field'>Timeout task id field</label>
+        <input type='text' id='node-input-ls_timeout_task_id_field' placeholder=''>
     </div>
 
     <div class="form-row">
@@ -63,7 +93,7 @@
         category: 'Logstash-filter',
         defaults: {
             name: {value:""},
-            ls_code: {value:"", required: true},ls_task_id: {value:"", required: true},ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_end_of_task: {value:"false", required: false},ls_map_action: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_timeout: {value:"", required: false}
+            ls_code: {value:"", required: true},ls_task_id: {value:"", required: true},ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_aggregate_maps_path: {value:"", required: false},ls_end_of_task: {value:"false", required: false},ls_map_action: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_push_map_as_event_on_timeout: {value:"false", required: false},ls_push_previous_map_as_event: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_timeout: {value:"", required: false},ls_timeout_code: {value:"", required: false},ls_timeout_tags: {value:"", required: false},ls_timeout_task_id_field: {value:"", required: false}
         },
         inputs:1,
         outputs:1,

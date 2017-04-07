@@ -38,6 +38,10 @@
         <input type='text' id='node-input-ls_overwrite' placeholder='[]'>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_pattern_definitions'>Pattern definitions</label>
+        <input type='text' id='node-input-ls_pattern_definitions' placeholder='{}'>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_patterns_dir'>Patterns dir</label>
         <input type='text' id='node-input-ls_patterns_dir' placeholder='[]'>
     </div>
@@ -64,6 +68,14 @@
         <label for='node-input-ls_tag_on_failure'>Tag on failure</label>
         <input type='text' id='node-input-ls_tag_on_failure' placeholder='["_grokparsefailure"]'>
     </div>
+    <div class='form-row'>
+        <label for='node-input-ls_tag_on_timeout'>Tag on timeout</label>
+        <input type='text' id='node-input-ls_tag_on_timeout' placeholder='_groktimeout'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_timeout_millis'>Timeout millis</label>
+        <input type='number' id='node-input-ls_timeout_millis' placeholder='30000'>
+    </div>
 
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
@@ -81,7 +93,7 @@
         category: 'Logstash-filter',
         defaults: {
             name: {value:""},
-            ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_break_on_match: {value:"true", required: false},ls_keep_empty_captures: {value:"false", required: false},ls_match: {value:"", required: false},ls_named_captures_only: {value:"true", required: false},ls_overwrite: {value:"", required: false},ls_patterns_dir: {value:"", required: false},ls_patterns_files_glob: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_tag_on_failure: {value:"", required: false}
+            ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_break_on_match: {value:"true", required: false},ls_keep_empty_captures: {value:"false", required: false},ls_match: {value:"", required: false},ls_named_captures_only: {value:"true", required: false},ls_overwrite: {value:"", required: false},ls_pattern_definitions: {value:"", required: false},ls_patterns_dir: {value:"", required: false},ls_patterns_files_glob: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_tag_on_failure: {value:"", required: false},ls_tag_on_timeout: {value:"", required: false},ls_timeout_millis: {value:"", required: false}
         },
         inputs:1,
         outputs:1,

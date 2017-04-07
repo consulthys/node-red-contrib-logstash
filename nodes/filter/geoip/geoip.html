@@ -13,12 +13,16 @@
         <input type='text' id='node-input-ls_add_tag' placeholder='[]'>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_cache_size'>Cache size</label>
+        <input type='number' id='node-input-ls_cache_size' placeholder='1000'>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_database'>Database</label>
         <input type='text' id='node-input-ls_database' placeholder=''>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_fields'>Fields</label>
-        <input type='text' id='node-input-ls_fields' placeholder=''>
+        <input type='text' id='node-input-ls_fields' placeholder='["city_name", "continent_code",'>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_lru_cache_size'>Lru cache size</label>
@@ -38,6 +42,10 @@
     <div class='form-row'>
         <label for='node-input-ls_remove_tag'>Remove tag</label>
         <input type='text' id='node-input-ls_remove_tag' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_tag_on_failure'>Tag on failure</label>
+        <input type='text' id='node-input-ls_tag_on_failure' placeholder='["_geoip_lookup_failure"]'>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_target'>Target</label>
@@ -60,7 +68,7 @@
         category: 'Logstash-filter',
         defaults: {
             name: {value:""},
-            ls_source: {value:"", required: true},ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_database: {value:"", required: false},ls_fields: {value:"", required: false},ls_lru_cache_size: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_target: {value:"", required: false}
+            ls_source: {value:"", required: true},ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_cache_size: {value:"", required: false},ls_database: {value:"", required: false},ls_fields: {value:"", required: false},ls_lru_cache_size: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_tag_on_failure: {value:"", required: false},ls_target: {value:"", required: false}
         },
         inputs:1,
         outputs:1,

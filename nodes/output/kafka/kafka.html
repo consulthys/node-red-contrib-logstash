@@ -39,8 +39,16 @@
     <div class='form-row'>
         <label for='node-input-ls_compression_type'>Compression type</label>
         <select id='node-input-ls_compression_type'>
-            <option value="none" selected="selected">none</option><option value="gzip">gzip</option><option value="snappy">snappy</option>
+            <option value="none" selected="selected">none</option><option value="gzip">gzip</option><option value="snappy">snappy</option><option value="lz4">lz4</option>
         </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_jaas_path'>Jaas path</label>
+        <input type='text' id='node-input-ls_jaas_path' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_kerberos_config'>Kerberos config</label>
+        <input type='text' id='node-input-ls_kerberos_config' placeholder=''>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_key_serializer'>Key serializer</label>
@@ -87,15 +95,26 @@
         <input type='number' id='node-input-ls_retry_backoff_ms' placeholder='100'>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_sasl_kerberos_service_name'>Sasl kerberos service name</label>
+        <input type='text' id='node-input-ls_sasl_kerberos_service_name' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_sasl_mechanism'>Sasl mechanism</label>
+        <input type='text' id='node-input-ls_sasl_mechanism' placeholder='GSSAPI'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_security_protocol'>Security protocol</label>
+        <select id='node-input-ls_security_protocol'>
+            <option value="PLAINTEXT" selected="selected">PLAINTEXT</option><option value="SSL">SSL</option><option value="SASL_PLAINTEXT">SASL_PLAINTEXT</option><option value="SASL_SSL">SASL_SSL</option>
+        </select>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_send_buffer_bytes'>Send buffer bytes</label>
         <input type='number' id='node-input-ls_send_buffer_bytes' placeholder='131072'>
     </div>
     <div class='form-row'>
-        <label for='node-input-ls_ssl'>Ssl</label>
-        <select id='node-input-ls_ssl'>
-            <option value='true'>true</option>
-            <option value='false'>false</option>
-        </select>
+        <label for='node-input-ls_ssl_key_password'>Ssl key password</label>
+        <input type='text' id='node-input-ls_ssl_key_password' placeholder=''>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_ssl_keystore_location'>Ssl keystore location</label>
@@ -106,6 +125,10 @@
         <input type='text' id='node-input-ls_ssl_keystore_password' placeholder=''>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_ssl_keystore_type'>Ssl keystore type</label>
+        <input type='text' id='node-input-ls_ssl_keystore_type' placeholder=''>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_ssl_truststore_location'>Ssl truststore location</label>
         <input type='text' id='node-input-ls_ssl_truststore_location' placeholder=''>
     </div>
@@ -114,12 +137,16 @@
         <input type='text' id='node-input-ls_ssl_truststore_password' placeholder=''>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_ssl_truststore_type'>Ssl truststore type</label>
+        <input type='text' id='node-input-ls_ssl_truststore_type' placeholder=''>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_value_serializer'>Value serializer</label>
         <input type='text' id='node-input-ls_value_serializer' placeholder='org.apache.kafka.common.serialization.StringSerializer'>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_workers'>Workers</label>
-        <input type='number' id='node-input-ls_workers' placeholder='1'>
+        <input type='text' id='node-input-ls_workers' placeholder='1'>
     </div>
 
     <div class="form-row">
@@ -138,7 +165,7 @@
         category: 'Logstash-output',
         defaults: {
             name: {value:""},
-            ls_topic_id: {value:"", required: true},ls_acks: {value:"1", required: false},ls_batch_size: {value:"", required: false},ls_bootstrap_servers: {value:"", required: false},ls_buffer_memory: {value:"", required: false},ls_client_id: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_compression_type: {value:"none", required: false},ls_key_serializer: {value:"", required: false},ls_linger_ms: {value:"", required: false},ls_max_request_size: {value:"", required: false},ls_message_key: {value:"", required: false},ls_metadata_fetch_timeout_ms: {value:"", required: false},ls_metadata_max_age_ms: {value:"", required: false},ls_receive_buffer_bytes: {value:"", required: false},ls_reconnect_backoff_ms: {value:"", required: false},ls_request_timeout_ms: {value:"", required: false},ls_retries: {value:"", required: false},ls_retry_backoff_ms: {value:"", required: false},ls_send_buffer_bytes: {value:"", required: false},ls_ssl: {value:"false", required: false},ls_ssl_keystore_location: {value:"", required: false},ls_ssl_keystore_password: {value:"", required: false},ls_ssl_truststore_location: {value:"", required: false},ls_ssl_truststore_password: {value:"", required: false},ls_value_serializer: {value:"", required: false},ls_workers: {value:"", required: false}
+            ls_topic_id: {value:"", required: true},ls_acks: {value:"1", required: false},ls_batch_size: {value:"", required: false},ls_bootstrap_servers: {value:"", required: false},ls_buffer_memory: {value:"", required: false},ls_client_id: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_compression_type: {value:"none", required: false},ls_jaas_path: {value:"", required: false},ls_kerberos_config: {value:"", required: false},ls_key_serializer: {value:"", required: false},ls_linger_ms: {value:"", required: false},ls_max_request_size: {value:"", required: false},ls_message_key: {value:"", required: false},ls_metadata_fetch_timeout_ms: {value:"", required: false},ls_metadata_max_age_ms: {value:"", required: false},ls_receive_buffer_bytes: {value:"", required: false},ls_reconnect_backoff_ms: {value:"", required: false},ls_request_timeout_ms: {value:"", required: false},ls_retries: {value:"", required: false},ls_retry_backoff_ms: {value:"", required: false},ls_sasl_kerberos_service_name: {value:"", required: false},ls_sasl_mechanism: {value:"", required: false},ls_security_protocol: {value:"PLAINTEXT", required: false},ls_send_buffer_bytes: {value:"", required: false},ls_ssl_key_password: {value:"", required: false},ls_ssl_keystore_location: {value:"", required: false},ls_ssl_keystore_password: {value:"", required: false},ls_ssl_keystore_type: {value:"", required: false},ls_ssl_truststore_location: {value:"", required: false},ls_ssl_truststore_password: {value:"", required: false},ls_ssl_truststore_type: {value:"", required: false},ls_value_serializer: {value:"", required: false},ls_workers: {value:"", required: false}
         },
         inputs:1,
         outputs:0,

@@ -38,6 +38,17 @@
         <input type='number' id='node-input-ls_port' placeholder='61613'>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_reconnect'>Reconnect</label>
+        <select id='node-input-ls_reconnect'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_reconnect_interval'>Reconnect interval</label>
+        <input type='number' id='node-input-ls_reconnect_interval' placeholder='30'>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_tags'>Tags</label>
         <input type='text' id='node-input-ls_tags' placeholder=''>
     </div>
@@ -70,7 +81,7 @@
         category: 'Logstash-input',
         defaults: {
             name: {value:""},
-            ls_destination: {value:"", required: true},ls_host: {value:"", required: true},ls_add_field: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_debug: {value:"false", required: false},ls_password: {value:"", required: false},ls_port: {value:"", required: false},ls_tags: {value:"", required: false},ls_type: {value:"", required: false},ls_user: {value:"", required: false},ls_vhost: {value:"", required: false}
+            ls_destination: {value:"", required: true},ls_host: {value:"", required: true},ls_add_field: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_debug: {value:"false", required: false},ls_password: {value:"", required: false},ls_port: {value:"", required: false},ls_reconnect: {value:"true", required: false},ls_reconnect_interval: {value:"", required: false},ls_tags: {value:"", required: false},ls_type: {value:"", required: false},ls_user: {value:"", required: false},ls_vhost: {value:"", required: false}
         },
         inputs:0,
         outputs:1,

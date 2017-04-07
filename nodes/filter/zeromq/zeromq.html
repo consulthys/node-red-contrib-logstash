@@ -46,6 +46,10 @@
         <input type='number' id='node-input-ls_retries' placeholder='3'>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_sentinel'>Sentinel</label>
+        <input type='text' id='node-input-ls_sentinel' placeholder=''>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_sockopt'>Sockopt</label>
         <input type='text' id='node-input-ls_sockopt' placeholder=''>
     </div>
@@ -70,7 +74,7 @@
         category: 'Logstash-filter',
         defaults: {
             name: {value:""},
-            ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_add_tag_on_timeout: {value:"", required: false},ls_address: {value:"", required: false},ls_field: {value:"", required: false},ls_mode: {value:"client", required: false},ls_periodic_flush: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_retries: {value:"", required: false},ls_sockopt: {value:"", required: false},ls_timeout: {value:"", required: false}
+            ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_add_tag_on_timeout: {value:"", required: false},ls_address: {value:"", required: false},ls_field: {value:"", required: false},ls_mode: {value:"client", required: false},ls_periodic_flush: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_retries: {value:"", required: false},ls_sentinel: {value:"", required: false},ls_sockopt: {value:"", required: false},ls_timeout: {value:"", required: false}
         },
         inputs:1,
         outputs:1,

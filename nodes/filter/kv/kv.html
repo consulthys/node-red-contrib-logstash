@@ -57,6 +57,14 @@
         </select>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_remove_char_key'>Remove char key</label>
+        <input type='text' id='node-input-ls_remove_char_key' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_char_value'>Remove char value</label>
+        <input type='text' id='node-input-ls_remove_char_value' placeholder=''>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_remove_field'>Remove field</label>
         <input type='text' id='node-input-ls_remove_field' placeholder='[]'>
     </div>
@@ -73,12 +81,20 @@
         <input type='text' id='node-input-ls_target' placeholder=''>
     </div>
     <div class='form-row'>
-        <label for='node-input-ls_trim'>Trim</label>
-        <input type='text' id='node-input-ls_trim' placeholder=''>
+        <label for='node-input-ls_transform_key'>Transform key</label>
+        <input type='text' id='node-input-ls_transform_key' placeholder=''>
     </div>
     <div class='form-row'>
-        <label for='node-input-ls_trimkey'>Trimkey</label>
-        <input type='text' id='node-input-ls_trimkey' placeholder=''>
+        <label for='node-input-ls_transform_value'>Transform value</label>
+        <input type='text' id='node-input-ls_transform_value' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_trim_key'>Trim key</label>
+        <input type='text' id='node-input-ls_trim_key' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_trim_value'>Trim value</label>
+        <input type='text' id='node-input-ls_trim_value' placeholder=''>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_value_split'>Value split</label>
@@ -101,7 +117,7 @@
         category: 'Logstash-filter',
         defaults: {
             name: {value:""},
-            ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_allow_duplicate_values: {value:"true", required: false},ls_default_keys: {value:"", required: false},ls_exclude_keys: {value:"", required: false},ls_field_split: {value:"", required: false},ls_include_brackets: {value:"true", required: false},ls_include_keys: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_prefix: {value:"", required: false},ls_recursive: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_source: {value:"", required: false},ls_target: {value:"", required: false},ls_trim: {value:"", required: false},ls_trimkey: {value:"", required: false},ls_value_split: {value:"", required: false}
+            ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_allow_duplicate_values: {value:"true", required: false},ls_default_keys: {value:"", required: false},ls_exclude_keys: {value:"", required: false},ls_field_split: {value:"", required: false},ls_include_brackets: {value:"true", required: false},ls_include_keys: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_prefix: {value:"", required: false},ls_recursive: {value:"false", required: false},ls_remove_char_key: {value:"", required: false},ls_remove_char_value: {value:"", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_source: {value:"", required: false},ls_target: {value:"", required: false},ls_transform_key: {value:"", required: false},ls_transform_value: {value:"", required: false},ls_trim_key: {value:"", required: false},ls_trim_value: {value:"", required: false},ls_value_split: {value:"", required: false}
         },
         inputs:1,
         outputs:1,

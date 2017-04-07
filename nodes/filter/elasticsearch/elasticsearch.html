@@ -13,12 +13,23 @@
         <input type='text' id='node-input-ls_ca_file' placeholder=''>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_enable_sort'>Enable sort</label>
+        <select id='node-input-ls_enable_sort'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_fields'>Fields</label>
         <input type='text' id='node-input-ls_fields' placeholder='{}'>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_hosts'>Hosts</label>
-        <input type='text' id='node-input-ls_hosts' placeholder=''>
+        <input type='text' id='node-input-ls_hosts' placeholder='["localhost9200"]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_index'>Index</label>
+        <input type='text' id='node-input-ls_index' placeholder=''>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_password'>Password</label>
@@ -36,12 +47,20 @@
         <input type='text' id='node-input-ls_query' placeholder=''>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_query_template'>Query template</label>
+        <input type='text' id='node-input-ls_query_template' placeholder=''>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_remove_field'>Remove field</label>
         <input type='text' id='node-input-ls_remove_field' placeholder='[]'>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_remove_tag'>Remove tag</label>
         <input type='text' id='node-input-ls_remove_tag' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_result_size'>Result size</label>
+        <input type='number' id='node-input-ls_result_size' placeholder='1'>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_sort'>Sort</label>
@@ -53,6 +72,10 @@
             <option value='true'>true</option>
             <option value='false'>false</option>
         </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_tag_on_failure'>Tag on failure</label>
+        <input type='text' id='node-input-ls_tag_on_failure' placeholder='["_elasticsearch_lookup_failure"]'>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_user'>User</label>
@@ -75,7 +98,7 @@
         category: 'Logstash-filter',
         defaults: {
             name: {value:""},
-            ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_ca_file: {value:"", required: false},ls_fields: {value:"", required: false},ls_hosts: {value:"", required: false},ls_password: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_query: {value:"", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_sort: {value:"", required: false},ls_ssl: {value:"false", required: false},ls_user: {value:"", required: false}
+            ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_ca_file: {value:"", required: false},ls_enable_sort: {value:"true", required: false},ls_fields: {value:"", required: false},ls_hosts: {value:"", required: false},ls_index: {value:"", required: false},ls_password: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_query: {value:"", required: false},ls_query_template: {value:"", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_result_size: {value:"", required: false},ls_sort: {value:"", required: false},ls_ssl: {value:"false", required: false},ls_tag_on_failure: {value:"", required: false},ls_user: {value:"", required: false}
         },
         inputs:1,
         outputs:1,

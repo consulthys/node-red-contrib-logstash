@@ -1,0 +1,108 @@
+
+<script type="text/x-red" data-template-name="ls-out-monasca_log_api">
+    <div class='form-row'>
+        <label for='node-input-ls_keystone_api_insecure'>Keystone api insecure</label>
+        <select id='node-input-ls_keystone_api_insecure'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_keystone_api_url'>Keystone api url</label>
+        <input type='text' id='node-input-ls_keystone_api_url' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_monasca_log_api_insecure'>Monasca log api insecure</label>
+        <select id='node-input-ls_monasca_log_api_insecure'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_monasca_log_api_url'>Monasca log api url</label>
+        <input type='text' id='node-input-ls_monasca_log_api_url' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_password'>Password</label>
+        <input type='text' id='node-input-ls_password' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_project_domain_name'>Project domain name</label>
+        <input type='text' id='node-input-ls_project_domain_name' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_project_name'>Project name</label>
+        <input type='text' id='node-input-ls_project_name' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_user_domain_name'>User domain name</label>
+        <input type='text' id='node-input-ls_user_domain_name' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_username'>Username</label>
+        <input type='text' id='node-input-ls_username' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='multiline'>multiline</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_delay'>Delay</label>
+        <input type='number' id='node-input-ls_delay' placeholder='10'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_dimensions'>Dimensions</label>
+        <input type='text' id='node-input-ls_dimensions' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_elapsed_time_sec'>Elapsed time sec</label>
+        <input type='number' id='node-input-ls_elapsed_time_sec' placeholder='30'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_max_data_size_kb'>Max data size kb</label>
+        <input type='number' id='node-input-ls_max_data_size_kb' placeholder='5120'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_num_of_logs'>Num of logs</label>
+        <input type='number' id='node-input-ls_num_of_logs' placeholder='125'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='text' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-monasca_log_api">
+    <p>A Logstash output node for monasca_log_api</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-monasca_log_api.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-monasca_log_api',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_keystone_api_insecure: {value:"undefined", required: false},ls_keystone_api_url: {value:"", required: true},ls_monasca_log_api_insecure: {value:"undefined", required: false},ls_monasca_log_api_url: {value:"", required: true},ls_password: {value:"", required: true},ls_project_domain_name: {value:"", required: true},ls_project_name: {value:"", required: true},ls_user_domain_name: {value:"", required: true},ls_username: {value:"", required: true},ls_codec: {value:"plain", required: false},ls_delay: {value:"", required: false},ls_dimensions: {value:"", required: false},ls_elapsed_time_sec: {value:"", required: false},ls_max_data_size_kb: {value:"", required: false},ls_num_of_logs: {value:"", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "monasca_log_api",
+        label: function() {
+            return this.name || "LS monasca_log_api";
+        }
+    });
+</script>

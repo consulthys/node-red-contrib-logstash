@@ -31,6 +31,10 @@
         <input type='number' id='node-input-ls_hit_cache_ttl' placeholder='60'>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_hostsfile'>Hostsfile</label>
+        <input type='text' id='node-input-ls_hostsfile' placeholder=''>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_max_retries'>Max retries</label>
         <input type='number' id='node-input-ls_max_retries' placeholder='2'>
     </div>
@@ -82,7 +86,7 @@
         category: 'Logstash-filter',
         defaults: {
             name: {value:""},
-            ls_action: {value:"append", required: false},ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_failed_cache_size: {value:"", required: false},ls_failed_cache_ttl: {value:"", required: false},ls_hit_cache_size: {value:"", required: false},ls_hit_cache_ttl: {value:"", required: false},ls_max_retries: {value:"", required: false},ls_nameserver: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_resolve: {value:"", required: false},ls_reverse: {value:"", required: false},ls_timeout: {value:"", required: false}
+            ls_action: {value:"append", required: false},ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_failed_cache_size: {value:"", required: false},ls_failed_cache_ttl: {value:"", required: false},ls_hit_cache_size: {value:"", required: false},ls_hit_cache_ttl: {value:"", required: false},ls_hostsfile: {value:"", required: false},ls_max_retries: {value:"", required: false},ls_nameserver: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_resolve: {value:"", required: false},ls_reverse: {value:"", required: false},ls_timeout: {value:"", required: false}
         },
         inputs:1,
         outputs:1,

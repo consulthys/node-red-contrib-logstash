@@ -1,0 +1,105 @@
+
+<script type="text/x-red" data-template-name="ls-flt-emoji">
+    <div class='form-row'>
+        <label for='node-input-ls_field'>Field</label>
+        <input type='text' id='node-input-ls_field' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_add_field'>Add field</label>
+        <input type='text' id='node-input-ls_add_field' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_add_tag'>Add tag</label>
+        <input type='text' id='node-input-ls_add_tag' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_fallback'>Fallback</label>
+        <input type='text' id='node-input-ls_fallback' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_override'>Override</label>
+        <select id='node-input-ls_override'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_periodic_flush'>Periodic flush</label>
+        <select id='node-input-ls_periodic_flush'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_field'>Remove field</label>
+        <input type='text' id='node-input-ls_remove_field' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_tag'>Remove tag</label>
+        <input type='text' id='node-input-ls_remove_tag' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_sev_alert'>Sev alert</label>
+        <input type='text' id='node-input-ls_sev_alert' placeholder='🚨'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_sev_critical'>Sev critical</label>
+        <input type='text' id='node-input-ls_sev_critical' placeholder='🔥'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_sev_debug'>Sev debug</label>
+        <input type='text' id='node-input-ls_sev_debug' placeholder='🐛'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_sev_emergency'>Sev emergency</label>
+        <input type='text' id='node-input-ls_sev_emergency' placeholder='💥'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_sev_error'>Sev error</label>
+        <input type='text' id='node-input-ls_sev_error' placeholder='❌'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_sev_info'>Sev info</label>
+        <input type='text' id='node-input-ls_sev_info' placeholder='ℹ️'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_sev_notice'>Sev notice</label>
+        <input type='text' id='node-input-ls_sev_notice' placeholder='👀'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_sev_warning'>Sev warning</label>
+        <input type='text' id='node-input-ls_sev_warning' placeholder='⚠️'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_target'>Target</label>
+        <input type='text' id='node-input-ls_target' placeholder='emoji'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-flt-emoji">
+    <p>A Logstash filter node for emoji</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-filters-emoji.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-flt-emoji',{
+        category: 'Logstash-filter',
+        defaults: {
+            name: {value:""},
+            ls_field: {value:"", required: true},ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_fallback: {value:"", required: false},ls_override: {value:"false", required: false},ls_periodic_flush: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_sev_alert: {value:"", required: false},ls_sev_critical: {value:"", required: false},ls_sev_debug: {value:"", required: false},ls_sev_emergency: {value:"", required: false},ls_sev_error: {value:"", required: false},ls_sev_info: {value:"", required: false},ls_sev_notice: {value:"", required: false},ls_sev_warning: {value:"", required: false},ls_target: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:1,
+        icon: 'filter.png',
+        color: 'white',
+        paletteLabel: "emoji",
+        label: function() {
+            return this.name || "LS emoji";
+        }
+    });
+</script>

@@ -36,7 +36,7 @@
     </div>
     <div class='form-row'>
         <label for='node-input-ls_sockopt'>Sockopt</label>
-        <input type='text' id='node-input-ls_sockopt' placeholder=''>
+        <input type='text' id='node-input-ls_sockopt' placeholder='{ "ZMQRCVTIMEO" => "1000" }'>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_tags'>Tags</label>
@@ -45,6 +45,10 @@
     <div class='form-row'>
         <label for='node-input-ls_topic'>Topic</label>
         <input type='text' id='node-input-ls_topic' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_topic_field'>Topic field</label>
+        <input type='text' id='node-input-ls_topic_field' placeholder='topic'>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_type'>Type</label>
@@ -67,7 +71,7 @@
         category: 'Logstash-input',
         defaults: {
             name: {value:""},
-            ls_topology: {value:"undefined", required: true},ls_add_field: {value:"", required: false},ls_address: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_mode: {value:"server", required: false},ls_sender: {value:"", required: false},ls_sockopt: {value:"", required: false},ls_tags: {value:"", required: false},ls_topic: {value:"", required: false},ls_type: {value:"", required: false}
+            ls_topology: {value:"undefined", required: true},ls_add_field: {value:"", required: false},ls_address: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_mode: {value:"server", required: false},ls_sender: {value:"", required: false},ls_sockopt: {value:"", required: false},ls_tags: {value:"", required: false},ls_topic: {value:"", required: false},ls_topic_field: {value:"", required: false},ls_type: {value:"", required: false}
         },
         inputs:0,
         outputs:1,

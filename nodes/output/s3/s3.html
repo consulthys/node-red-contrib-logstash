@@ -19,8 +19,10 @@
         </select>
     </div>
     <div class='form-row'>
-        <label for='node-input-ls_endpoint_region'>Endpoint region</label>
-        <input type='text' id='node-input-ls_endpoint_region' placeholder=''>
+        <label for='node-input-ls_encoding'>Encoding</label>
+        <select id='node-input-ls_encoding'>
+            <option value="none" selected="selected">none</option><option value="gzip">gzip</option>
+        </select>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_prefix'>Prefix</label>
@@ -34,6 +36,25 @@
         </select>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_rotation_strategy'>Rotation strategy</label>
+        <select id='node-input-ls_rotation_strategy'>
+            <option value="size_and_time" selected="selected">size_and_time</option><option value="size">size</option><option value="time">time</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_server_side_encryption'>Server side encryption</label>
+        <select id='node-input-ls_server_side_encryption'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_server_side_encryption_algorithm'>Server side encryption algorithm</label>
+        <select id='node-input-ls_server_side_encryption_algorithm'>
+            <option value="AES256" selected="selected">AES256</option><option value="awskms">awskms</option>
+        </select>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_signature_version'>Signature version</label>
         <select id='node-input-ls_signature_version'>
             <option value="v2">v2</option><option value="v4">v4</option>
@@ -41,7 +62,17 @@
     </div>
     <div class='form-row'>
         <label for='node-input-ls_size_file'>Size file</label>
-        <input type='number' id='node-input-ls_size_file' placeholder='0'>
+        <input type='number' id='node-input-ls_size_file' placeholder='1024 * 1024 * 5'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssekms_key_id'>Ssekms key id</label>
+        <input type='text' id='node-input-ls_ssekms_key_id' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_storage_class'>Storage class</label>
+        <select id='node-input-ls_storage_class'>
+            <option value="STANDARD" selected="selected">STANDARD</option><option value="REDUCED_REDUNDANCY">REDUCED_REDUNDANCY</option><option value="STANDARD_IA">STANDARD_IA</option>
+        </select>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_tags'>Tags</label>
@@ -53,15 +84,26 @@
     </div>
     <div class='form-row'>
         <label for='node-input-ls_time_file'>Time file</label>
-        <input type='number' id='node-input-ls_time_file' placeholder='0'>
+        <input type='number' id='node-input-ls_time_file' placeholder='15'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_upload_queue_size'>Upload queue size</label>
+        <input type='number' id='node-input-ls_upload_queue_size' placeholder='2 * (Concurrent.processor_count * 0.25).ceil'>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_upload_workers_count'>Upload workers count</label>
-        <input type='number' id='node-input-ls_upload_workers_count' placeholder='1'>
+        <input type='number' id='node-input-ls_upload_workers_count' placeholder='(Concurrent.processor_count * 0.5).ceil'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_validate_credentials_on_root_bucket'>Validate credentials on root bucket</label>
+        <select id='node-input-ls_validate_credentials_on_root_bucket'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_workers'>Workers</label>
-        <input type='number' id='node-input-ls_workers' placeholder='1'>
+        <input type='text' id='node-input-ls_workers' placeholder='1'>
     </div>
 
     <div class="form-row">
@@ -80,7 +122,7 @@
         category: 'Logstash-output',
         defaults: {
             name: {value:""},
-            ls_bucket: {value:"", required: false},ls_canned_acl: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_endpoint_region: {value:"", required: false},ls_prefix: {value:"", required: false},ls_restore: {value:"false", required: false},ls_signature_version: {value:"undefined", required: false},ls_size_file: {value:"", required: false},ls_tags: {value:"", required: false},ls_temporary_directory: {value:"", required: false},ls_time_file: {value:"", required: false},ls_upload_workers_count: {value:"", required: false},ls_workers: {value:"", required: false}
+            ls_bucket: {value:"", required: true},ls_canned_acl: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_encoding: {value:"none", required: false},ls_prefix: {value:"", required: false},ls_restore: {value:"true", required: false},ls_rotation_strategy: {value:"size_and_time", required: false},ls_server_side_encryption: {value:"false", required: false},ls_server_side_encryption_algorithm: {value:"AES256", required: false},ls_signature_version: {value:"undefined", required: false},ls_size_file: {value:"", required: false},ls_ssekms_key_id: {value:"", required: false},ls_storage_class: {value:"STANDARD", required: false},ls_tags: {value:"", required: false},ls_temporary_directory: {value:"", required: false},ls_time_file: {value:"", required: false},ls_upload_queue_size: {value:"", required: false},ls_upload_workers_count: {value:"", required: false},ls_validate_credentials_on_root_bucket: {value:"true", required: false},ls_workers: {value:"", required: false}
         },
         inputs:1,
         outputs:0,

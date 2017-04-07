@@ -47,14 +47,7 @@
     </div>
     <div class='form-row'>
         <label for='node-input-ls_query'>Query</label>
-        <input type='text' id='node-input-ls_query' placeholder='"{"query" { "match_all" {} } }"'>
-    </div>
-    <div class='form-row'>
-        <label for='node-input-ls_scan'>Scan</label>
-        <select id='node-input-ls_scan'>
-            <option value='true'>true</option>
-            <option value='false'>false</option>
-        </select>
+        <input type='text' id='node-input-ls_query' placeholder='"{ "sort" [ "_doc" ] }"'>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_scroll'>Scroll</label>
@@ -100,7 +93,7 @@
         category: 'Logstash-input',
         defaults: {
             name: {value:""},
-            ls_add_field: {value:"", required: false},ls_ca_file: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_docinfo: {value:"false", required: false},ls_docinfo_fields: {value:"", required: false},ls_docinfo_target: {value:"", required: false},ls_hosts: {value:"", required: false},ls_index: {value:"", required: false},ls_password: {value:"", required: false},ls_query: {value:"", required: false},ls_scan: {value:"true", required: false},ls_scroll: {value:"", required: false},ls_size: {value:"", required: false},ls_ssl: {value:"false", required: false},ls_tags: {value:"", required: false},ls_type: {value:"", required: false},ls_user: {value:"", required: false}
+            ls_add_field: {value:"", required: false},ls_ca_file: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_docinfo: {value:"false", required: false},ls_docinfo_fields: {value:"", required: false},ls_docinfo_target: {value:"", required: false},ls_hosts: {value:"", required: false},ls_index: {value:"", required: false},ls_password: {value:"", required: false},ls_query: {value:"", required: false},ls_scroll: {value:"", required: false},ls_size: {value:"", required: false},ls_ssl: {value:"false", required: false},ls_tags: {value:"", required: false},ls_type: {value:"", required: false},ls_user: {value:"", required: false}
         },
         inputs:0,
         outputs:1,

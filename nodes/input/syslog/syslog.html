@@ -31,6 +31,13 @@
         <input type='number' id='node-input-ls_port' placeholder='514'>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_proxy_protocol'>Proxy protocol</label>
+        <select id='node-input-ls_proxy_protocol'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_severity_labels'>Severity labels</label>
         <input type='text' id='node-input-ls_severity_labels' placeholder='["Emergency","Alert","Critical","Error","Warning","Notice","Informational","Debug"]'>
     </div>
@@ -70,7 +77,7 @@
         category: 'Logstash-input',
         defaults: {
             name: {value:""},
-            ls_add_field: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_facility_labels: {value:"", required: false},ls_host: {value:"", required: false},ls_locale: {value:"", required: false},ls_port: {value:"", required: false},ls_severity_labels: {value:"", required: false},ls_tags: {value:"", required: false},ls_timezone: {value:"", required: false},ls_type: {value:"", required: false},ls_use_labels: {value:"true", required: false}
+            ls_add_field: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_facility_labels: {value:"", required: false},ls_host: {value:"", required: false},ls_locale: {value:"", required: false},ls_port: {value:"", required: false},ls_proxy_protocol: {value:"false", required: false},ls_severity_labels: {value:"", required: false},ls_tags: {value:"", required: false},ls_timezone: {value:"", required: false},ls_type: {value:"", required: false},ls_use_labels: {value:"true", required: false}
         },
         inputs:0,
         outputs:1,

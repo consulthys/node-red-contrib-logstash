@@ -6,15 +6,23 @@
     </div>
     <div class='form-row'>
         <label for='node-input-ls_auto_commit_interval_ms'>Auto commit interval ms</label>
-        <input type='number' id='node-input-ls_auto_commit_interval_ms' placeholder='1000'>
+        <input type='text' id='node-input-ls_auto_commit_interval_ms' placeholder='5000'>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_auto_offset_reset'>Auto offset reset</label>
-        <input type='text' id='node-input-ls_auto_offset_reset' placeholder='largest'>
+        <input type='text' id='node-input-ls_auto_offset_reset' placeholder=''>
     </div>
     <div class='form-row'>
-        <label for='node-input-ls_black_list'>Black list</label>
-        <input type='text' id='node-input-ls_black_list' placeholder='nil'>
+        <label for='node-input-ls_bootstrap_servers'>Bootstrap servers</label>
+        <input type='text' id='node-input-ls_bootstrap_servers' placeholder='localhost9092'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_check_crcs'>Check crcs</label>
+        <input type='text' id='node-input-ls_check_crcs' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_client_id'>Client id</label>
+        <input type='text' id='node-input-ls_client_id' placeholder='logstash'>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_codec'>Codec</label>
@@ -27,31 +35,12 @@
         </select>
     </div>
     <div class='form-row'>
-        <label for='node-input-ls_consumer_id'>Consumer id</label>
-        <input type='text' id='node-input-ls_consumer_id' placeholder='nil'>
-    </div>
-    <div class='form-row'>
-        <label for='node-input-ls_consumer_restart_on_error'>Consumer restart on error</label>
-        <select id='node-input-ls_consumer_restart_on_error'>
-            <option value='true'>true</option>
-            <option value='false'>false</option>
-        </select>
-    </div>
-    <div class='form-row'>
-        <label for='node-input-ls_consumer_restart_sleep_ms'>Consumer restart sleep ms</label>
-        <input type='number' id='node-input-ls_consumer_restart_sleep_ms' placeholder='0'>
+        <label for='node-input-ls_connections_max_idle_ms'>Connections max idle ms</label>
+        <input type='text' id='node-input-ls_connections_max_idle_ms' placeholder=''>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_consumer_threads'>Consumer threads</label>
         <input type='number' id='node-input-ls_consumer_threads' placeholder='1'>
-    </div>
-    <div class='form-row'>
-        <label for='node-input-ls_consumer_timeout_ms'>Consumer timeout ms</label>
-        <input type='number' id='node-input-ls_consumer_timeout_ms' placeholder='-1'>
-    </div>
-    <div class='form-row'>
-        <label for='node-input-ls_decoder_class'>Decoder class</label>
-        <input type='text' id='node-input-ls_decoder_class' placeholder='kafka.serializer.DefaultDecoder'>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_decorate_events'>Decorate events</label>
@@ -61,55 +50,154 @@
         </select>
     </div>
     <div class='form-row'>
-        <label for='node-input-ls_fetch_message_max_bytes'>Fetch message max bytes</label>
-        <input type='number' id='node-input-ls_fetch_message_max_bytes' placeholder='1048576'>
+        <label for='node-input-ls_enable_auto_commit'>Enable auto commit</label>
+        <input type='text' id='node-input-ls_enable_auto_commit' placeholder='true'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_exclude_internal_topics'>Exclude internal topics</label>
+        <input type='text' id='node-input-ls_exclude_internal_topics' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_fetch_max_bytes'>Fetch max bytes</label>
+        <input type='text' id='node-input-ls_fetch_max_bytes' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_fetch_max_wait_ms'>Fetch max wait ms</label>
+        <input type='text' id='node-input-ls_fetch_max_wait_ms' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_fetch_min_bytes'>Fetch min bytes</label>
+        <input type='text' id='node-input-ls_fetch_min_bytes' placeholder=''>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_group_id'>Group id</label>
         <input type='text' id='node-input-ls_group_id' placeholder='logstash'>
     </div>
     <div class='form-row'>
-        <label for='node-input-ls_key_decoder_class'>Key decoder class</label>
-        <input type='text' id='node-input-ls_key_decoder_class' placeholder='kafka.serializer.DefaultDecoder'>
+        <label for='node-input-ls_heartbeat_interval_ms'>Heartbeat interval ms</label>
+        <input type='text' id='node-input-ls_heartbeat_interval_ms' placeholder=''>
     </div>
     <div class='form-row'>
-        <label for='node-input-ls_queue_size'>Queue size</label>
-        <input type='number' id='node-input-ls_queue_size' placeholder='20'>
+        <label for='node-input-ls_jaas_path'>Jaas path</label>
+        <input type='text' id='node-input-ls_jaas_path' placeholder=''>
     </div>
     <div class='form-row'>
-        <label for='node-input-ls_rebalance_backoff_ms'>Rebalance backoff ms</label>
-        <input type='number' id='node-input-ls_rebalance_backoff_ms' placeholder='2000'>
+        <label for='node-input-ls_kerberos_config'>Kerberos config</label>
+        <input type='text' id='node-input-ls_kerberos_config' placeholder=''>
     </div>
     <div class='form-row'>
-        <label for='node-input-ls_rebalance_max_retries'>Rebalance max retries</label>
-        <input type='number' id='node-input-ls_rebalance_max_retries' placeholder='4'>
+        <label for='node-input-ls_key_deserializer_class'>Key deserializer class</label>
+        <input type='text' id='node-input-ls_key_deserializer_class' placeholder='org.apache.kafka.common.serialization.StringDeserializer'>
     </div>
     <div class='form-row'>
-        <label for='node-input-ls_reset_beginning'>Reset beginning</label>
-        <select id='node-input-ls_reset_beginning'>
-            <option value='true'>true</option>
-            <option value='false'>false</option>
+        <label for='node-input-ls_max_partition_fetch_bytes'>Max partition fetch bytes</label>
+        <input type='text' id='node-input-ls_max_partition_fetch_bytes' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_max_poll_interval_ms'>Max poll interval ms</label>
+        <input type='text' id='node-input-ls_max_poll_interval_ms' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_max_poll_records'>Max poll records</label>
+        <input type='text' id='node-input-ls_max_poll_records' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_metadata_max_age_ms'>Metadata max age ms</label>
+        <input type='text' id='node-input-ls_metadata_max_age_ms' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_partition_assignment_strategy'>Partition assignment strategy</label>
+        <input type='text' id='node-input-ls_partition_assignment_strategy' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_poll_timeout_ms'>Poll timeout ms</label>
+        <input type='number' id='node-input-ls_poll_timeout_ms' placeholder='100'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_receive_buffer_bytes'>Receive buffer bytes</label>
+        <input type='text' id='node-input-ls_receive_buffer_bytes' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_reconnect_backoff_ms'>Reconnect backoff ms</label>
+        <input type='text' id='node-input-ls_reconnect_backoff_ms' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_request_timeout_ms'>Request timeout ms</label>
+        <input type='text' id='node-input-ls_request_timeout_ms' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_retry_backoff_ms'>Retry backoff ms</label>
+        <input type='text' id='node-input-ls_retry_backoff_ms' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_sasl_kerberos_service_name'>Sasl kerberos service name</label>
+        <input type='text' id='node-input-ls_sasl_kerberos_service_name' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_sasl_mechanism'>Sasl mechanism</label>
+        <input type='text' id='node-input-ls_sasl_mechanism' placeholder='GSSAPI'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_security_protocol'>Security protocol</label>
+        <select id='node-input-ls_security_protocol'>
+            <option value="PLAINTEXT" selected="selected">PLAINTEXT</option><option value="SSL">SSL</option><option value="SASL_PLAINTEXT">SASL_PLAINTEXT</option><option value="SASL_SSL">SASL_SSL</option>
         </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_send_buffer_bytes'>Send buffer bytes</label>
+        <input type='text' id='node-input-ls_send_buffer_bytes' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_session_timeout_ms'>Session timeout ms</label>
+        <input type='text' id='node-input-ls_session_timeout_ms' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_key_password'>Ssl key password</label>
+        <input type='text' id='node-input-ls_ssl_key_password' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_keystore_location'>Ssl keystore location</label>
+        <input type='text' id='node-input-ls_ssl_keystore_location' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_keystore_password'>Ssl keystore password</label>
+        <input type='text' id='node-input-ls_ssl_keystore_password' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_keystore_type'>Ssl keystore type</label>
+        <input type='text' id='node-input-ls_ssl_keystore_type' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_truststore_location'>Ssl truststore location</label>
+        <input type='text' id='node-input-ls_ssl_truststore_location' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_truststore_password'>Ssl truststore password</label>
+        <input type='text' id='node-input-ls_ssl_truststore_password' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_truststore_type'>Ssl truststore type</label>
+        <input type='text' id='node-input-ls_ssl_truststore_type' placeholder=''>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_tags'>Tags</label>
         <input type='text' id='node-input-ls_tags' placeholder=''>
     </div>
     <div class='form-row'>
-        <label for='node-input-ls_topic_id'>Topic id</label>
-        <input type='text' id='node-input-ls_topic_id' placeholder='nil'>
+        <label for='node-input-ls_topics'>Topics</label>
+        <input type='text' id='node-input-ls_topics' placeholder='["logstash"]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_topics_pattern'>Topics pattern</label>
+        <input type='text' id='node-input-ls_topics_pattern' placeholder=''>
     </div>
     <div class='form-row'>
         <label for='node-input-ls_type'>Type</label>
         <input type='text' id='node-input-ls_type' placeholder=''>
     </div>
     <div class='form-row'>
-        <label for='node-input-ls_white_list'>White list</label>
-        <input type='text' id='node-input-ls_white_list' placeholder='nil'>
-    </div>
-    <div class='form-row'>
-        <label for='node-input-ls_zk_connect'>Zk connect</label>
-        <input type='text' id='node-input-ls_zk_connect' placeholder='localhost2181'>
+        <label for='node-input-ls_value_deserializer_class'>Value deserializer class</label>
+        <input type='text' id='node-input-ls_value_deserializer_class' placeholder='org.apache.kafka.common.serialization.StringDeserializer'>
     </div>
 
     <div class="form-row">
@@ -128,7 +216,7 @@
         category: 'Logstash-input',
         defaults: {
             name: {value:""},
-            ls_add_field: {value:"", required: false},ls_auto_commit_interval_ms: {value:"", required: false},ls_auto_offset_reset: {value:"", required: false},ls_black_list: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_consumer_id: {value:"", required: false},ls_consumer_restart_on_error: {value:"true", required: false},ls_consumer_restart_sleep_ms: {value:"", required: false},ls_consumer_threads: {value:"", required: false},ls_consumer_timeout_ms: {value:"", required: false},ls_decoder_class: {value:"", required: false},ls_decorate_events: {value:"false", required: false},ls_fetch_message_max_bytes: {value:"", required: false},ls_group_id: {value:"", required: false},ls_key_decoder_class: {value:"", required: false},ls_queue_size: {value:"", required: false},ls_rebalance_backoff_ms: {value:"", required: false},ls_rebalance_max_retries: {value:"", required: false},ls_reset_beginning: {value:"false", required: false},ls_tags: {value:"", required: false},ls_topic_id: {value:"", required: false},ls_type: {value:"", required: false},ls_white_list: {value:"", required: false},ls_zk_connect: {value:"", required: false}
+            ls_add_field: {value:"", required: false},ls_auto_commit_interval_ms: {value:"", required: false},ls_auto_offset_reset: {value:"", required: false},ls_bootstrap_servers: {value:"", required: false},ls_check_crcs: {value:"", required: false},ls_client_id: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_connections_max_idle_ms: {value:"", required: false},ls_consumer_threads: {value:"", required: false},ls_decorate_events: {value:"false", required: false},ls_enable_auto_commit: {value:"", required: false},ls_exclude_internal_topics: {value:"", required: false},ls_fetch_max_bytes: {value:"", required: false},ls_fetch_max_wait_ms: {value:"", required: false},ls_fetch_min_bytes: {value:"", required: false},ls_group_id: {value:"", required: false},ls_heartbeat_interval_ms: {value:"", required: false},ls_jaas_path: {value:"", required: false},ls_kerberos_config: {value:"", required: false},ls_key_deserializer_class: {value:"", required: false},ls_max_partition_fetch_bytes: {value:"", required: false},ls_max_poll_interval_ms: {value:"", required: false},ls_max_poll_records: {value:"", required: false},ls_metadata_max_age_ms: {value:"", required: false},ls_partition_assignment_strategy: {value:"", required: false},ls_poll_timeout_ms: {value:"", required: false},ls_receive_buffer_bytes: {value:"", required: false},ls_reconnect_backoff_ms: {value:"", required: false},ls_request_timeout_ms: {value:"", required: false},ls_retry_backoff_ms: {value:"", required: false},ls_sasl_kerberos_service_name: {value:"", required: false},ls_sasl_mechanism: {value:"", required: false},ls_security_protocol: {value:"PLAINTEXT", required: false},ls_send_buffer_bytes: {value:"", required: false},ls_session_timeout_ms: {value:"", required: false},ls_ssl_key_password: {value:"", required: false},ls_ssl_keystore_location: {value:"", required: false},ls_ssl_keystore_password: {value:"", required: false},ls_ssl_keystore_type: {value:"", required: false},ls_ssl_truststore_location: {value:"", required: false},ls_ssl_truststore_password: {value:"", required: false},ls_ssl_truststore_type: {value:"", required: false},ls_tags: {value:"", required: false},ls_topics: {value:"", required: false},ls_topics_pattern: {value:"", required: false},ls_type: {value:"", required: false},ls_value_deserializer_class: {value:"", required: false}
         },
         inputs:0,
         outputs:1,

@@ -1,0 +1,93 @@
+
+<script type="text/x-red" data-template-name="ls-flt-jdbc_streaming">
+    <div class='form-row'>
+        <label for='node-input-ls_statement'>Statement</label>
+        <input type='text' id='node-input-ls_statement' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_target'>Target</label>
+        <input type='text' id='node-input-ls_target' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_add_field'>Add field</label>
+        <input type='text' id='node-input-ls_add_field' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_add_tag'>Add tag</label>
+        <input type='text' id='node-input-ls_add_tag' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_cache_expiration'>Cache expiration</label>
+        <input type='number' id='node-input-ls_cache_expiration' placeholder='5'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_cache_size'>Cache size</label>
+        <input type='number' id='node-input-ls_cache_size' placeholder='500'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_default_hash'>Default hash</label>
+        <input type='text' id='node-input-ls_default_hash' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_parameters'>Parameters</label>
+        <input type='text' id='node-input-ls_parameters' placeholder='{}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_periodic_flush'>Periodic flush</label>
+        <select id='node-input-ls_periodic_flush'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_field'>Remove field</label>
+        <input type='text' id='node-input-ls_remove_field' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_remove_tag'>Remove tag</label>
+        <input type='text' id='node-input-ls_remove_tag' placeholder='[]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_tag_on_default_use'>Tag on default use</label>
+        <input type='text' id='node-input-ls_tag_on_default_use' placeholder='["_jdbcstreamingdefaultsused"]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_tag_on_failure'>Tag on failure</label>
+        <input type='text' id='node-input-ls_tag_on_failure' placeholder='["_jdbcstreamingfailure"]'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_use_cache'>Use cache</label>
+        <select id='node-input-ls_use_cache'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-flt-jdbc_streaming">
+    <p>A Logstash filter node for jdbc_streaming</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-filters-jdbc_streaming.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-flt-jdbc_streaming',{
+        category: 'Logstash-filter',
+        defaults: {
+            name: {value:""},
+            ls_statement: {value:"", required: true},ls_target: {value:"", required: true},ls_add_field: {value:"", required: false},ls_add_tag: {value:"", required: false},ls_cache_expiration: {value:"", required: false},ls_cache_size: {value:"", required: false},ls_default_hash: {value:"", required: false},ls_parameters: {value:"", required: false},ls_periodic_flush: {value:"false", required: false},ls_remove_field: {value:"", required: false},ls_remove_tag: {value:"", required: false},ls_tag_on_default_use: {value:"", required: false},ls_tag_on_failure: {value:"", required: false},ls_use_cache: {value:"true", required: false}
+        },
+        inputs:1,
+        outputs:1,
+        icon: 'filter.png',
+        color: 'white',
+        paletteLabel: "jdbc_streaming",
+        label: function() {
+            return this.name || "LS jdbc_streaming";
+        }
+    });
+</script>

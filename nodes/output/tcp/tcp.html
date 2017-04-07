@@ -29,8 +29,38 @@
         <input type='number' id='node-input-ls_reconnect_interval' placeholder='10'>
     </div>
     <div class='form-row'>
+        <label for='node-input-ls_ssl_cacert'>Ssl cacert</label>
+        <input type='text' id='node-input-ls_ssl_cacert' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_cert'>Ssl cert</label>
+        <input type='text' id='node-input-ls_ssl_cert' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_enable'>Ssl enable</label>
+        <select id='node-input-ls_ssl_enable'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_key'>Ssl key</label>
+        <input type='text' id='node-input-ls_ssl_key' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_key_passphrase'>Ssl key passphrase</label>
+        <input type='text' id='node-input-ls_ssl_key_passphrase' placeholder='nil'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_ssl_verify'>Ssl verify</label>
+        <select id='node-input-ls_ssl_verify'>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+        </select>
+    </div>
+    <div class='form-row'>
         <label for='node-input-ls_workers'>Workers</label>
-        <input type='number' id='node-input-ls_workers' placeholder='1'>
+        <input type='text' id='node-input-ls_workers' placeholder='1'>
     </div>
 
     <div class="form-row">
@@ -49,7 +79,7 @@
         category: 'Logstash-output',
         defaults: {
             name: {value:""},
-            ls_host: {value:"", required: true},ls_port: {value:"", required: true},ls_codec: {value:"plain", required: false},ls_mode: {value:"client", required: false},ls_reconnect_interval: {value:"", required: false},ls_workers: {value:"", required: false}
+            ls_host: {value:"", required: true},ls_port: {value:"", required: true},ls_codec: {value:"plain", required: false},ls_mode: {value:"client", required: false},ls_reconnect_interval: {value:"", required: false},ls_ssl_cacert: {value:"", required: false},ls_ssl_cert: {value:"", required: false},ls_ssl_enable: {value:"false", required: false},ls_ssl_key: {value:"", required: false},ls_ssl_key_passphrase: {value:"", required: false},ls_ssl_verify: {value:"false", required: false},ls_workers: {value:"", required: false}
         },
         inputs:1,
         outputs:0,

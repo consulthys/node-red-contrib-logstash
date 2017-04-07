@@ -1,0 +1,74 @@
+
+<script type="text/x-red" data-template-name="ls-out-slack">
+    <div class='form-row'>
+        <label for='node-input-ls_url'>Url</label>
+        <input type='text' id='node-input-ls_url' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_attachments'>Attachments</label>
+        <input type='text' id='node-input-ls_attachments' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_channel'>Channel</label>
+        <input type='text' id='node-input-ls_channel' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_codec'>Codec</label>
+        <select id='node-input-ls_codec'>
+            <option value='json'>json</option>
+            <option value='line'>line</option>
+            <option value='multiline'>multiline</option>
+            <option value='plain'>plain</option>
+            <option value='rubydebug'>rubydebug</option>
+        </select>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_format'>Format</label>
+        <input type='text' id='node-input-ls_format' placeholder='%{message}'>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_icon_emoji'>Icon emoji</label>
+        <input type='text' id='node-input-ls_icon_emoji' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_icon_url'>Icon url</label>
+        <input type='text' id='node-input-ls_icon_url' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_username'>Username</label>
+        <input type='text' id='node-input-ls_username' placeholder=''>
+    </div>
+    <div class='form-row'>
+        <label for='node-input-ls_workers'>Workers</label>
+        <input type='text' id='node-input-ls_workers' placeholder='1'>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ls-out-slack">
+    <p>A Logstash output node for slack</p>
+    <iframe src="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-slack.html" style="width:100%;margin:0;padding:0;border:none;height:400px;" />
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ls-out-slack',{
+        category: 'Logstash-output',
+        defaults: {
+            name: {value:""},
+            ls_url: {value:"", required: true},ls_attachments: {value:"", required: false},ls_channel: {value:"", required: false},ls_codec: {value:"plain", required: false},ls_format: {value:"", required: false},ls_icon_emoji: {value:"", required: false},ls_icon_url: {value:"", required: false},ls_username: {value:"", required: false},ls_workers: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        icon: 'arrow-in.png',
+        color: '#DEB887',
+        paletteLabel: "slack",
+        label: function() {
+            return this.name || "LS slack";
+        }
+    });
+</script>
