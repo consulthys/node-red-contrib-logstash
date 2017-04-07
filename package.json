@@ -1,6 +1,6 @@
 {
     "name": "node-red-contrib-logstash",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "A set of Node-RED nodes for Logstash",
     "author": {
         "name": "consulthys",
@@ -14,7 +14,7 @@
         "url": "https://github.com/consulthys/node-red-contrib-logstash/issues"
     },
     "homepage": "https://github.com/consulthys/node-red-contrib-logstash",
-    "_id": "node-red-contrib-logstash@0.0.2",
+    "_id": "node-red-contrib-logstash@0.0.3",
     "dependencies": {
         "mkdirp": "^0.5.1"
     },
